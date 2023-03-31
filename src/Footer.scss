@@ -1,0 +1,11 @@
+@use 'variables';
+
+/* Footer */
+footer {
+  background-color: variables.$color-background-light;
+}
+
+.footer-logo {
+    height: auto;
+    width: 5rem;
+}

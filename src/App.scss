@@ -1,0 +1,29 @@
+/* Layout */
+.grid-container {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header nav"
+    "main main"
+    "footer footer";
+}
+
+/* Header */
+header {
+  grid-area: header;
+}
+
+/* Nav */
+nav {
+  grid-area: nav;
+}
+
+/* Main */
+main {
+  grid-area: main;
+}
+
+/* Footer */
+footer {
+  grid-area: footer;
+}

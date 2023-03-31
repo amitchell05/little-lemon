@@ -1,9 +1,11 @@
-import logo from "./assets/Logo.svg";
+import logo from "./assets/Asset 20@4x.png";
+
+import "./Footer.scss";
 
 function Footer() {
     return (
         <footer>
-            <img src={logo} alt="Little Lemon secondary logo" />
+            <img src={logo} alt="Little Lemon secondary logo" className="footer-logo" />
             <section>
                 <h4>Doormat Navigation</h4>
                 <nav>
