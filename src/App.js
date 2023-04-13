@@ -7,12 +7,12 @@ import Nav from './Nav';
 
 function App() {
   return (
-    <div className="grid-container">
+    <>
       <Header></Header>
       <Nav></Nav>
       <Main></Main>
       <Footer></Footer>
-    </div>
+    </>
   );
 }
 

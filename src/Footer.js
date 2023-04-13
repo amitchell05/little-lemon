@@ -1,4 +1,4 @@
-import logo from "./assets/Asset 20@4x.png";
+import logo from "./assets/Asset 18@4x.png";
 
 import "./Footer.scss";
 
