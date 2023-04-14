@@ -36,11 +36,9 @@ function Specials() {
             <h2>Specials</h2>
             <button>Online Menu</button>
             <div>
-                {meals.map(meal => {
-                    return (
-                        <MealCard meal={meal} />
-                    )
-                })}
+                {meals.map((meal) => (
+                    <MealCard key={meal.id} meal={meal} />
+                ))}
             </div>
         </section>
     )
