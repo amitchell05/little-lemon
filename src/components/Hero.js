@@ -1,6 +1,6 @@
 import "./Hero.scss";
 
-import restaurantFood from "./assets/restaurantfood.jpg";
+import restaurantFood from "../assets/restaurantfood.jpg";
 
 function Hero() {
     return (

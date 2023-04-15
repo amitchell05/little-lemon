@@ -1,7 +1,7 @@
 import "./About.scss";
 
-import MarioAndAdrianA from "./assets/Mario and Adrian A.jpg";
-import MarioAndAdrianB from "./assets/Mario and Adrian B.jpg";
+import MarioAndAdrianA from "../assets/Mario and Adrian A.jpg";
+import MarioAndAdrianB from "../assets/Mario and Adrian B.jpg";
 
 function About() {
     return (

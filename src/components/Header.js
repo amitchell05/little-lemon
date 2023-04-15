@@ -1,5 +1,4 @@
-import './Header.scss';
-
+// Components
 import Nav from './Nav';
 
 function Header() {

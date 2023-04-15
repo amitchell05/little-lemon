@@ -1,6 +1,8 @@
-import hamburgerIcon from './assets/🦆 icon _hamburger menu.svg';
+// Assets
+import hamburgerIcon from '../assets/🦆 icon _hamburger menu.svg';
 
-import './Hamburger.scss';
+// Styles
+// import './Hamburger.scss';
 
 function Hamburger() {
   return (

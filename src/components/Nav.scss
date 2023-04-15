@@ -2,8 +2,8 @@
 
 /* Nav */
 .navbar {
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
 
   .navbar-links {
     display: inline;
@@ -31,15 +31,19 @@
   }
 
   .navbar-hamburger {
-    display: inline-flex;
+    // display: inline-flex;
 
     @media (min-width: 48rem) {
       display: none;
     }
   }
 
+  .navbar-logo {
+    // display: inline-flex;
+  }
+
   .navbar-cart {
-    display: inline-flex;
+    // display: inline-flex;
 
     @media (min-width: 48rem) {
       display: none;
