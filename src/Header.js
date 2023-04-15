@@ -1,11 +1,13 @@
-import logo from './assets/Logo.svg';
+import './Header.scss';
+
+import Nav from './Nav';
 
 function Header() {
-    return (
-        <header>
-            <img src={ logo } alt="Little Lemon logo" />
-        </header>
-    );
+  return (
+    <header>
+      <Nav></Nav>
+    </header>
+  );
 }
 
 export default Header;
