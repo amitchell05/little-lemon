@@ -1,10 +1,6 @@
+/* Review Card */
 @use '../variables';
 
-/* Footer */
-footer {
+.review-card {
   background-color: variables.$color-background-light-gray;
-}
-
-.footer-logo {
-  width: 100px;
 }

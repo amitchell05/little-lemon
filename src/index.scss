@@ -1,3 +1,5 @@
+@use './variables';
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  color: variables.$color-text-dark-gray;
 }
 
 code {
@@ -24,6 +27,11 @@ li {
 
 a {
   text-decoration: none;
+  color: variables.$color-text-dark-gray;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 // Resource: https://www.a11yproject.com/posts/how-to-hide-content/

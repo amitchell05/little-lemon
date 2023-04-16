@@ -1,0 +1,15 @@
+/* Button */
+@use '../variables';
+
+.button {
+  cursor: pointer;
+}
+
+.button-reset {
+  border: none;
+}
+
+.button-primary {
+  background-color: variables.$color-background-yellow;
+  color: variables.$color-text-dark-gray;
+}

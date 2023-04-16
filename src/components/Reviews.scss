@@ -1,0 +1,10 @@
+/* Reviews */
+@use '../variables';
+
+.reviews {
+  background-color: variables.$color-background-green;
+
+  h2 {
+    color: variables.$color-text-light-gray;
+  }
+}

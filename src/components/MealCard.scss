@@ -1,5 +1,14 @@
 /* Meal Card */
+@use '../variables';
 
-.meal-image {
+.meal-card {
+  background-color: variables.$color-background-light-gray;
+
+  .meal-card-image {
     width: 100px;
+  }
+
+  .meal-card-price {
+    color: variables.$color-text-dark-peach;
+  }
 }

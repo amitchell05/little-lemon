@@ -1,4 +1,8 @@
+// Components
 import ReviewCard from './ReviewCard';
+
+// Styles
+import './Reviews.scss';
 
 export default function Reviews() {
   const reviews = [
@@ -33,7 +37,7 @@ export default function Reviews() {
   ];
 
   return (
-    <section>
+    <section class='reviews'>
       <h2>Testimonials</h2>
       <div>
         {reviews.map((review) => (

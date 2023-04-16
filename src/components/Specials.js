@@ -1,8 +1,11 @@
+// Assets
 import greekSalad from '../assets/greek salad.jpg';
 import bruchetta from '../assets/bruchetta.svg';
 import lemonDessert from '../assets/lemon dessert.jpg';
 
+// Components
 import MealCard from './MealCard';
+import Button from './Button';
 
 export default function Specials() {
   const meals = [
@@ -37,7 +40,7 @@ export default function Specials() {
   return (
     <section>
       <h2>Specials</h2>
-      <button>Online Menu</button>
+      <Button text='Online Menu' className='button-primary'></Button>
       <div>
         {meals.map((meal) => (
           <MealCard key={meal.id} meal={meal} />

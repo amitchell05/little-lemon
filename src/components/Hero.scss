@@ -1,6 +1,15 @@
 /* Hero */
+@use '../variables';
 
-// Hero Image
-.hero-image {
+.hero {
+  background-color: variables.$color-background-green;
+  color: variables.$color-text-light-gray;
+
+  h2 {
+    color: variables.$color-text-yellow;
+  }
+
+  .hero-image {
     width: 100px;
+  }
 }

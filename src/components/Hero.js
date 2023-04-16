@@ -1,10 +1,11 @@
 import './Hero.scss';
 
 import restaurantFood from '../assets/restaurantfood.jpg';
+import Button from './Button';
 
 export default function Hero() {
   return (
-    <article>
+    <article class='hero'>
       <h2>Little Lemon</h2>
       <section>
         <h3>Chicago</h3>
@@ -12,7 +13,7 @@ export default function Hero() {
           We are a family owned Mediterranean restaurant, focused on traditional
           recipes served with a modern twist.
         </p>
-        <button>Reserve a Table</button>
+        <Button text='Reserve a Table' className='button-primary'></Button>
       </section>
       <section>
         <h3 className='visually-hidden'>Hero Image</h3>
