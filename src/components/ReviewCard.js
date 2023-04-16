@@ -1,4 +1,4 @@
-function ReviewCard({ review }) {
+export default function ReviewCard({ review }) {
   return (
     <article>
       <h3>Rating: {review.rating}</h3>
@@ -9,5 +9,3 @@ function ReviewCard({ review }) {
     </article>
   );
 }
-
-export default ReviewCard;

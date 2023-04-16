@@ -1,6 +1,9 @@
 // Components
 import Nav from './Nav';
 
+// Styles
+import './Header.scss';
+
 function Header() {
   return (
     <header>

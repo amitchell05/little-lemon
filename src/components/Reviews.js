@@ -1,6 +1,6 @@
 import ReviewCard from './ReviewCard';
 
-function Reviews() {
+export default function Reviews() {
   const reviews = [
     {
       id: '1',
@@ -43,5 +43,3 @@ function Reviews() {
     </section>
   );
 }
-
-export default Reviews;

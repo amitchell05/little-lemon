@@ -3,7 +3,7 @@ import Specials from './Specials';
 import Reviews from './Reviews';
 import About from './About';
 
-function Main() {
+export default function Main() {
   return (
     <main>
       <Hero></Hero>
@@ -13,5 +13,3 @@ function Main() {
     </main>
   );
 }
-
-export default Main;

@@ -4,7 +4,7 @@ import lemonDessert from '../assets/lemon dessert.jpg';
 
 import MealCard from './MealCard';
 
-function Specials() {
+export default function Specials() {
   const meals = [
     {
       id: '1',
@@ -46,5 +46,3 @@ function Specials() {
     </section>
   );
 }
-
-export default Specials;
