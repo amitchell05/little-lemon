@@ -37,9 +37,9 @@ export default function Reviews() {
   ];
 
   return (
-    <section class='reviews'>
+    <section className='reviews'>
       <h2>Testimonials</h2>
-      <div class='grid-adjustable-columns'>
+      <div className='grid-adjustable-columns'>
         {reviews.map((review) => (
           <ReviewCard key={review.id} review={review} />
         ))}

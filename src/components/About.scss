@@ -1,5 +1,11 @@
 /* About */
 
+.about {
+  display: flex;
+  // TODO: figure out best value for adding space between hero image and text
+  justify-content: space-between;
+}
+
 .about-image {
-    width: 100px;
+  width: 100px;
 }

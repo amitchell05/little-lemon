@@ -5,9 +5,10 @@ import Button from './Button';
 
 export default function Hero() {
   return (
-    <article class='hero'>
-      <h2>Little Lemon</h2>
+    <article className='hero'>
+      <h2 className='visually-hidden'>Little Lemon Hero</h2>
       <section>
+        <h2>Little Lemon</h2>
         <h3>Chicago</h3>
         <p>
           We are a family owned Mediterranean restaurant, focused on traditional

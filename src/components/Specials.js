@@ -44,7 +44,7 @@ export default function Specials() {
     <section>
       <h2>Specials</h2>
       <Button text='Online Menu' className='button-primary'></Button>
-      <div class='grid-adjustable-columns'>
+      <div className='grid-adjustable-columns'>
         {meals.map((meal) => (
           <MealCard key={meal.id} meal={meal} />
         ))}
