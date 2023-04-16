@@ -1,55 +1,36 @@
 @use '../variables';
 
 /* Nav */
-.header-navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 
-  .header-menu {
-    display: none;
+.header-menu {
+  display: none;
 
-    &.header-menu--open {
-      display: block;
-      background-color: variables.$color-background-light-gray;
-      height: 100vh;
-      width: 50vw;
-      position: fixed;
-      top: 2.75rem;
-      left: 0;
-    }
-
-    @media (min-width: 48rem) {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-    }
-  }
-
-  .header-hamburger-menu,
-  .header-logo,
-  .header-cart {
-    display: inline-flex;
+  &.header-menu--open {
+    display: block;
+    background-color: variables.$color-background-light-gray;
+    height: 100vh;
+    width: 50vw;
+    position: fixed;
+    top: 2.75rem;
+    left: 0;
   }
 
   @media (min-width: 48rem) {
-    .header-hamburger-menu,
-    .header-cart {
-      display: none;
-    }
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
   }
 }
 
-//     @media (min-width: 48rem) {
-//       &.navbar-links--desktop {
-//         display: flex;
-//         gap: 1.75rem;
-//         background-color: unset;
-//         height: unset;
-//         width: unset;
-//         margin-top: unset;
-//         position: unset;
-//       }
-//     }
-//   }
-// }
+.header-hamburger-menu,
+.header-logo,
+.header-cart {
+  display: inline-flex;
+}
+
+@media (min-width: 48rem) {
+  .header-hamburger-menu,
+  .header-cart {
+    display: none;
+  }
+}

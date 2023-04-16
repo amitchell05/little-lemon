@@ -7,7 +7,7 @@ import './About.scss';
 
 export default function About() {
   return (
-    <article className='about'>
+    <article className='about flex-container flex-container--items-center flex-container--space-between'>
       <h2 className='visually-hidden'>About Little Lemon</h2>
       <section>
         <h2>Little Lemon</h2>

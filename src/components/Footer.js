@@ -4,7 +4,7 @@ import './Footer.scss';
 
 export default function Footer() {
   return (
-    <footer className='grid-adjustable-columns'>
+    <footer className='flex-container flex-container--wrap flex-container--space-between'>
       <img
         src={logo}
         alt='Little Lemon secondary logo'

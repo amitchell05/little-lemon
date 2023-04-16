@@ -1,13 +1,13 @@
 /* About */
 
 .about {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
 
   @media (min-width: 48rem) {
-    flex-direction: row;
+    // flex-direction: row;
     // TODO: figure out best value for adding space between hero image and text
-    justify-content: space-between;
+    // justify-content: space-between;
   }
 }
 

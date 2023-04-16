@@ -5,7 +5,7 @@ import Button from './Button';
 
 export default function Hero() {
   return (
-    <article className='hero'>
+    <article className='hero flex-container flex-container--items-center flex-container--space-between'>
       <h2 className='visually-hidden'>Little Lemon Hero</h2>
       <section>
         <h2>Little Lemon</h2>
@@ -16,7 +16,7 @@ export default function Hero() {
         </p>
         <Button text='Reserve a Table' className='button-primary'></Button>
       </section>
-      <section>
+      <section className='hero-image-container'>
         <h3 className='visually-hidden'>Hero Image</h3>
         <img
           src={restaurantFood}

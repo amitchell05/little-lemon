@@ -38,7 +38,10 @@ export default function Reviews() {
 
   return (
     <section className='reviews'>
-      <h2>Testimonials</h2>
+      <h2 className='visually-hidden'>Reviews Section</h2>
+      <div className='flex-container flex-container--content-center'>
+        <h2>Testimonials</h2>
+      </div>
       <div className='grid-adjustable-columns'>
         {reviews.map((review) => (
           <ReviewCard key={review.id} review={review} />

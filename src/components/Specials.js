@@ -42,8 +42,11 @@ export default function Specials() {
   ];
   return (
     <section>
-      <h2>Specials</h2>
-      <Button text='Online Menu' className='button-primary'></Button>
+      <h2 className='visually-hidden'>Specials Section</h2>
+      <div className='flex-container flex-container--items-center flex-container--space-between'>
+        <h2>Specials</h2>
+        <Button text='Online Menu' className='button-primary'></Button>
+      </div>
       <div className='grid-adjustable-columns'>
         {meals.map((meal) => (
           <MealCard key={meal.id} meal={meal} />

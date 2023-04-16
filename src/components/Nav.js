@@ -28,7 +28,7 @@ function Nav() {
   }
 
   return (
-    <nav className='header-navbar'>
+    <nav className='flex-container flex-container--items-center flex-container--space-between'>
       <div className='header-hamburger-menu' onClick={toggleMenu}>
         <img src={hamburgerIcon} alt='Hamburger menu' />
       </div>

@@ -2,9 +2,6 @@
 @use '../variables';
 
 .hero {
-  display: flex;
-  // TODO: figure out best value for adding space between hero image and text
-  justify-content: space-between;
   background-color: variables.$color-background-green;
   color: variables.$color-text-light-gray;
 
@@ -12,7 +9,13 @@
     color: variables.$color-text-yellow;
   }
 
-  .hero-image {
-    width: 100px;
+  .hero-image-container {
+    position: relative;
+    top: 1rem;
+
+    .hero-image {
+      width: 100px;
+      z-index: -1;
+    }
   }
 }

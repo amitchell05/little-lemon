@@ -45,14 +45,36 @@ a:hover {
   width: 1px;
 }
 
+// Flex Layout
+.flex-container {
+  display: flex;
+
+  &.flex-container--items-center {
+    align-items: center;
+  }
+
+  // TODO: continue to test ways to adjust spacing horizontally
+  &.flex-container--space-between {
+    justify-content: space-between;
+  }
+
+  &.flex-container--content-center {
+    justify-content: center;
+  }
+
+  &.flex-container--wrap {
+    flex-wrap: wrap;
+  }
+}
+
+// Grid Layout
 .grid-adjustable-columns {
   display: grid;
   grid-auto-flow: row;
 
   @media (min-width: 48rem) {
-    // TODO: Adjust to make more responsive and fit within it's container
-    // width: min(1000px, 75rem);
-    width: min(auto, 75rem);
+    // TODO: Adjust to make more responsive
+    width: min(100%, 75rem);
     margin: 0 auto;
     grid-auto-flow: column;
     gap: 1em;
