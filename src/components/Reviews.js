@@ -39,7 +39,7 @@ export default function Reviews() {
   return (
     <section class='reviews'>
       <h2>Testimonials</h2>
-      <div>
+      <div class='grid-adjustable-columns'>
         {reviews.map((review) => (
           <ReviewCard key={review.id} review={review} />
         ))}

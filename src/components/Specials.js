@@ -7,6 +7,9 @@ import lemonDessert from '../assets/lemon dessert.jpg';
 import MealCard from './MealCard';
 import Button from './Button';
 
+// Styles
+import './Specials.scss';
+
 export default function Specials() {
   const meals = [
     {
@@ -41,7 +44,7 @@ export default function Specials() {
     <section>
       <h2>Specials</h2>
       <Button text='Online Menu' className='button-primary'></Button>
-      <div>
+      <div class='grid-adjustable-columns'>
         {meals.map((meal) => (
           <MealCard key={meal.id} meal={meal} />
         ))}

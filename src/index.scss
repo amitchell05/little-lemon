@@ -44,3 +44,17 @@ a:hover {
   white-space: nowrap;
   width: 1px;
 }
+
+.grid-adjustable-columns {
+  display: grid;
+  grid-auto-flow: row;
+
+  @media (min-width: 48rem) {
+    // TODO: Adjust to make more responsive and fit within it's container
+    // width: min(1000px, 75rem);
+    width: min(auto, 75rem);
+    margin: 0 auto;
+    grid-auto-flow: column;
+    gap: 1em;
+  }
+}
