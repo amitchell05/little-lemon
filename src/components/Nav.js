@@ -5,6 +5,7 @@ import hamburgerIcon from '../assets/🦆 icon _hamburger menu.svg';
 
 // React tools
 import { useState } from 'react';
+import useWindowWidth from '../hooks/useWindowWidth';
 
 // Styles
 import './Nav.scss';
@@ -12,6 +13,8 @@ import './Nav.scss';
 // Resource: https://youtu.be/23BHwAFIZmk
 
 function Nav() {
+  const windowWidth = useWindowWidth();
+
   // Set state for variable to determine when the hamburger menu is opened
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,6 +22,10 @@ function Nav() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  if (menuOpen && windowWidth >= 768) {
+    setMenuOpen(false);
+  }
 
   return (
     <nav className='header-navbar'>
