@@ -8,7 +8,7 @@ export default function MealCard({ meal }) {
         alt={meal.imageAltText}
         className='meal-card-image'
       />
-      <h2>{meal.name}</h2>
+      <h3>{meal.name}</h3>
       <p className='meal-card-price'>{meal.price}</p>
       <p>{meal.description}</p>
       <p>Order a delivery</p>

@@ -2,9 +2,9 @@
 import logo from '../assets/Logo.svg';
 import basket from '../assets/basket .svg';
 import hamburgerIcon from '../assets/🦆 icon _hamburger menu.svg';
+import { useIsMenuOpen } from '../contexts/MenuContext';
 
 // React tools
-import { useState } from 'react';
 import useWindowWidth from '../hooks/useWindowWidth';
 
 // Styles
@@ -15,16 +15,10 @@ import './Nav.scss';
 function Nav() {
   const windowWidth = useWindowWidth();
 
-  // Set state for variable to determine when the hamburger menu is opened
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { isMenuOpen, toggleMenu } = useIsMenuOpen();
 
-  // Updates the state of the variable that helps show or hide the menu on mobile devices
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  if (menuOpen && windowWidth >= 768) {
-    setMenuOpen(false);
+  if (isMenuOpen && windowWidth >= 768) {
+    toggleMenu();
   }
 
   return (
@@ -35,7 +29,7 @@ function Nav() {
       <a href='/home' className='header-logo'>
         <img src={logo} alt='Little Lemon logo' />
       </a>
-      <ul className={`header-menu ${menuOpen ? 'header-menu--open' : ''}`}>
+      <ul className={`header-menu ${isMenuOpen ? 'header-menu--open' : ''}`}>
         <li>
           <a href='/home'>Home</a>
         </li>
