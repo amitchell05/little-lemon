@@ -3,6 +3,9 @@
 /* Footer */
 footer {
   background-color: variables.$color-background-light-gray;
+  // Pushes the footer down to the bottom
+  // Resource: https://wetainment.com/articles/sticky-html-footer/
+  margin-top: auto;
 }
 
 .footer-logo {
