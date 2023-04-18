@@ -8,8 +8,8 @@ export default function MealCard({ meal }) {
         alt={meal.imageAltText}
         className='meal-card-image'
       />
-      <h3>{meal.name}</h3>
-      <p className='meal-card-price'>{meal.price}</p>
+      <h4>{meal.name}</h4>
+      <span className='meal-card-price'>{meal.price}</span>
       <p>{meal.description}</p>
       <p>Order a delivery</p>
       {/* TODO: Need to add the scooter/delivery cart icon */}

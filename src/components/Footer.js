@@ -11,7 +11,7 @@ export default function Footer() {
         className='footer-logo'
       />
       <section>
-        <h4>Doormat Navigation</h4>
+        <h5>Doormat Navigation</h5>
         <nav>
           <ul>
             <li>
@@ -36,13 +36,15 @@ export default function Footer() {
         </nav>
       </section>
       <section>
-        <h4>Contact</h4>
-        <p>Address</p>
-        <p>Phone Number</p>
-        <p>Email</p>
+        <h5>Contact</h5>
+        <div class="contact-info">
+          <p>Address</p>
+          <p>Phone Number</p>
+          <p>Email</p>
+        </div>
       </section>
       <section>
-        <h4>Social Media Links</h4>
+        <h5>Social Media Links</h5>
         <nav>
           <ul>
             <li>

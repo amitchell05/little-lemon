@@ -6,8 +6,12 @@ footer {
   // Pushes the footer down to the bottom
   // Resource: https://wetainment.com/articles/sticky-html-footer/
   margin-top: auto;
-}
 
-.footer-logo {
-  width: 100px;
+  .footer-logo {
+    width: 100px;
+  }
+
+  .contact-info p {
+    font-size: 1.125rem;
+  }
 }
