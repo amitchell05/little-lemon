@@ -3,12 +3,14 @@
 /* Footer */
 footer {
   background-color: variables.$color-background-light-gray;
+
   // Pushes the footer down to the bottom
   // Resource: https://wetainment.com/articles/sticky-html-footer/
-  margin-top: auto;
+  // margin-top: auto;
 
   .footer-logo {
-    width: 100px;
+    width: auto;
+    height: 100px;
   }
 
   .contact-info p {

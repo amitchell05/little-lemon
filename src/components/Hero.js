@@ -5,7 +5,7 @@ import Button from './Button';
 
 export default function Hero() {
   return (
-    <article className='hero flex-container flex-container--items-center flex-container--space-between'>
+    <article className='hero flex-container'>
       <h2 className='visually-hidden'>Little Lemon Hero</h2>
       <section>
         <h2>Little Lemon</h2>

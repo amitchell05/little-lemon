@@ -7,15 +7,15 @@
   padding: 0;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
-  box-sizing: border-box;
   font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
   color: variables.$color-text-dark-gray;
-  position: relative;
-  font-size: 16px;
 }
 
 code {
@@ -23,13 +23,19 @@ code {
     monospace;
 }
 
+// body {
+//   box-sizing: border-box;
+//   height: 100vh;
+//   position: relative;
+// }
+
 // Make root component a flex container
 // Resource: https://wetainment.com/articles/sticky-html-footer/
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+// #root {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh;
+// }
 
 li {
   list-style: none;
@@ -59,39 +65,6 @@ a:hover {
 // Flex Layout
 .flex-container {
   display: flex;
-
-  &.flex-container--items-center {
-    align-items: center;
-  }
-
-  // TODO: continue to test ways to adjust spacing horizontally
-  &.flex-container--space-between {
-    justify-content: space-between;
-  }
-
-  &.flex-container--content-center {
-    justify-content: center;
-  }
-
-  @media (max-width: 47.938rem) {
-    &.flex-container--column {
-      flex-direction: column;
-    }
-  }
-}
-
-// Grid Layout
-.grid-adjustable-columns {
-  display: grid;
-  grid-auto-flow: row;
-
-  @media (min-width: 48rem) {
-    // TODO: Adjust to make more responsive
-    width: min(100%, 75rem);
-    margin: 0 auto;
-    grid-auto-flow: column;
-    gap: 1em;
-  }
 }
 
 // Global element styles

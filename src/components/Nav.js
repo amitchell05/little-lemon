@@ -10,8 +10,6 @@ import useWindowWidth from '../hooks/useWindowWidth';
 // Styles
 import './Nav.scss';
 
-// Resource: https://youtu.be/23BHwAFIZmk
-
 function Nav() {
   const windowWidth = useWindowWidth();
 
@@ -22,14 +20,14 @@ function Nav() {
   }
 
   return (
-    <nav className='flex-container flex-container--items-center flex-container--space-between'>
-      <div className='header-hamburger-menu' onClick={toggleMenu}>
+    <nav className='flex-container navbar'>
+      <div className='navbar-hamburger-icon' onClick={toggleMenu}>
         <img src={hamburgerIcon} alt='Hamburger menu' />
       </div>
-      <a href='/home' className='header-logo'>
+      <a href='/home' className='navbar-logo'>
         <img src={logo} alt='Little Lemon logo' />
       </a>
-      <ul className={`header-menu ${isMenuOpen ? 'header-menu--open' : ''}`}>
+      <ul className={`navbar-menu ${isMenuOpen ? 'navbar-menu--open' : ''}`}>
         <li>
           <a href='/home'>Home</a>
         </li>
@@ -49,12 +47,8 @@ function Nav() {
           <a href='/login'>Login</a>
         </li>
       </ul>
-      <div className='header-cart'>
-        <img
-          src={basket}
-          alt='Little Lemon food order cart'
-          className='header-cart-icon'
-        />
+      <div className='navbar-cart-icon'>
+        <img src={basket} alt='Little Lemon food order cart' />
       </div>
     </nav>
   );

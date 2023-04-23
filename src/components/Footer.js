@@ -1,10 +1,12 @@
+// Assets
 import logo from '../assets/Asset 18@4x.png';
 
+// Styles
 import './Footer.scss';
 
 export default function Footer() {
   return (
-    <footer className='flex-container flex-container--column flex-container--space-between'>
+    <footer>
       <img
         src={logo}
         alt='Little Lemon secondary logo'
@@ -37,7 +39,7 @@ export default function Footer() {
       </section>
       <section>
         <h5>Contact</h5>
-        <div class="contact-info">
+        <div class='contact-info'>
           <p>Address</p>
           <p>Phone Number</p>
           <p>Email</p>
