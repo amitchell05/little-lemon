@@ -1,4 +1,5 @@
 /* Header */
+@use '../variables';
 
 header {
   position: -webkit-sticky;
@@ -7,6 +8,6 @@ header {
   position: -o-sticky;
   position: sticky;
   top: 0;
-  background-color: #ffffff;
+  background-color: variables.$color-background-white;
   z-index: 1;
 }
