@@ -1,12 +1,13 @@
 /* Variables */
 
 /* Tier 1: Swatches */
-$swatch-green: #495E57;
-$swatch-yellow: #F4CE14;
-$swatch-light-peach: #FBDABB;
-$swatch-dark-peach: #EE9972;
-$swatch-light-gray: #EDEFEE;
+$swatch-green: #495e57;
+$swatch-yellow: #f4ce14;
+$swatch-light-peach: #fbdabb;
+$swatch-dark-peach: #ee9972;
+$swatch-light-gray: #edefee;
 $swatch-dark-gray: #333333;
+$swatch-white: #ffffff;
 
 /* Tier 2: Application */
 
@@ -17,6 +18,7 @@ $color-background-light-peach: $swatch-light-peach;
 $color-background-dark-peach: $swatch-dark-peach;
 $color-background-light-gray: $swatch-light-gray;
 $color-background-dark-gray: $swatch-dark-gray;
+$color-background-white: $swatch-white;
 
 // Text
 $color-text-green: $swatch-green;

@@ -2,7 +2,10 @@
 @use '../variables';
 
 .button {
+  border-radius: 1rem;
   cursor: pointer;
+  font-family: 'Karla', sans-serif;
+  padding: 0.5rem 1rem;
 }
 
 .button-reset {

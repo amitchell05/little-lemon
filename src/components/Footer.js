@@ -39,7 +39,7 @@ export default function Footer() {
       </section>
       <section>
         <h5>Contact</h5>
-        <div class='contact-info'>
+        <div className='contact-info'>
           <p>Address</p>
           <p>Phone Number</p>
           <p>Email</p>
