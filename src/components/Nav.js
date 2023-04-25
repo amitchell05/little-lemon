@@ -4,7 +4,7 @@ import basket from '../assets/basket .svg';
 import hamburgerIcon from '../assets/🦆 icon _hamburger menu.svg';
 import { useIsMenuOpen } from '../contexts/MenuContext';
 
-// React tools
+// React Tools
 import useWindowWidth from '../hooks/useWindowWidth';
 
 // Styles

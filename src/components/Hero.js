@@ -1,7 +1,11 @@
-import './Hero.scss';
-
+// Assets
 import restaurantFood from '../assets/restaurantfood.jpg';
+
+// Components
 import Button from './Button';
+
+// Styles
+import './Hero.scss';
 
 export default function Hero() {
   return (
