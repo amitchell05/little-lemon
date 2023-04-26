@@ -6,6 +6,10 @@
   cursor: pointer;
   font-family: 'Karla', sans-serif;
   padding: 0.5rem 1rem;
+
+  @media (min-width: 48rem) {
+    padding: 1.25rem 2.125rem 1.188rem 2.188rem;
+  }
 }
 
 .button-reset {

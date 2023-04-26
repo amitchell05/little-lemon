@@ -4,10 +4,17 @@ import restaurantFood from '../assets/restaurantfood.jpg';
 // Components
 import Button from './Button';
 
+// React Tools
+import useWindowWidth from '../hooks/useWindowWidth';
+
 // Styles
 import './Hero.scss';
 
 export default function Hero() {
+  const windowWidth = useWindowWidth();
+
+  const right = windowWidth - 1001 + 'px';
+
   return (
     <article className='hero'>
       <h2 className='visually-hidden'>Little Lemon Hero</h2>
@@ -22,13 +29,23 @@ export default function Hero() {
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist.
           </p>
-          <div>
-            <img
-              src={restaurantFood}
-              alt='Restaurant food on a serving tray'
-              className='hero-image'
-            />
-          </div>
+          {windowWidth >= 1200 && windowWidth < 1292 ? (
+            <div style={{ right: right }}>
+              <img
+                src={restaurantFood}
+                alt='Restaurant food on a serving tray'
+                className='hero-image'
+              />
+            </div>
+          ) : (
+            <div>
+              <img
+                src={restaurantFood}
+                alt='Restaurant food on a serving tray'
+                className='hero-image'
+              />
+            </div>
+          )}
         </div>
         <Button text='Reserve a Table' className='button-primary'></Button>
       </section>
