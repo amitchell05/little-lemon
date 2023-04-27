@@ -1,13 +1,2 @@
 /* Header */
 @use '../variables';
-
-header {
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -ms-sticky;
-  position: -o-sticky;
-  position: sticky;
-  top: 0;
-  background-color: variables.$color-background-white;
-  z-index: 1;
-}
