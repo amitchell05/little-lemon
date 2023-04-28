@@ -1,6 +1,8 @@
-/* Footer */
+@use '../variables';
 
+/* Footer */
 footer {
+  background-color: variables.$color-background-light-gray;
   // display: flex;
   // flex-flow: row wrap;
   // margin-top: auto;

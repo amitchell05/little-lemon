@@ -3,10 +3,6 @@
 /* Nav */
 
 .navbar {
-  @media (min-width: 75rem) {
-    gap: 1.75rem;
-  }
-
   .container {
     display: flex;
     justify-content: space-between;
@@ -44,7 +40,7 @@
   }
 
   .navbar-hamburger-icon,
-  .navbar-logo-container,
+  .navbar-logo,
   .navbar-cart-icon {
     display: inline-flex;
   }
@@ -54,7 +50,9 @@
     .navbar-cart-icon {
       display: none;
     }
+  }
 
+  @media (min-width: 64rem) {
     .navbar-logo img {
       width: 13.438rem;
       height: auto;
