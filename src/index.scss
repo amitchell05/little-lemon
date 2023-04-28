@@ -2,16 +2,85 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800&family=Markazi+Text:wght@400;500&display=swap');
 
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: variables.$color-text-dark-gray;
 }
+
+// Resource: https://www.30secondsofcode.org/articles/s/css-footer-at-the-bottom/#:~:text=You%20can%20use%20flexbox%20to,and%20flex%2Ddirection%3A%20column%20.
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Resource: https://www.a11yproject.com/posts/how-to-hide-content/
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+// Global element styles
+a {
+  text-decoration: none;
+  color: variables.$color-text-dark-gray;
+  font-size: 1.125rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+li {
+  list-style: none;
+}
+
+// h2,
+// h3 {
+//   font-family: 'Markazi Text', serif;
+// }
+
+// h2 {
+//   font-weight: 500;
+//   font-size: 4rem;
+// }
+
+// h3 {
+//   font-weight: 400;
+//   font-size: 2.5rem;
+// }
+
+// h4,
+// button {
+//   font-weight: 700;
+//   font-size: 1.125rem;
+// }
+
+// h5 {
+//   font-weight: 800;
+//   font-size: 1.25rem;
+//   text-transform: uppercase;
+// }
+
+// p,
+// span {
+//   font-size: 1rem;
+// }
+
+// span {
+//   font-weight: 700;
+// }

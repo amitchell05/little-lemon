@@ -1,0 +1,63 @@
+@use '../variables';
+
+/* Nav */
+
+.navbar {
+  @media (min-width: 75rem) {
+    gap: 1.75rem;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 53.75rem;
+  }
+
+  .navbar-menu {
+    display: none;
+
+    &.navbar-menu--open {
+      display: block;
+      background-color: variables.$color-background-light-gray;
+      height: 100vh;
+      width: 50vw;
+      position: fixed;
+      top: 4.625rem;
+      left: 0;
+
+      li {
+        margin: 1.125rem;
+      }
+    }
+
+    li {
+      white-space: nowrap;
+    }
+
+    @media (min-width: 48rem) {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+  }
+
+  .navbar-hamburger-icon,
+  .navbar-logo-container,
+  .navbar-cart-icon {
+    display: inline-flex;
+  }
+
+  @media (min-width: 48rem) {
+    .navbar-hamburger-icon,
+    .navbar-cart-icon {
+      display: none;
+    }
+
+    .navbar-logo img {
+      width: 13.438rem;
+      height: auto;
+    }
+  }
+}
