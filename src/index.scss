@@ -9,11 +9,11 @@
 }
 
 body {
+  color: variables.$color-text-dark-gray;
   font-family: 'Karla', sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: variables.$color-text-dark-gray;
 }
 
 // Resource: https://www.30secondsofcode.org/articles/s/css-footer-at-the-bottom/#:~:text=You%20can%20use%20flexbox%20to,and%20flex%2Ddirection%3A%20column%20.
@@ -36,9 +36,8 @@ body {
 
 // Global element styles
 a {
-  text-decoration: none;
   color: variables.$color-text-dark-gray;
-  font-size: 1.125rem;
+  text-decoration: none;
 }
 
 a:hover {
@@ -46,41 +45,77 @@ a:hover {
 }
 
 li {
+  font-weight: variables.$font-weight-medium;
+  font-size: 1.125rem;
   list-style: none;
 }
 
-// h2,
-// h3 {
-//   font-family: 'Markazi Text', serif;
-// }
+// Display Title
+h1 {
+  font-family: variables.$font-family-serif;
+  font-size: variables.$font-size-2xl;
+  font-weight: variables.$font-weight-medium;
+}
 
-// h2 {
-//   font-weight: 500;
-//   font-size: 4rem;
-// }
+// Sub Title
+h2 {
+  font-family: variables.$font-family-serif;
+  font-size: variables.$font-size-xl;
+  font-weight: variables.$font-weight-regular;
+}
 
-// h3 {
-//   font-weight: 400;
-//   font-size: 2.5rem;
-// }
+// Section Title
+h3 {
+  font-size: variables.$font-size-lg;
+  font-weight: variables.$font-weight-extra-bold;
+  text-transform: uppercase;
+}
 
-// h4,
-// button {
-//   font-weight: 700;
-//   font-size: 1.125rem;
-// }
+// Card Title
+h4 {
+  font-size: variables.$font-size-md;
+}
 
-// h5 {
-//   font-weight: 800;
-//   font-size: 1.25rem;
-//   text-transform: uppercase;
-// }
+// Not used in design
+h5 {
+  font-size: variables.$font-size-sm;
+  font-weight: variables.$font-weight-semi-bold;
+}
 
-// p,
-// span {
-//   font-size: 1rem;
-// }
+// Not used in design
+h6 {
+  font-size: variables.$font-size-xs;
+  font-weight: variables.$font-weight-semi-bold;
+}
 
-// span {
-//   font-weight: 700;
-// }
+// Paragraph and Highlight Text
+p,
+.highlight {
+  color: variables.$color-text-green;
+}
+
+// Paragraph Text
+p {
+  color: variables.$color-text-green;
+  line-height: 1.5;
+}
+
+// Lead and Highlight Text
+.lead-text,
+.highlight {
+  line-height: normal;
+  font-weight: variables.$font-weight-medium;
+}
+
+// Lead Text
+.lead-text {
+  color: variables.$color-text-dark-gray;
+  font-size: variables.$font-size-md;
+}
+
+// Section Categories
+// Not used in design?
+.section-categories {
+  font-size: variables.$font-size-sm;
+  font-weight: variables.$font-weight-extra-bold;
+}

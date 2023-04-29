@@ -6,11 +6,11 @@ import './Footer.scss';
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className='footer'>
       <div className='container'>
         <img src={footerLogo} alt='Little Lemon footer logo'></img>
         <article>
-          <h2>Doormat Navigation</h2>
+          <h3>Doormat Navigation</h3>
           <nav>
             <ul>
               <li>
@@ -35,15 +35,15 @@ export default function Footer() {
           </nav>
         </article>
         <article>
-          <h2>Contact</h2>
-          <div>
-            <p>Address</p>
-            <p>Phone Number</p>
-            <p>Email</p>
-          </div>
+          <h3>Contact</h3>
+          <ul>
+            <li>Address</li>
+            <li>Phone Number</li>
+            <li>Email</li>
+          </ul>
         </article>
         <article>
-          <h2>Social Media Links</h2>
+          <h3>Social Media Links</h3>
           <nav>
             <ul>
               <li>
