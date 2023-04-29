@@ -12,31 +12,27 @@ footer {
   }
 
   .container {
-    display: flex;
-    flex-direction: column;
-    gap: 3.25rem;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    grid-gap: 1rem;
     margin: 0 auto;
     max-width: 53.75rem;
 
     @media (min-width: 48rem) {
-      flex-direction: row;
-      gap: 6.5rem;
+      grid-template-columns: repeat(4, auto);
     }
   }
 
-  // .footer-item {
-  //   display: flex;
-  //   height: 100%;
-  //   flex-direction: column;
-
-  //   h2 {
-  //     flex-grow: 1;
-  //   }
-  // }
+  h2 {
+    margin-bottom: 1rem;
+  }
 
   img {
     height: auto;
-    width: 114px;
+    width: 3.563rem;
+
+    @media (min-width: 48rem) {
+      width: 7.125rem;
+    }
   }
 }
