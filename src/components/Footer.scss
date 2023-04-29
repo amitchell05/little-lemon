@@ -3,9 +3,37 @@
 /* Footer */
 footer {
   background-color: variables.$color-background-light-gray;
-  // display: flex;
-  // flex-flow: row wrap;
-  // margin-top: auto;
+  // pushes footer to the bottom in flexbox layout
+  margin-top: auto;
+  padding: 0.938rem 1.125rem;
+
+  @media (min-width: 48rem) {
+    padding: 6.75rem 1.125rem;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.25rem;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 53.75rem;
+
+    @media (min-width: 48rem) {
+      flex-direction: row;
+      gap: 6.5rem;
+    }
+  }
+
+  // .footer-item {
+  //   display: flex;
+  //   height: 100%;
+  //   flex-direction: column;
+
+  //   h2 {
+  //     flex-grow: 1;
+  //   }
+  // }
 
   img {
     height: auto;
