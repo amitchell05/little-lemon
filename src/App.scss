@@ -3,7 +3,7 @@
 // Along with relative positioning of the parent, this adds an overlay behind the opened hamburger menu
 // Resource: https://tympanus.net/codrops/2013/11/07/css-overlay-techniques/
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
