@@ -1,5 +1,5 @@
 const PaymentInfoPage = () => {
-  return <div></div>;
+  return <div>PaymentInfoPage</div>;
 };
 
 export default PaymentInfoPage;

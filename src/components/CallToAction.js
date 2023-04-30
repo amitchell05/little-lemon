@@ -13,8 +13,7 @@ const CallToAction = () => {
   const right = windowWidth - 1001 + 'px';
 
   return (
-    <article className='hero'>
-      <h2 className='visually-hidden'>Little Lemon Hero</h2>
+    <div className='hero'>
       <section>
         <h1>Little Lemon</h1>
         <h2>Chicago</h2>
@@ -46,7 +45,7 @@ const CallToAction = () => {
         </div>
         <button type='button'>Reserve a Table</button>
       </section>
-    </article>
+    </div>
   );
 };
 
