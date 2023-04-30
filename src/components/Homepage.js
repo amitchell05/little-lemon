@@ -1,6 +1,5 @@
-// Styles
-import './Homepage.scss';
+const HomePage = () => {
+  return <div>HomePage</div>;
+};
 
-const Homepage = () => {};
-
-export default Homepage;
+export default HomePage;

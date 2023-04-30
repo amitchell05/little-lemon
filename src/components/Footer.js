@@ -1,6 +1,9 @@
 // Assets
 import footerLogo from '../assets/Asset18@4x.png';
 
+// React Tools
+import { Link } from 'react-router-dom';
+
 // Styles
 import './Footer.scss';
 
@@ -14,7 +17,7 @@ const Footer = () => {
           <nav>
             <ul>
               <li>
-                <a href='/home'>Home</a>
+                <Link to='/'>Home</Link>
               </li>
               <li>
                 <a href='about'>About</a>
@@ -23,7 +26,7 @@ const Footer = () => {
                 <a href='/menu'>Menu</a>
               </li>
               <li>
-                <a href='/reservations'>Reservations</a>
+                <Link to='/booking'>Reservations</Link>
               </li>
               <li>
                 <a href='/order-online'>Order Online</a>

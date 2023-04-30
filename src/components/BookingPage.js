@@ -2,7 +2,7 @@
 import './BookingPage.scss';
 
 const BookingPage = () => {
-  return <div></div>;
+  return <div>BookingPage</div>;
 };
 
 export default BookingPage;

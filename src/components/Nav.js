@@ -2,10 +2,11 @@
 import logo from '../assets/Logo.svg';
 import basket from '../assets/basket .svg';
 import hamburgerIcon from '../assets/🦆 icon _hamburger menu.svg';
-import { useIsMenuOpen } from '../contexts/MenuContext';
 
 // React Tools
 import useWindowWidth from '../hooks/useWindowWidth';
+import { useIsMenuOpen } from '../contexts/MenuContext';
+import { Link } from 'react-router-dom';
 
 // Styles
 import './Nav.scss';
@@ -30,7 +31,7 @@ const Nav = () => {
         </a>
         <ul className={`navbar-menu ${isMenuOpen ? 'navbar-menu--open' : ''}`}>
           <li>
-            <a href='/home'>Home</a>
+            <Link to='/'>Home</Link>
           </li>
           <li>
             <a href='/about'>About</a>
@@ -39,7 +40,9 @@ const Nav = () => {
             <a href='/menu'>Menu</a>
           </li>
           <li>
-            <a href='/reservations'>Reservations</a>
+            <Link to='/booking' className='nav-item'>
+              Reservations
+            </Link>
           </li>
           <li>
             <a href='/order-online'>Order Online</a>
