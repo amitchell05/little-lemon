@@ -2,7 +2,7 @@
 import './Button.scss';
 
 const Button = (props) => {
-  return <button>{props.text}</button>;
+  return <button>Button</button>;
 };
 
 export default Button;
