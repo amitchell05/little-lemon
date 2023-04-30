@@ -1,1 +1,7 @@
 /* CustomersSay */
+@use '../variables';
+
+.reviews {
+  background-color: variables.$color-background-green;
+  color: variables.$color-text-light-gray;
+}

@@ -1,1 +1,16 @@
 /* CallToAction */
+@use '../variables';
+
+.hero {
+  background-color: variables.$color-background-green;
+  color: variables.$color-text-light-gray;
+
+  .hero-content p {
+    color: variables.$color-text-light-gray;
+  }
+
+  .hero-image {
+    width: 100px;
+    height: auto;
+  }
+}
