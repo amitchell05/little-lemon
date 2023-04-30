@@ -9,7 +9,7 @@ import { useIsMenuOpen } from './contexts/MenuContext';
 // Styles
 import './App.scss';
 
-export default function App() {
+const App = () => {
   const { isMenuOpen } = useIsMenuOpen();
 
   return (
@@ -21,3 +21,5 @@ export default function App() {
     </>
   );
 }
+
+export default App;

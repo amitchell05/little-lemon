@@ -10,7 +10,7 @@ import useWindowWidth from '../hooks/useWindowWidth';
 // Styles
 import './Nav.scss';
 
-function Nav() {
+const Nav = () => {
   const windowWidth = useWindowWidth();
 
   const { isMenuOpen, toggleMenu } = useIsMenuOpen();
@@ -54,6 +54,6 @@ function Nav() {
       </div>
     </nav>
   );
-}
+};
 
 export default Nav;

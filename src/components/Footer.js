@@ -4,7 +4,7 @@ import footerLogo from '../assets/Asset18@4x.png';
 // Styles
 import './Footer.scss';
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className='footer'>
       <div className='container'>
@@ -61,4 +61,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
