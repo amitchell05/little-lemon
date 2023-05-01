@@ -2,6 +2,7 @@
 import greekSalad from '../assets/greek_salad.jpg';
 import bruchetta from '../assets/bruchetta.svg';
 import lemonDessert from '../assets/lemon_dessert.jpg';
+import { MdDeliveryDining } from 'react-icons/md';
 
 // Styles
 import './Specials.scss';
@@ -40,28 +41,36 @@ const Specials = () => {
   return (
     <section className='specials'>
       <h2 className='visually-hidden'>Specials Section</h2>
-      <div className='flex-container flex-container--items-center flex-container--space-between'>
-        <h2>Specials</h2>
-        <button type='button' className='button button-primary'>
-          Online Menu
-        </button>
-      </div>
-      <div className='grid-adjustable-columns'>
-        {meals.map((meal) => (
-          <article className='meal-card' key={meal.id}>
-            <img
-              src={meal.image}
-              alt={meal.imageAltText}
-              className='meal-card-image'
-            />
-            <h4>{meal.name}</h4>
-            <span className='meal-card-price'>{meal.price}</span>
-            <p>{meal.description}</p>
-            <p>Order a delivery</p>
-            {/* TODO: Need to add the scooter/delivery cart icon */}
-            {/* <img src={} alt={} /> */}
-          </article>
-        ))}
+      <div className='container'>
+        <div className='specials-heading'>
+          <h2>Specials</h2>
+          <button type='button' className='button button-primary'>
+            Online Menu
+          </button>
+        </div>
+        <div className='meal-cards'>
+          {meals.map((meal) => (
+            <article className='meal-card' key={meal.id}>
+              <h4 className='visually-hidden'>{meal.name} Meal Card</h4>
+              <img
+                src={meal.image}
+                alt={meal.imageAltText}
+                className='meal-card-image'
+              />
+              <div className='meal-card-content'>
+                <div className='meal-card-heading'>
+                  <h4>{meal.name}</h4>
+                  <span>{meal.price}</span>
+                </div>
+                <p className='meal-card-description'>{meal.description}</p>
+                <div className='meal-card-delivery'>
+                  <h5>Order a delivery</h5>
+                  <MdDeliveryDining />
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

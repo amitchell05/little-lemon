@@ -15,8 +15,6 @@
     display: grid;
     grid-template-columns: repeat(1, auto);
     grid-gap: 1rem;
-    margin: 0 auto;
-    max-width: 53.75rem;
 
     @media (min-width: 48rem) {
       grid-template-columns: repeat(4, auto);

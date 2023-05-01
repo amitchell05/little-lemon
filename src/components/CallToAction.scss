@@ -6,11 +6,6 @@
   color: variables.$color-text-light-gray;
   padding: 0.938rem 1.125rem;
 
-  .container {
-    margin: 0 auto;
-    max-width: 53.78rem;
-  }
-
   h1 {
     color: variables.$color-text-yellow;
   }
@@ -22,6 +17,7 @@
   .hero-content {
     display: flex;
     gap: 1rem;
+    margin-bottom: 1rem;
 
     p {
       color: variables.$color-text-light-gray;

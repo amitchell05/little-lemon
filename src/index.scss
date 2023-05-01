@@ -142,3 +142,9 @@ button {
 .button-primary {
   background-color: variables.$color-text-yellow;
 }
+
+// Container
+.container {
+  margin: 0 auto;
+  max-width: 53.75rem;
+}
