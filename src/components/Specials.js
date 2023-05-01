@@ -42,7 +42,7 @@ const Specials = () => {
       <h2 className='visually-hidden'>Specials Section</h2>
       <div className='flex-container flex-container--items-center flex-container--space-between'>
         <h2>Specials</h2>
-        <button type='button' className='button-primary'>
+        <button type='button' className='button button-primary'>
           Online Menu
         </button>
       </div>

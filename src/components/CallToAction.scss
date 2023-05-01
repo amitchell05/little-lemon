@@ -4,13 +4,42 @@
 .hero {
   background-color: variables.$color-background-green;
   color: variables.$color-text-light-gray;
+  padding: 0.938rem 1.125rem;
 
-  .hero-content p {
-    color: variables.$color-text-light-gray;
+  .container {
+    margin: 0 auto;
+    max-width: 53.78rem;
   }
 
-  .hero-image {
-    width: 100px;
-    height: auto;
+  h1 {
+    color: variables.$color-text-yellow;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .hero-content {
+    display: flex;
+    gap: 1rem;
+
+    p {
+      color: variables.$color-text-light-gray;
+    }
+  }
+
+  .hero-image-container {
+    display: inline-flex;
+
+    .hero-image {
+      border-radius: 1rem;
+      height: 9.5rem;
+      object-fit: cover;
+      width: 9.188rem;
+    }
+  }
+
+  button {
+    margin-bottom: 1.563rem;
   }
 }

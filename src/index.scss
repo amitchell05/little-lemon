@@ -119,3 +119,26 @@ p {
   font-size: variables.$font-size-sm;
   font-weight: variables.$font-weight-extra-bold;
 }
+
+// Buttons
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.button {
+  border-radius: 1rem;
+  color: variables.$color-text-dark-gray;
+  font-size: variables.$font-size-sm;
+  font-weight: variables.$font-weight-bold;
+  padding: 0.5rem 1rem;
+
+  @media (min-width: 48rem) {
+    font-size: variables.$font-size-md;
+    padding: 1.25rem 2.125rem 1.188rem 2.188rem;
+  }
+}
+
+.button-primary {
+  background-color: variables.$color-text-yellow;
+}
