@@ -1,0 +1,55 @@
+/* Menu Card */
+
+@use '../variables';
+
+.menu-card {
+  background-color: variables.$color-background-light-gray;
+
+  img {
+    height: 11.563rem;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  a {
+    font-weight: variables.$font-weight-bold;
+  }
+
+  .menu-card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.5rem;
+
+    .menu-card-heading {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.427rem;
+
+      span {
+        color: variables.$color-text-dark-peach;
+        font-size: variables.$font-size-sm;
+        font-weight: variables.$font-weight-bold;
+
+        @media (min-width: 48rem) {
+          font-size: variables.$font-size-md;
+        }
+      }
+    }
+
+    p {
+      margin-bottom: 1.125rem;
+    }
+  }
+
+  .menu-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.menu-card,
+.menu-card img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}

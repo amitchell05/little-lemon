@@ -2,7 +2,9 @@
 import greekSalad from '../assets/greek_salad.jpg';
 import bruchetta from '../assets/bruchetta.svg';
 import lemonDessert from '../assets/lemon_dessert.jpg';
-import { MdDeliveryDining } from 'react-icons/md';
+
+// Components
+import SpecialCard from './MenuCard';
 
 // Styles
 import './Specials.scss';
@@ -41,36 +43,20 @@ const Specials = () => {
   return (
     <section className='specials'>
       <h2 className='visually-hidden'>Specials Section</h2>
+
       <div className='container'>
-        <div className='specials-heading'>
+        <article className='specials-actions'>
           <h2>Specials</h2>
           <button type='button' className='button button-primary'>
             Online Menu
           </button>
-        </div>
-        <div className='meal-cards'>
+        </article>
+
+        <section className='specials-cards'>
           {meals.map((meal) => (
-            <article className='meal-card' key={meal.id}>
-              <h4 className='visually-hidden'>{meal.name} Meal Card</h4>
-              <img
-                src={meal.image}
-                alt={meal.imageAltText}
-                className='meal-card-image'
-              />
-              <div className='meal-card-content'>
-                <div className='meal-card-heading'>
-                  <h4>{meal.name}</h4>
-                  <span>{meal.price}</span>
-                </div>
-                <p className='meal-card-description'>{meal.description}</p>
-                <div className='meal-card-delivery'>
-                  <h5>Order a delivery</h5>
-                  <MdDeliveryDining />
-                </div>
-              </div>
-            </article>
+            <SpecialCard key={meal.id} {...meal} />
           ))}
-        </div>
+        </section>
       </div>
     </section>
   );

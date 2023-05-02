@@ -4,79 +4,17 @@
 .specials {
   padding: 0.938rem 1.125rem;
 
-  .specials-heading {
+  .specials-actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 2.438rem;
   }
 
-  span {
-    color: variables.$color-text-dark-peach;
-    font-size: variables.$font-size-sm;
-    font-weight: variables.$font-weight-bold;
-
-    @media (min-width: 48rem) {
-      font-size: variables.$font-size-md;
-    }
-  }
-
-  .meal-cards {
+  .specials-cards {
     display: grid;
-    grid-template-columns: repeat(1, auto);
-
-    @media (min-width: 48rem) {
-      grid-template-columns: repeat(3, auto);
-    }
-
-    .meal-card {
-      background-color: variables.$color-background-light-gray;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-
-      .meal-card-image {
-        width: 100%;
-        height: 11.563rem;
-        object-fit: cover;
-      }
-
-      .meal-card-content {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: 1.25rem 1.563rem;
-
-        .meal-card-heading,
-        .meal-card-delivery {
-          display: flex;
-          align-items: center;
-        }
-
-        .meal-card-description {
-          margin-bottom: auto;
-        }
-
-        .meal-card-heading {
-          justify-content: space-between;
-          margin-bottom: 1.375rem;
-        }
-
-        .meal-card-delivery {
-          margin-top: 0.938rem;
-          gap: 0.625rem;
-
-          h5 {
-            font-weight: variables.$font-weight-bold;
-          }
-        }
-      }
-    }
-
-    .meal-card,
-    .meal-card-image {
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
-    }
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(264px, max-content));
+    gap: 2.125rem;
   }
 }
