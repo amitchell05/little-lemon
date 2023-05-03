@@ -4,6 +4,11 @@
 .specials {
   padding: 0.938rem 1.125rem;
 
+  @media (min-width: 48rem) {
+    padding-top: 5.438rem;
+    padding-bottom: 4.563rem;
+  }
+
   .specials-actions {
     display: flex;
     align-items: center;
@@ -15,6 +20,5 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(264px, max-content));
     gap: 2.125rem;
-    outline: 1px solid magenta;
   }
 }
