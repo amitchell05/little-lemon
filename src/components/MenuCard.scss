@@ -4,6 +4,8 @@
 
 .menu-card {
   background-color: variables.$color-background-light-gray;
+  display: flex;
+  flex-direction: column;
 
   img {
     height: 11.563rem;
@@ -16,8 +18,6 @@
   }
 
   .menu-card-content {
-    display: flex;
-    flex-direction: column;
     padding: 1.25rem 1.5rem;
 
     .menu-card-heading {
@@ -35,16 +35,15 @@
         }
       }
     }
-
-    p {
-      margin-bottom: 1.125rem;
-    }
   }
 
   .menu-card-actions {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
+    margin-top: auto;
+    padding: 0 1.5rem 1.25rem;
   }
 }
 

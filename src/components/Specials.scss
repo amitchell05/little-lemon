@@ -13,8 +13,8 @@
 
   .specials-cards {
     display: grid;
-    // grid-template-columns: repeat(3, 1fr);
     grid-template-columns: repeat(auto-fill, minmax(264px, max-content));
     gap: 2.125rem;
+    outline: 1px solid magenta;
   }
 }

@@ -15,11 +15,11 @@ const MenuCard = (meal) => {
           <span>{meal.price}</span>
         </div>
         <p>{meal.description}</p>
-        <div className='menu-card-actions'>
-          <a href='/order-delivery'>Order for Delivery</a>
-          <MdDeliveryDining />
-        </div>
       </section>
+      <div className='menu-card-actions'>
+        <a href='/order-delivery'>Order for Delivery</a>
+        <MdDeliveryDining />
+      </div>
     </article>
   );
 };
