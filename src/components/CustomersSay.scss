@@ -4,4 +4,27 @@
 .reviews {
   background-color: variables.$color-background-green;
   color: variables.$color-text-light-gray;
+  padding: 0.938rem 1.125rem;
+
+  @media (min-width: 48rem) {
+    padding: 7.625rem 1.125rem 11.313rem;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .review-cards {
+    display: grid;
+    gap: 1.25rem;
+
+    @media (min-width: 48rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 64rem) {
+      grid-template-columns: repeat(auto-fill, minmax(12.5rem, max-content));
+    }
+  }
 }

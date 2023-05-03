@@ -18,7 +18,7 @@
 
   .specials-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(264px, max-content));
+    grid-template-columns: repeat(auto-fill, minmax(16.5rem, max-content));
     gap: 2.125rem;
   }
 }

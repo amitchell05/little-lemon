@@ -1,5 +1,10 @@
 // Styles
 import './CustomersSay.scss';
+import ReviewCard from './ReviewCard';
+import profile1 from '../assets/luis-villasmil-hh3ViD0r0Rc-unsplash.jpg';
+import profile2 from '../assets/princess-4glIyBjf2Gk-unsplash.jpg';
+import profile3 from '../assets/lesly-juarez-RukI4qZGlQs-unsplash.jpg';
+import profile4 from '../assets/joel-mott-LaK153ghdig-unsplash.jpg';
 
 const CustomersSay = () => {
   const reviews = [
@@ -7,49 +12,47 @@ const CustomersSay = () => {
       id: '1',
       name: 'Ryan',
       reviewText: 'Review text',
-      rating: 4.5,
-      profilePicAltText: 'Ryan',
+      profilePic: profile1,
+      resource:
+        'Photo by <a href="https://unsplash.com/@luisviol?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Luis Villasmil</a> on <a href="https://unsplash.com/s/photos/profile-picture?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
     },
     {
       id: '2',
-      name: 'Bella',
+      name: 'Princess',
       reviewText: 'Review text',
-      rating: 5,
-      profilePicAltText: 'Bella',
+      profilePic: profile2,
+      resource:
+        'Photo by <a href="https://unsplash.com/@princessolan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">princess</a> on <a href="https://unsplash.com/s/photos/profile-picture?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
     },
     {
       id: '3',
       name: 'Kyle',
       reviewText: 'Review text',
-      rating: 4.3,
-      profilePicAltText: 'Kyle',
+      profilePic: profile3,
+      resource:
+        'Photo by <a href="https://unsplash.com/@jblesly?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lesly Juarez</a> on <a href="https://unsplash.com/s/photos/profile-picture?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
     },
     {
       id: '4',
       name: 'Aubrey',
       reviewText: 'Review text',
-      rating: 4.75,
-      profilePicAltText: 'Aubrey',
+      profilePic: profile4,
+      resource:
+        'Photo by <a href="https://unsplash.com/@joelmott?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joel Mott</a> on <a href="https://unsplash.com/s/photos/portrait-smile?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
     },
   ];
 
   return (
     <section className='reviews'>
       <h2 className='visually-hidden'>Reviews Section</h2>
-      <div className='flex-container flex-container--content-center'>
+
+      <div className='container'>
         <h2>Testimonials</h2>
-      </div>
-      <div className='grid-adjustable-columns'>
-        {reviews.map((review) => (
-          <article className='review-card' key={review.id}>
-            {/* TODO: Replace rating text with star icons */}
-            <h4>Rating: {review.rating}</h4>
-            {/* TODO: Find images from Unsplash */}
-            {/* <img src={} alt={} /> */}
-            <h4>{review.name}</h4>
-            <p>{review.reviewText}</p>
-          </article>
-        ))}
+        <div className='review-cards'>
+          {reviews.map((review) => (
+            <ReviewCard {...review} key={review.id} />
+          ))}
+        </div>
       </div>
     </section>
   );

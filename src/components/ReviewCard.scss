@@ -1,0 +1,44 @@
+/* Review Card */
+@use '../variables';
+
+.review-card {
+  background-color: variables.$color-background-light-gray;
+  border-radius: 1rem;
+  padding: 1.813rem 1.5rem;
+
+  h4 {
+    color: variables.$color-text-dark-gray;
+  }
+
+  .review-card-rating {
+    color: variables.$color-text-dark-gray;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: variables.$font-size-xs;
+    font-weight: variables.$font-weight-bold;
+    margin-bottom: 0.813rem;
+
+    div {
+      display: inline-flex;
+    }
+  }
+
+  .review-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .review-card-profile-pic {
+    width: 2.938rem;
+    height: 2.875rem;
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+
+  p {
+    color: variables.$color-text-dark-gray;
+  }
+}
