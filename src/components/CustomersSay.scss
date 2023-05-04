@@ -12,7 +12,11 @@
 
   h2 {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 0.938rem;
+
+    @media (min-width: 48rem) {
+      margin-bottom: 4rem;
+    }
   }
 
   .review-cards {
