@@ -1,6 +1,9 @@
 // Assets
 import restaurantFood from '../assets/restaurantfood.jpg';
 
+// React Tools
+import { Link } from 'react-router-dom';
+
 // Styles
 import './CallToAction.scss';
 
@@ -24,9 +27,9 @@ const CallToAction = () => {
               />
             </div>
           </div>
-          <button type='button' className='button button-primary'>
+          <Link to='/booking' className='link-button link-button-primary'>
             Reserve a Table
-          </button>
+          </Link>
         </section>
       </div>
     </div>
