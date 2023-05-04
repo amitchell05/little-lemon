@@ -6,6 +6,10 @@
   color: variables.$color-text-light-gray;
   padding: 0.938rem 1.125rem;
 
+  @media (min-width: 48rem) {
+    padding: 1.688rem 1.125rem 1.75rem;
+  }
+
   h1 {
     color: variables.$color-text-yellow;
   }
@@ -19,6 +23,10 @@
     gap: 1rem;
     margin-bottom: 1rem;
 
+    @media (min-width: 48rem) {
+      height: 8.375rem;
+    }
+
     p {
       color: variables.$color-text-light-gray;
     }
@@ -26,16 +34,26 @@
 
   .hero-image-container {
     display: inline-flex;
+  }
 
-    .hero-image {
-      border-radius: 1rem;
-      height: 9.5rem;
-      object-fit: cover;
-      width: 9.188rem;
+  .hero-image {
+    border-radius: 1rem;
+    height: 9.5rem;
+    object-fit: cover;
+    width: 9.188rem;
+
+    @media (min-width: 48rem) {
+      height: 26.875rem;
+      width: 23.438rem;
+      transform: translate(0, -9.063rem);
     }
   }
 
   button {
     margin-bottom: 1.563rem;
+
+    @media (min-width: 48rem) {
+      margin-bottom: 0;
+    }
   }
 }
