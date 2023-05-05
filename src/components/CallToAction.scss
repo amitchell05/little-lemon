@@ -8,6 +8,7 @@
 
   @media (min-width: 48rem) {
     padding: 1.688rem 1.125rem 1.75rem;
+    height: 25.375rem;
   }
 
   h1 {
@@ -45,7 +46,10 @@
     @media (min-width: 48rem) {
       height: 26.875rem;
       width: 23.438rem;
+      // TODO: fix breaking transform
       transform: translate(0, -9.063rem);
+      // transform: translate(0, calc(100% - 34.625rem));
+      // transform: translate(0, calc(-168px + 23px));
     }
   }
 
@@ -55,5 +59,14 @@
     @media (min-width: 48rem) {
       margin-bottom: 0;
     }
+  }
+}
+
+/*
+  Hero Overrides: Use when the subtitle and/or link are not provided to the component
+*/
+.util-hero-title {
+  @media (min-width: 48rem) {
+    margin-bottom: 2.688rem;
   }
 }

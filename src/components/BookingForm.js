@@ -9,7 +9,7 @@ const BookingForm = () => {
   const [resTime, setResTime] = useState('time');
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('occasion');
-  const [availableTimes, setAvailableTimes] = useState([
+  const [availableTimes] = useState([
     { id: '1', time: '17:00' },
     { id: '2', time: '18:00' },
     { id: '3', time: '19:00' },
