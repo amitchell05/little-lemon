@@ -5,4 +5,10 @@
   display: grid;
   max-width: 200px;
   gap: 20px;
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 }
