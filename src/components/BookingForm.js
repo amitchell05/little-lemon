@@ -4,7 +4,7 @@ import { useState } from 'react';
 // Styles
 import './BookingForm.scss';
 
-const BookingForm = ({ availableTimes, setAvailableTimes }) => {
+const BookingForm = ({ availableTimes, dispatch }) => {
   const [bookingForm, setBookingForm] = useState({
     date: '',
     resTime: 'time',
@@ -45,9 +45,10 @@ const BookingForm = ({ availableTimes, setAvailableTimes }) => {
             id='res-date'
             name='res-date'
             value={bookingForm.date}
-            onChange={(e) =>
-              setBookingForm({ ...bookingForm, date: e.target.value })
-            }
+            onChange={(e) => {
+              setBookingForm({ ...bookingForm, date: e.target.value });
+              dispatch({ type: 'set_new_date', date: e.target.value });
+            }}
           />
           <label htmlFor='res-time'>Choose time</label>
           <select
@@ -96,7 +97,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes }) => {
           <input
             disabled={!getIsFormValid()}
             type='submit'
-            value='Make Your reservation'
+            value='Make Your Reservation'
           />
         </fieldset>
       </form>
