@@ -53,6 +53,7 @@ const Specials = () => {
         </article>
 
         <section className='specials-cards'>
+          <h2 className='visually-hidden'>Specials Cards</h2>
           {meals.map((meal) => (
             <SpecialCard key={meal.id} {...meal} />
           ))}

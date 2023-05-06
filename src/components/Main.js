@@ -1,6 +1,10 @@
 // Components
+import AboutPage from './AboutPage';
 import BookingPage from './BookingPage';
 import HomePage from './HomePage';
+import LoginPage from './LoginPage';
+import MenuPage from './MenuPage';
+import OrderOnlinePage from './OrderOnlinePage';
 
 // React Tools
 import { Route, Routes } from 'react-router-dom';
@@ -30,12 +34,16 @@ const Main = () => {
     <main>
       <Routes>
         <Route path='/' element={<HomePage />}></Route>
+        <Route path='/about' element={<AboutPage />}></Route>
+        <Route path='/menu' element={<MenuPage />}></Route>
         <Route
           path='/booking'
           element={
             <BookingPage availableTimes={availableTimes} dispatch={dispatch} />
           }
         ></Route>
+        <Route path='/order-online' element={<OrderOnlinePage />}></Route>
+        <Route path='/login' element={<LoginPage />}></Route>
       </Routes>
     </main>
   );
