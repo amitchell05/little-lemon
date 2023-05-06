@@ -141,8 +141,8 @@ button {
   }
 }
 
-.button-primary,
-.link-button-primary {
+.button--primary,
+.link-button--primary {
   background-color: variables.$color-text-yellow;
 }
 
@@ -155,10 +155,17 @@ button {
   }
 }
 
-// Container
-.container {
+// Utility Classes
+.util-container {
   margin: 0 auto;
   max-width: 53.75rem;
+}
+
+// Hero Overrides: Use when the subtitle and/or link are not provided to the component
+.util-hero-title {
+  @media (min-width: 48rem) {
+    margin-bottom: 2.688rem;
+  }
 }
 
 // Fieldset Reset

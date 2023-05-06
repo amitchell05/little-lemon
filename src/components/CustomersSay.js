@@ -46,7 +46,7 @@ const CustomersSay = () => {
     <section className='reviews'>
       <h2 className='visually-hidden'>Reviews Section</h2>
 
-      <div className='container'>
+      <div className='util-container'>
         <h2>Testimonials</h2>
         <div className='review-cards'>
           {reviews.map((review) => (

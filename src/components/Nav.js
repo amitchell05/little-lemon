@@ -22,7 +22,7 @@ const Nav = () => {
 
   return (
     <nav className='navbar'>
-      <div className='container'>
+      <div className='util-container'>
         <div className='navbar-hamburger-icon' onClick={toggleMenu}>
           <img src={hamburgerIcon} alt='Hamburger menu' />
         </div>

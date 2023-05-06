@@ -10,7 +10,7 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <footer className='footer'>
-      <div className='container'>
+      <div className='util-container'>
         <img src={footerLogo} alt='Little Lemon footer logo'></img>
         <article>
           <h3>Doormat Navigation</h3>

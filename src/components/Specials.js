@@ -44,10 +44,10 @@ const Specials = () => {
     <section className='specials'>
       <h2 className='visually-hidden'>Specials Section</h2>
 
-      <div className='container'>
+      <div className='util-container'>
         <article className='specials-actions'>
           <h2>Specials</h2>
-          <button type='button' className='button button-primary'>
+          <button type='button' className='button button--primary'>
             Online Menu
           </button>
         </article>

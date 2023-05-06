@@ -9,7 +9,7 @@ const Chicago = () => {
   return (
     <article className='about'>
       <h2 className='visually-hidden'>About Little Lemon</h2>
-      <div className='container'>
+      <div className='util-container'>
         <section className='about-content'>
           <h2>Little Lemon</h2>
           <h3>Chicago</h3>
