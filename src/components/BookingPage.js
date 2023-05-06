@@ -9,7 +9,7 @@ import BookingForm from './BookingForm';
 import './BookingPage.scss';
 import CallToAction from './CallToAction';
 
-const BookingPage = () => {
+const BookingPage = ({ availableTimes, setAvailableTimes }) => {
   const hero = {
     title: 'Book A Table',
     leadText:
@@ -20,7 +20,10 @@ const BookingPage = () => {
   return (
     <>
       <CallToAction hero={{ ...hero }} className={'util-hero-title'} />
-      <BookingForm />
+      <BookingForm
+        availableTimes={availableTimes}
+        setAvailableTimes={setAvailableTimes}
+      />
     </>
   );
 };
