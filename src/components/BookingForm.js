@@ -5,10 +5,13 @@ import { useState } from 'react';
 import './BookingForm.scss';
 
 const BookingForm = () => {
-  const [date, setDate] = useState('');
-  const [resTime, setResTime] = useState('time');
-  const [guests, setGuests] = useState(1);
-  const [occasion, setOccasion] = useState('occasion');
+  const [bookingForm, setBookingForm] = useState({
+    date: '',
+    resTime: 'time',
+    guests: 1,
+    occasion: 'occasion',
+  });
+
   const [availableTimes] = useState([
     { id: '1', time: '17:00' },
     { id: '2', time: '18:00' },
@@ -19,14 +22,21 @@ const BookingForm = () => {
   ]);
 
   const getIsFormValid = () => {
-    return date && resTime !== 'time' && guests && occasion !== 'occasion';
+    return (
+      bookingForm.date &&
+      bookingForm.resTime !== 'time' &&
+      bookingForm.guests &&
+      bookingForm.occasion !== 'occasion'
+    );
   };
 
   const clearForm = () => {
-    setDate('');
-    setResTime('time');
-    setGuests(1);
-    setOccasion('occasion');
+    setBookingForm({
+      date: '',
+      resTime: 'time',
+      guests: 1,
+      occasion: 'occasion',
+    });
   };
 
   const handleSubmit = (event) => {
@@ -43,15 +53,19 @@ const BookingForm = () => {
             type='date'
             id='res-date'
             name='res-date'
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={bookingForm.date}
+            onChange={(e) =>
+              setBookingForm({ ...bookingForm, date: e.target.value })
+            }
           />
           <label htmlFor='res-time'>Choose time</label>
           <select
             id='res-time'
             name='res-time'
-            value={resTime}
-            onChange={(e) => setResTime(e.target.value)}
+            value={bookingForm.resTime}
+            onChange={(e) =>
+              setBookingForm({ ...bookingForm, resTime: e.target.value })
+            }
           >
             <option value='time'>Select a time</option>
             {availableTimes.map((time) => {
@@ -70,15 +84,19 @@ const BookingForm = () => {
             max='10'
             id='guests'
             name='guests'
-            value={guests}
-            onChange={(e) => setGuests(e.target.value)}
+            value={bookingForm.guests}
+            onChange={(e) =>
+              setBookingForm({ ...bookingForm, guests: e.target.value })
+            }
           />
           <label htmlFor='occasion'>Occasion</label>
           <select
             id='occasion'
             name='occasion'
-            value={occasion}
-            onChange={(e) => setOccasion(e.target.value)}
+            value={bookingForm.occasion}
+            onChange={(e) =>
+              setBookingForm({ ...bookingForm, occasion: e.target.value })
+            }
           >
             <option value='occasion'>Select an occasion</option>
             <option value='birthday'>Birthday</option>
