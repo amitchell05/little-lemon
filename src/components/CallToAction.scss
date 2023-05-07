@@ -26,48 +26,40 @@
       margin-bottom: 1rem;
     }
 
-    .hero-content {
-      p {
-        color: variables.$color-text-light-gray;
-        margin-bottom: 1.75rem;
-      }
+    p {
+      color: variables.$color-text-light-gray;
+      margin-bottom: 1.75rem;
+    }
 
-      .hero-description-section {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
+    .hero-description-section {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
 
-        @media (min-width: 48rem) {
-          display: none;
-          flex-direction: unset;
-          gap: unset;
-        }
-      }
-
-      .hero-button {
-        margin-bottom: 1.563rem;
-
-        @media (min-width: 48rem) {
-          margin-bottom: 0;
-        }
+      @media (min-width: 48rem) {
+        display: none;
+        flex-direction: unset;
+        gap: unset;
       }
     }
 
-    .hero-image-container {
-      .hero-image {
-        border-radius: 1rem;
-        height: 9.5rem;
-        object-fit: cover;
-        width: 9.188rem;
+    .hero-button {
+      margin-bottom: 1.563rem;
 
-        @media (min-width: 48rem) {
-          height: 26.875rem;
-          width: 23.438rem;
-          // TODO: fix breaking transform
-          // transform: translate(0, -9.063rem);
-          // transform: translate(0, calc(100% - 34.625rem));
-          // transform: translate(0, calc(-168px + 23px));
-        }
+      @media (min-width: 48rem) {
+        margin-bottom: 0;
+      }
+    }
+
+    .hero-image {
+      border-radius: 1rem;
+      height: 9.5rem;
+      object-fit: cover;
+      width: 9.188rem;
+
+      @media (min-width: 48rem) {
+        height: 26.875rem;
+        width: 23.438rem;
       }
     }
   }

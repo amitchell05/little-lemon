@@ -6,7 +6,6 @@ import restaurantFood from '../assets/restaurantfood.jpg';
 import BookingForm from './BookingForm';
 
 // Styles
-import './BookingPage.scss';
 import CallToAction from './CallToAction';
 
 const BookingPage = ({ availableTimes, dispatch }) => {

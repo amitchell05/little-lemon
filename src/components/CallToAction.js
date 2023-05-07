@@ -12,12 +12,12 @@ const CallToAction = ({ hero, className }) => {
     <section className='hero'>
       <h2 className='visually-hidden'>Hero</h2>
       <div className='util-container hero-section'>
-        <div className='hero-content'>
+        <div>
           <h1 className={className}>{hero.title}</h1>
           {hero.subTitle && <h2>{hero.subTitle}</h2>}
           <div className='hero-description-section'>
             <p className='lead-text'>{hero.leadText}</p>
-            <div className='hero-image-container'>
+            <div>
               <img
                 src={hero.image}
                 alt='Restaurant food on a serving tray'
@@ -36,7 +36,7 @@ const CallToAction = ({ hero, className }) => {
           )}
         </div>
         {windowWidth >= 768 && (
-          <div className='hero-image-container'>
+          <div>
             <img
               src={hero.image}
               alt='Restaurant food on a serving tray'

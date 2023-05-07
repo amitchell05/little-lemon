@@ -12,31 +12,29 @@ const Footer = () => {
     <footer className='footer'>
       <div className='util-container'>
         <img src={footerLogo} alt='Little Lemon footer logo'></img>
-        <article>
-          <h3 id='doormat-navigation'>Doormat Navigation</h3>
-          <nav aria-labelledby='doormat-navigation'>
-            <ul>
-              <li>
-                <Link to='/'>Home</Link>
-              </li>
-              <li>
-                <Link to='about'>About</Link>
-              </li>
-              <li>
-                <Link to='/menu'>Menu</Link>
-              </li>
-              <li>
-                <Link to='/booking'>Reservations</Link>
-              </li>
-              <li>
-                <Link to='/order-online'>Order Online</Link>
-              </li>
-              <li>
-                <Link tp='/login'>Login</Link>
-              </li>
-            </ul>
-          </nav>
-        </article>
+        <nav aria-label='doormat-navigation'>
+          <h3>Little Lemon</h3>
+          <ul>
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
+              <Link to='about'>About</Link>
+            </li>
+            <li>
+              <Link to='/menu'>Menu</Link>
+            </li>
+            <li>
+              <Link to='/booking'>Reservations</Link>
+            </li>
+            <li>
+              <Link to='/order-online'>Order Online</Link>
+            </li>
+            <li>
+              <Link to='/login'>Login</Link>
+            </li>
+          </ul>
+        </nav>
         <article>
           <h3>Contact</h3>
           <ul>
@@ -45,22 +43,20 @@ const Footer = () => {
             <li>Email</li>
           </ul>
         </article>
-        <article>
-          <h3 id='social-medial-links'>Social Media Links</h3>
-          <nav aria-labelledby='social-media-links'>
-            <ul>
-              <li>
-                <a href='https://www.facebook.com'>Facebook</a>
-              </li>
-              <li>
-                <a href='https://www.instagram.com'>Instagram</a>
-              </li>
-              <li>
-                <a href='https://www.twitter.com'>Twitter</a>
-              </li>
-            </ul>
-          </nav>
-        </article>
+        <nav aria-label='social-media-links'>
+          <h3>Social Media</h3>
+          <ul>
+            <li>
+              <a href='https://www.facebook.com'>Facebook</a>
+            </li>
+            <li>
+              <a href='https://www.instagram.com'>Instagram</a>
+            </li>
+            <li>
+              <a href='https://www.twitter.com'>Twitter</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </footer>
   );

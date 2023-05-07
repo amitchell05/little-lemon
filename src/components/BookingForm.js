@@ -7,24 +7,24 @@ import './BookingForm.scss';
 const BookingForm = ({ availableTimes, dispatch }) => {
   const [bookingForm, setBookingForm] = useState({
     date: '',
-    resTime: 'time',
+    resTime: '',
     guests: 1,
-    occasion: 'occasion',
+    occasion: '',
   });
 
   const getIsFormValid = () => {
     return (
       bookingForm.date &&
-      bookingForm.resTime !== 'time' &&
+      bookingForm.resTime &&
       bookingForm.guests &&
-      bookingForm.occasion !== 'occasion'
+      bookingForm.occasion
     );
   };
 
   const clearForm = () => {
     setBookingForm({
       date: '',
-      resTime: 'time',
+      resTime: '',
       guests: 1,
       occasion: 'occasion',
     });
@@ -68,7 +68,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
             }
             required
           >
-            <option value='time'>Select a time</option>
+            <option value=''>Select a time</option>
             {availableTimes.map((time) => {
               return (
                 <option key={time.id} value={time.time}>
@@ -101,7 +101,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
             }
             required
           >
-            <option value='occasion'>Select an occasion</option>
+            <option value=''>Select an occasion</option>
             <option value='birthday'>Birthday</option>
             <option value='anniversary'>Anniversary</option>
           </select>
