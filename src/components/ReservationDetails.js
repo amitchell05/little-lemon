@@ -2,7 +2,7 @@
 import './ReservationDetails.scss';
 
 const ReservationDetails = () => {
-  return <div>ResevationDetails</div>;
+  return <>ResevationDetails</>;
 };
 
 export default ReservationDetails;

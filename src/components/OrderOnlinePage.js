@@ -1,5 +1,5 @@
 const OrderOnlinePage = () => {
-  return <div>OrderOnlinePage</div>;
+  return <>OrderOnlinePage</>;
 };
 
 export default OrderOnlinePage;

@@ -1,5 +1,5 @@
 const ConfirmationPage = () => {
-  return <div>ConfirmationPage</div>;
+  return <>ConfirmationPage</>;
 };
 
 export default ConfirmationPage;
