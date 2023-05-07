@@ -18,7 +18,7 @@ const MenuCard = (meal) => {
       </section>
       <div className='menu-card-actions'>
         <a href='/order-delivery'>Order for Delivery</a>
-        <MdDeliveryDining />
+        <MdDeliveryDining aria-hidden='true' />
       </div>
     </article>
   );

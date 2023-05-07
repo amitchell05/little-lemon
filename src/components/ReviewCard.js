@@ -5,18 +5,22 @@ import { AiFillStar } from 'react-icons/ai';
 import './ReviewCard.scss';
 
 const ReviewCard = (review) => {
+  const addStarIcons = () => {
+    let icons = [];
+
+    for (let i = 0; i < 5; i++) {
+      icons.push(<AiFillStar aria-hidden='true' />);
+    }
+
+    return icons;
+  };
+
   return (
     <article className='review-card' key={review.id}>
       <h2 className='visually-hidden'>Review Card</h2>
       <section className='review-card-rating'>
         <h6>Rating:</h6>
-        <div>
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-        </div>
+        <div>{addStarIcons()}</div>
       </section>
       <div className='review-card-heading'>
         <img

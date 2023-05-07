@@ -37,8 +37,15 @@ const BookingForm = ({ availableTimes, dispatch }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className='booking-form'>
+      <form
+        onSubmit={handleSubmit}
+        aria-label='booking-form'
+        className='booking-form'
+      >
         <fieldset>
+          <legend className='visually-hidden'>
+            Enter your reservation details
+          </legend>
           <label htmlFor='res-date'>Choose date</label>
           <input
             type='date'
@@ -49,6 +56,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
               setBookingForm({ ...bookingForm, date: e.target.value });
               dispatch({ type: 'set_new_date', date: e.target.value });
             }}
+            required
           />
           <label htmlFor='res-time'>Choose time</label>
           <select
@@ -58,6 +66,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
             onChange={(e) =>
               setBookingForm({ ...bookingForm, resTime: e.target.value })
             }
+            required
           >
             <option value='time'>Select a time</option>
             {availableTimes.map((time) => {
@@ -80,6 +89,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
             onChange={(e) =>
               setBookingForm({ ...bookingForm, guests: e.target.value })
             }
+            required
           />
           <label htmlFor='occasion'>Occasion</label>
           <select
@@ -89,6 +99,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
             onChange={(e) =>
               setBookingForm({ ...bookingForm, occasion: e.target.value })
             }
+            required
           >
             <option value='occasion'>Select an occasion</option>
             <option value='birthday'>Birthday</option>
@@ -97,6 +108,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
           <input
             disabled={!getIsFormValid()}
             type='submit'
+            name='submit'
             value='Make Your Reservation'
           />
         </fieldset>

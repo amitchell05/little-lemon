@@ -13,8 +13,8 @@ const Footer = () => {
       <div className='util-container'>
         <img src={footerLogo} alt='Little Lemon footer logo'></img>
         <article>
-          <h3>Doormat Navigation</h3>
-          <nav>
+          <h3 id='doormat-navigation'>Doormat Navigation</h3>
+          <nav aria-labelledby='doormat-navigation'>
             <ul>
               <li>
                 <Link to='/'>Home</Link>
@@ -46,8 +46,8 @@ const Footer = () => {
           </ul>
         </article>
         <article>
-          <h3>Social Media Links</h3>
-          <nav>
+          <h3 id='social-medial-links'>Social Media Links</h3>
+          <nav aria-labelledby='social-media-links'>
             <ul>
               <li>
                 <a href='https://www.facebook.com'>Facebook</a>

@@ -21,7 +21,7 @@ const Nav = () => {
   }
 
   return (
-    <nav className='navbar'>
+    <nav aria-label='header-navigation' className='navbar'>
       <div className='util-container'>
         <div className='navbar-hamburger-icon' onClick={toggleMenu}>
           <img src={hamburgerIcon} alt='Hamburger menu' />
