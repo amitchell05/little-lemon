@@ -168,6 +168,19 @@ button {
   }
 }
 
+// Along with relative positioning of the parent, this adds an overlay behind the opened hamburger menu
+// Resource: https://tympanus.net/codrops/2013/11/07/css-overlay-techniques/
+.util-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 // Fieldset Reset
 // legend {
 //   padding: 0;

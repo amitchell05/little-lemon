@@ -9,6 +9,7 @@ import OrderOnlinePage from './OrderOnlinePage';
 // React Tools
 import { Route, Routes } from 'react-router-dom';
 import { useReducer } from 'react';
+import { useIsMenuOpen } from '../contexts/MenuContext';
 
 const updateTimes = (state, action) => {
   if (action.type === 'set_new_date') {
@@ -28,10 +29,12 @@ const initializeTimes = () => {
 };
 
 const Main = () => {
+  const { isMenuOpen } = useIsMenuOpen();
+
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
   return (
-    <main>
+    <main className={isMenuOpen ? 'util-overlay' : ''}>
       <Routes>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/about' element={<AboutPage />}></Route>
