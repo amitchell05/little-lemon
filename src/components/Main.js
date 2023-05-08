@@ -11,14 +11,14 @@ import { Route, Routes } from 'react-router-dom';
 import { useReducer } from 'react';
 import { useIsMenuOpen } from '../contexts/MenuContext';
 
+const initialTimes = [];
+
 const updateTimes = (state, action) => {
-  if (action.type === 'set_new_date') {
-    return [...state];
-  }
+  return state;
 };
 
-const initializeTimes = () => {
-  return [
+const initializeTimes = (initialTimes) => {
+  initialTimes = [
     { id: '1', time: '17:00' },
     { id: '2', time: '18:00' },
     { id: '3', time: '19:00' },
@@ -26,12 +26,18 @@ const initializeTimes = () => {
     { id: '5', time: '21:00' },
     { id: '6', time: '21:00' },
   ];
+
+  return initialTimes;
 };
 
 const Main = () => {
   const { isMenuOpen } = useIsMenuOpen();
 
-  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+  const [availableTimes, dispatch] = useReducer(
+    updateTimes,
+    initialTimes,
+    initializeTimes
+  );
 
   return (
     <main className={isMenuOpen ? 'util-overlay' : ''}>

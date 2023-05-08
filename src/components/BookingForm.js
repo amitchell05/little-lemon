@@ -42,6 +42,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
         aria-label='booking-form'
         className='booking-form'
       >
+        <h2>Reservation Form</h2>
         <fieldset>
           <legend className='visually-hidden'>
             Enter your reservation details
@@ -50,6 +51,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
           <input
             type='date'
             id='res-date'
+            data-testid='res-date'
             name='res-date'
             value={bookingForm.date}
             onChange={(e) => {

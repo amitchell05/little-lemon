@@ -1,7 +1,7 @@
 // Assets
 import logo from '../assets/Logo.svg';
 import basket from '../assets/basket1.svg';
-import hamburgerIcon from '../assets/🦆_icon_hamburger_menu.svg';
+import hamburgerIcon from '../assets/icon-hamburger-menu.svg';
 
 // React Tools
 import useWindowWidth from '../hooks/useWindowWidth';
