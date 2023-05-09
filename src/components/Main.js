@@ -10,22 +10,18 @@ import OrderOnlinePage from './OrderOnlinePage';
 import { Route, Routes } from 'react-router-dom';
 import { useReducer } from 'react';
 import { useIsMenuOpen } from '../contexts/MenuContext';
+import { fetchAPI } from '../api/api';
 
 const initialTimes = [];
 
 const updateTimes = (state, action) => {
+  state = fetchAPI(new Date(action.date));
+
   return state;
 };
 
 const initializeTimes = (initialTimes) => {
-  initialTimes = [
-    { id: '1', time: '17:00' },
-    { id: '2', time: '18:00' },
-    { id: '3', time: '19:00' },
-    { id: '4', time: '20:00' },
-    { id: '5', time: '21:00' },
-    { id: '6', time: '21:00' },
-  ];
+  initialTimes = fetchAPI(new Date());
 
   return initialTimes;
 };

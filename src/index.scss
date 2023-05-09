@@ -121,7 +121,8 @@ p {
 }
 
 // Buttons
-button {
+button,
+input[type='submit'] {
   border: none;
   cursor: pointer;
 }
@@ -143,7 +144,15 @@ button {
 
 .button--primary,
 .link-button--primary {
-  background-color: variables.$color-text-yellow;
+  background-color: variables.$color-background-yellow;
+}
+
+.button--primary:active {
+  background-color: variables.$color-background-yellow--active;
+}
+
+.button--primary:disabled {
+  opacity: 0.5;
 }
 
 // Link Buttons

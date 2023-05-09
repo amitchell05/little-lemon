@@ -36,7 +36,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
   };
 
   return (
-    <>
+    <div className='util-container'>
       <form
         onSubmit={handleSubmit}
         aria-label='booking-form'
@@ -112,10 +112,11 @@ const BookingForm = ({ availableTimes, dispatch }) => {
             type='submit'
             name='submit'
             value='Make Your Reservation'
+            className='button button--primary'
           />
         </fieldset>
       </form>
-    </>
+    </div>
   );
 };
 
