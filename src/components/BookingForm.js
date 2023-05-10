@@ -4,7 +4,7 @@ import { useState } from 'react';
 // Styles
 import './BookingForm.scss';
 
-const BookingForm = ({ availableTimes, dispatch }) => {
+const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
   const [bookingForm, setBookingForm] = useState({
     date: '',
     resTime: '',
@@ -32,6 +32,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    submitForm(bookingForm);
     clearForm();
   };
 
