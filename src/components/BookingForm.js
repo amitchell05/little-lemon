@@ -36,7 +36,8 @@ const BookingForm = ({ availableTimes, dispatch }) => {
   };
 
   return (
-    <div className='util-container'>
+    <section className='util-container'>
+      <h2 className='visually-hidden'>Booking Form</h2>
       <form
         onSubmit={handleSubmit}
         aria-label='booking-form'
@@ -116,7 +117,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
           />
         </fieldset>
       </form>
-    </div>
+    </section>
   );
 };
 

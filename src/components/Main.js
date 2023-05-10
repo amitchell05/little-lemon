@@ -1,6 +1,7 @@
 // Components
 import AboutPage from './AboutPage';
 import BookingPage from './BookingPage';
+import ConfirmedBooking from './ConfirmedBooking';
 import HomePage from './HomePage';
 import LoginPage from './LoginPage';
 import MenuPage from './MenuPage';
@@ -55,6 +56,7 @@ const Main = () => {
             <BookingPage availableTimes={availableTimes} dispatch={dispatch} />
           }
         ></Route>
+        <Route path='/confirmed-booking' element={<ConfirmedBooking />}></Route>
         <Route path='/order-online' element={<OrderOnlinePage />}></Route>
         <Route path='/login' element={<LoginPage />}></Route>
       </Routes>

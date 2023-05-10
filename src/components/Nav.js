@@ -26,9 +26,9 @@ const Nav = () => {
         <div className='navbar-hamburger-icon' onClick={toggleMenu}>
           <img src={hamburgerIcon} alt='Hamburger menu' />
         </div>
-        <a href='/home' className='navbar-logo'>
+        <Link to='/' className='navbar-logo'>
           <img src={logo} alt='Little Lemon logo' />
-        </a>
+        </Link>
         <ul className={`navbar-menu ${isMenuOpen ? 'navbar-menu--open' : ''}`}>
           <li>
             <Link to='/'>Home</Link>

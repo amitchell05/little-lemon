@@ -6,6 +6,9 @@ import lemonDessert from '../assets/lemon_dessert.jpg';
 // Components
 import SpecialCard from './MenuCard';
 
+// React Tools
+import { Link } from 'react-router-dom';
+
 // Styles
 import './Specials.scss';
 
@@ -47,9 +50,12 @@ const Specials = () => {
       <div className='util-container'>
         <article className='specials-actions'>
           <h2>Specials</h2>
-          <button type='button' className='button button--primary'>
+          <Link
+            to='/menu'
+            className='hero-button link-button link-button--primary'
+          >
             Online Menu
-          </button>
+          </Link>
         </article>
 
         <section className='specials-cards'>

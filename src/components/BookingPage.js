@@ -18,7 +18,7 @@ const BookingPage = ({ availableTimes, dispatch }) => {
 
   return (
     <>
-      <CallToAction hero={{ ...hero }} className={'util-hero-title'} />
+      <CallToAction hero={{ ...hero }} utilHeroTitle={'util-hero-title'} />
       <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
     </>
   );

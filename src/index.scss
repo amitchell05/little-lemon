@@ -113,6 +113,10 @@ p {
   font-size: variables.$font-size-md;
 }
 
+.lead-text--newline {
+  white-space: pre-wrap;
+}
+
 // Section Categories
 // Not used in design?
 .section-categories {

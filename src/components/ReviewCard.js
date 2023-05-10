@@ -9,7 +9,7 @@ const ReviewCard = (review) => {
     let icons = [];
 
     for (let i = 0; i < 5; i++) {
-      icons.push(<AiFillStar aria-hidden='true' />);
+      icons.push(<AiFillStar key={i + 1} aria-hidden='true' />);
     }
 
     return icons;

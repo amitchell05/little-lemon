@@ -5,7 +5,7 @@ import useWindowWidth from '../hooks/useWindowWidth';
 // Styles
 import './CallToAction.scss';
 
-const CallToAction = ({ hero, className }) => {
+const CallToAction = ({ hero, leadTextNewline, utilHeroTitle }) => {
   const windowWidth = useWindowWidth();
 
   return (
@@ -13,10 +13,10 @@ const CallToAction = ({ hero, className }) => {
       <h2 className='visually-hidden'>Hero</h2>
       <div className='util-container hero-section'>
         <div>
-          <h1 className={className}>{hero.title}</h1>
+          <h1 className={utilHeroTitle}>{hero.title}</h1>
           {hero.subTitle && <h2>{hero.subTitle}</h2>}
           <div className='hero-description-section'>
-            <p className='lead-text'>{hero.leadText}</p>
+            <p className={`lead-text ${leadTextNewline}`}>{hero.leadText}</p>
             <div>
               <img
                 src={hero.image}
@@ -25,7 +25,9 @@ const CallToAction = ({ hero, className }) => {
               />
             </div>
           </div>
-          {windowWidth >= 768 && <p className='lead-text'>{hero.leadText}</p>}
+          {windowWidth >= 768 && (
+            <p className={`lead-text ${leadTextNewline}`}>{hero.leadText}</p>
+          )}
           {hero.link && hero.linkText && (
             <Link
               to={hero.link}
