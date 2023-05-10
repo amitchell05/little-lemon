@@ -8,12 +8,14 @@ import MenuPage from './MenuPage';
 import OrderOnlinePage from './OrderOnlinePage';
 
 // React Tools
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useEffect, useReducer } from 'react';
 import { useIsMenuOpen } from '../contexts/MenuContext';
-import { fetchAPI } from '../api/api';
+import { fetchAPI, submitAPI } from '../api/api';
 
 const Main = () => {
+  const navigate = useNavigate();
+
   const { isMenuOpen } = useIsMenuOpen();
 
   let initialTimes = [];
@@ -34,6 +36,12 @@ const Main = () => {
     return initialTimes;
   };
 
+  const submitForm = (formData) => {
+    if (submitAPI(formData)) {
+      navigate('/confirmed-booking');
+    }
+  };
+
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
     initialTimes,
@@ -42,6 +50,10 @@ const Main = () => {
 
   useEffect(() => {
     fetchAPI();
+  }, []);
+
+  useEffect(() => {
+    submitAPI();
   }, []);
 
   return (
