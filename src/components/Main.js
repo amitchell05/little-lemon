@@ -8,32 +8,40 @@ import OrderOnlinePage from './OrderOnlinePage';
 
 // React Tools
 import { Route, Routes } from 'react-router-dom';
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { useIsMenuOpen } from '../contexts/MenuContext';
 import { fetchAPI } from '../api/api';
 
-const initialTimes = [];
-
-const updateTimes = (state, action) => {
-  state = fetchAPI(new Date(action.date));
-
-  return state;
-};
-
-const initializeTimes = (initialTimes) => {
-  initialTimes = fetchAPI(new Date());
-
-  return initialTimes;
-};
-
 const Main = () => {
   const { isMenuOpen } = useIsMenuOpen();
+
+  let initialTimes = [];
+
+  const fetchData = (date) => {
+    return fetchAPI(new Date(date));
+  };
+
+  const updateTimes = (state, action) => {
+    state = fetchData(new Date(action.date));
+
+    return state;
+  };
+
+  const initializeTimes = (initialTimes) => {
+    initialTimes = fetchData(new Date());
+
+    return initialTimes;
+  };
 
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
     initialTimes,
     initializeTimes
   );
+
+  useEffect(() => {
+    fetchAPI();
+  }, []);
 
   return (
     <main className={isMenuOpen ? 'util-overlay' : ''}>

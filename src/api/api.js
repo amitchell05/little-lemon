@@ -9,7 +9,7 @@ export const seededRandom = function (seed) {
   };
 };
 
-export const fetchAPI = function (date) {
+export const fetchAPI = function (date = new Date()) {
   let id = 1;
   let result = [];
   let random = seededRandom(date.getDate());
