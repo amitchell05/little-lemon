@@ -15,7 +15,6 @@ export const fetchAPI = function (date = new Date()) {
   let random = seededRandom(date.getDate());
 
   for (let i = 17; i <= 23; i++) {
-
     if (random() < 0.5) {
       result.push({ id: `${id++}`, time: i + ':00' });
     }

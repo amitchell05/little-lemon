@@ -9,52 +9,45 @@ import OrderOnlinePage from './OrderOnlinePage';
 
 // React Tools
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useEffect, useReducer } from 'react';
+import { useReducer } from 'react';
 import { useIsMenuOpen } from '../contexts/MenuContext';
 import { fetchAPI, submitAPI } from '../api/api';
 
+// Generates a list of available bookings based on the date a user selects in the booking form
+const fetchData = (date) => {
+  return fetchAPI(date);
+};
+
+// Provides an initial list of times upon load on the booking form page
+const initializeTimes = () => {
+  return fetchData();
+};
+
+// Updates available times based on the date a user selects
+const updateTimes = (state, action) => {
+  state = fetchData(new Date(action.date));
+  return state;
+};
+
 const Main = () => {
-  const navigate = useNavigate();
-
   const { isMenuOpen } = useIsMenuOpen();
-
-  let initialTimes = [];
-
-  const fetchData = (date) => {
-    return fetchAPI(new Date(date));
-  };
-
-  const updateTimes = (state, action) => {
-    state = fetchData(new Date(action.date));
-
-    return state;
-  };
-
-  const initializeTimes = (initialTimes) => {
-    initialTimes = fetchData(new Date());
-
-    return initialTimes;
-  };
-
-  const submitForm = (formData) => {
-    if (submitAPI(formData)) {
-      navigate('/confirmed-booking');
-    }
-  };
+  const navigate = useNavigate();
 
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
-    initialTimes,
+    [],
     initializeTimes
   );
 
-  useEffect(() => {
-    fetchAPI();
-  }, []);
+  // Submits the booking form and navigates users to the confirmed booking page
+  const submitForm = (formData) => {
+    if (submitAPI(formData)) {
+      navigate('/confirmed-booking');
 
-  useEffect(() => {
-    submitAPI();
-  }, []);
+      // Scroll to the top of the confirmed booking page (figure out if there's a better way)
+      window.scrollTo(0, 0);
+    }
+  };
 
   return (
     <main className={isMenuOpen ? 'util-overlay' : ''}>

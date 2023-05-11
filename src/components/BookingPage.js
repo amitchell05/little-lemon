@@ -1,6 +1,5 @@
 // Assets
-// TODO: Update with actual photo for component
-import restaurantFood from '../assets/restaurantfood.jpg';
+import restaurant from '../assets/restaurant.jpg';
 
 // Components
 import BookingForm from './BookingForm';
@@ -13,7 +12,7 @@ const BookingPage = ({ availableTimes, dispatch, submitForm }) => {
     title: 'Book A Table',
     leadText:
       'Lorem ipsum dolor sit amet consectetur odipiscing elit,sed do eiusmod tempor incididunt it lahnne et do ore magna aliqua.',
-    image: restaurantFood,
+    image: restaurant,
   };
 
   return (
