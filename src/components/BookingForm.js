@@ -58,7 +58,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
             value={bookingForm.date}
             onChange={(e) => {
               setBookingForm({ ...bookingForm, date: e.target.value });
-              dispatch({ type: 'set_new_date', date: e.target.value });
+              dispatch({ type: 'SET_NEW_DATE', date: e.target.value });
             }}
             required
           />
@@ -67,6 +67,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
             id='res-time'
             name='res-time'
             value={bookingForm.resTime}
+            data-testid='res-time'
             onChange={(e) =>
               setBookingForm({ ...bookingForm, resTime: e.target.value })
             }
