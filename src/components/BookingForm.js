@@ -1,46 +1,39 @@
 // React Tools
-import { useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 // Styles
 import './BookingForm.scss';
 
+const validationSchema = Yup.object({
+  resDate: Yup.string().required('Required'),
+  resTime: Yup.string().required('Required'),
+  guests: Yup.number()
+    .required('Required')
+    .moreThan(0, 'Reserve for 1 to 10 guests.')
+    .lessThan(11, 'Reserve for 1 to 10 guests'),
+  occasion: Yup.string().required('Required'),
+});
+
 const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
-  const [bookingForm, setBookingForm] = useState({
-    date: '',
-    resTime: '',
-    guests: 1,
-    occasion: '',
-  });
-
-  const getIsFormValid = () => {
-    return (
-      bookingForm.date &&
-      bookingForm.resTime &&
-      bookingForm.guests &&
-      bookingForm.occasion
-    );
-  };
-
-  const clearForm = () => {
-    setBookingForm({
-      date: '',
+  const formik = useFormik({
+    initialValues: {
+      resDate: '',
       resTime: '',
       guests: 1,
-      occasion: 'occasion',
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    submitForm(bookingForm);
-    clearForm();
-  };
+      occasion: '',
+    },
+    onSubmit: (values) => {
+      submitForm(values);
+    },
+    validationSchema: validationSchema,
+  });
 
   return (
     <section className='util-container'>
       <h2 className='visually-hidden'>Booking Form</h2>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={formik.handleSubmit}
         aria-label='booking-form'
         className='booking-form'
       >
@@ -55,22 +48,29 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
             id='res-date'
             data-testid='res-date'
             name='res-date'
-            value={bookingForm.date}
             onChange={(e) => {
-              setBookingForm({ ...bookingForm, date: e.target.value });
-              dispatch({ type: 'SET_NEW_DATE', date: e.target.value });
+              dispatch({ type: 'SET_NEW_DATE', resDate: e.target.value });
+              formik.setFieldValue('resDate', e.target.value);
+            }}
+            onBlur={() => {
+              formik.setTouched({ resDate: true });
             }}
             required
           />
-          <label htmlFor='res-time'>Choose time</label>
+          {formik.touched.resDate && formik.errors.resDate ? (
+            <p>{formik.errors.resDate}</p>
+          ) : null}
+          <label htmlFor='res-time'>Choose a time</label>
           <select
             id='res-time'
             name='res-time'
-            value={bookingForm.resTime}
             data-testid='res-time'
-            onChange={(e) =>
-              setBookingForm({ ...bookingForm, resTime: e.target.value })
-            }
+            onChange={(e) => {
+              formik.setFieldValue('resTime', e.target.value);
+            }}
+            onBlur={() => {
+              formik.setTouched({ resTime: true });
+            }}
             required
           >
             <option value=''>Select a time</option>
@@ -82,6 +82,9 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               );
             })}
           </select>
+          {formik.touched.resTime && formik.errors.resTime ? (
+            <p>{formik.errors.resTime}</p>
+          ) : null}
           <label htmlFor='guests'>Number of guests</label>
           <input
             type='number'
@@ -90,28 +93,28 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
             max='10'
             id='guests'
             name='guests'
-            value={bookingForm.guests}
-            onChange={(e) =>
-              setBookingForm({ ...bookingForm, guests: e.target.value })
-            }
+            {...formik.getFieldProps('guests')}
             required
           />
+          {formik.touched.guests && formik.errors.guests ? (
+            <p>{formik.errors.guests}</p>
+          ) : null}
           <label htmlFor='occasion'>Occasion</label>
           <select
             id='occasion'
             name='occasion'
-            value={bookingForm.occasion}
-            onChange={(e) =>
-              setBookingForm({ ...bookingForm, occasion: e.target.value })
-            }
+            {...formik.getFieldProps('occasion')}
             required
           >
             <option value=''>Select an occasion</option>
             <option value='birthday'>Birthday</option>
             <option value='anniversary'>Anniversary</option>
           </select>
+          {formik.touched.occasion && formik.errors.occasion ? (
+            <p>{formik.errors.occasion}</p>
+          ) : null}
           <input
-            disabled={!getIsFormValid()}
+            disabled={!formik.isValid}
             type='submit'
             name='submit'
             value='Make Your Reservation'

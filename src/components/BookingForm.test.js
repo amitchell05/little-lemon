@@ -38,7 +38,7 @@ describe('Booking Form', () => {
     expect(bookingForm.props.availableTimes.length).toBeGreaterThan(0);
   });
 
-  test('returns new times based on date available times regardless of date selection', () => {
+  test('returns new available times based on reservation date', () => {
     // Arrange
     const mockDispatch = jest.fn().mockReturnValue([
       { id: '1', time: '17:00' },
