@@ -16,14 +16,9 @@ import { fetchAPI, submitAPI } from '../api/api';
 // Initial state of available times
 const initialTimes = [];
 
-// Generates a list of available bookings based on the reservation date a user selects in the booking form
-const fetchData = (resDate) => {
-  return fetchAPI(resDate);
-};
-
 // Provides an initial list of times upon load on the booking form page
 const initializeTimes = () => {
-  return fetchData();
+  return fetchAPI();
 };
 
 // Reducer
@@ -31,7 +26,7 @@ const initializeTimes = () => {
 const updateTimes = (state = initialTimes, action) => {
   switch (action.type) {
     case 'SET_NEW_DATE':
-      state = fetchData(new Date(action.resDate));
+      state = fetchAPI(new Date(action.resDate));
       return state;
     default:
       throw Error('unknown action');

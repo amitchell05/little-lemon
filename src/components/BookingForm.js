@@ -1,4 +1,5 @@
 // React Tools
+// import { useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -29,11 +30,39 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
     validationSchema: validationSchema,
   });
 
+  // useEffect(() => {
+  // }, [formik, dispatch]);
+
+  // Resource: https://stackoverflow.com/questions/43274559/how-do-i-restrict-past-dates-in-html5-input-type-date
+  const setMinDate = () => {
+    // Current date
+    const currentDate = new Date();
+
+    // Current month
+    let month = currentDate.getMonth() + 1;
+
+    // Current day
+    let day = currentDate.getDate();
+
+    // Current year
+    const year = currentDate.getFullYear();
+
+    // Append 0 to front of month and day if less than 10 (ex. 05)
+    month = month < 10 ? `0${month}` : month;
+    day = day < 10 ? `0${day}` : day;
+
+    // Returns mininmum date for the date input in the form
+    return `${year}-${month}-${day}`;
+  };
+
   return (
     <section className='util-container'>
       <h2 className='visually-hidden'>Booking Form</h2>
       <form
-        onSubmit={formik.handleSubmit}
+        onSubmit={(e) => {
+          e.preventDefault();
+          formik.handleSubmit();
+        }}
         aria-label='booking-form'
         className='booking-form'
       >
@@ -42,34 +71,29 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
           <legend className='visually-hidden'>
             Enter your reservation details
           </legend>
-          <label htmlFor='res-date'>Choose date</label>
+          <label htmlFor='res-date'>Date</label>
           <input
             type='date'
             id='res-date'
             data-testid='res-date'
             name='res-date'
+            min={setMinDate()}
             onChange={(e) => {
               dispatch({ type: 'SET_NEW_DATE', resDate: e.target.value });
               formik.setFieldValue('resDate', e.target.value);
-            }}
-            onBlur={() => {
-              formik.setTouched({ resDate: true });
             }}
             required
           />
           {formik.touched.resDate && formik.errors.resDate ? (
             <p>{formik.errors.resDate}</p>
           ) : null}
-          <label htmlFor='res-time'>Choose a time</label>
+          <label htmlFor='res-time'>Time</label>
           <select
             id='res-time'
             name='res-time'
             data-testid='res-time'
             onChange={(e) => {
               formik.setFieldValue('resTime', e.target.value);
-            }}
-            onBlur={() => {
-              formik.setTouched({ resTime: true });
             }}
             required
           >
@@ -85,7 +109,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
           {formik.touched.resTime && formik.errors.resTime ? (
             <p>{formik.errors.resTime}</p>
           ) : null}
-          <label htmlFor='guests'>Number of guests</label>
+          <label htmlFor='guests'>Number of Guests</label>
           <input
             type='number'
             placeholder='1'
