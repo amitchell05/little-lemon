@@ -1,37 +1,29 @@
 // React Tools
-// import { useEffect } from 'react';
-import { useFormik } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 // Styles
 import './BookingForm.scss';
 
-const validationSchema = Yup.object({
-  resDate: Yup.string().required('Required'),
-  resTime: Yup.string().required('Required'),
-  guests: Yup.number()
-    .required('Required')
-    .moreThan(0, 'Reserve for 1 to 10 guests.')
-    .lessThan(11, 'Reserve for 1 to 10 guests'),
-  occasion: Yup.string().required('Required'),
-});
-
-const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
-  const formik = useFormik({
-    initialValues: {
-      resDate: '',
-      resTime: '',
-      guests: 1,
-      occasion: '',
-    },
-    onSubmit: (values) => {
-      submitForm(values);
-    },
-    validationSchema: validationSchema,
+const BookingForm = ({ availableTimes, dispatch }) => {
+  const times = availableTimes.map((time) => {
+    return (
+      <option key={time.id} value={time.value}>
+        {time.value}
+      </option>
+    );
   });
 
-  // useEffect(() => {
-  // }, [formik, dispatch]);
+  const occasions = [
+    { id: '1', name: 'Birthday', value: 'birthday' },
+    { id: '2', name: 'Anniversary', value: 'anniversary' },
+  ].map((occasion) => {
+    return (
+      <option key={occasion.id} value={occasion.value}>
+        {occasion.name}
+      </option>
+    );
+  });
 
   // Resource: https://stackoverflow.com/questions/43274559/how-do-i-restrict-past-dates-in-html5-input-type-date
   const setMinDate = () => {
@@ -58,96 +50,95 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
   return (
     <section className='util-container'>
       <h2 className='visually-hidden'>Booking Form</h2>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          formik.handleSubmit();
+      <Formik
+        initialValues={{ resDate: '', resTime: '', guests: 1, occasion: '' }}
+        onSubmit={(values, { setSubmitting }) => {
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
         }}
-        aria-label='booking-form'
-        className='booking-form'
+        validationSchema={Yup.object({
+          resDate: Yup.string().required('Required'),
+          resTime: Yup.string().required('Required'),
+          guests: Yup.number()
+            .min(1, 'Must reserve for 1 to 10 guests')
+            .max(11, 'Must reserve for 1 to 10 guests')
+            .required('Required'),
+          occasion: Yup.string().required('Required'),
+        })}
       >
-        <h2>Reservation Form</h2>
-        <fieldset>
-          <legend className='visually-hidden'>
-            Enter your reservation details
-          </legend>
-          <label htmlFor='res-date'>Date</label>
-          <input
-            type='date'
-            id='res-date'
-            data-testid='res-date'
-            name='res-date'
-            min={setMinDate()}
-            onChange={(e) => {
-              dispatch({ type: 'SET_NEW_DATE', resDate: e.target.value });
-              formik.setFieldValue('resDate', e.target.value);
-            }}
-            required
-          />
-          {formik.touched.resDate && formik.errors.resDate ? (
-            <p>{formik.errors.resDate}</p>
-          ) : null}
-          <label htmlFor='res-time'>Time</label>
-          <select
-            id='res-time'
-            name='res-time'
-            data-testid='res-time'
-            onChange={(e) => {
-              formik.setFieldValue('resTime', e.target.value);
-            }}
-            required
-          >
-            <option value=''>Select a time</option>
-            {availableTimes.map((time) => {
-              return (
-                <option key={time.id} value={time.time}>
-                  {time.time}
-                </option>
-              );
-            })}
-          </select>
-          {formik.touched.resTime && formik.errors.resTime ? (
-            <p>{formik.errors.resTime}</p>
-          ) : null}
-          <label htmlFor='guests'>Number of Guests</label>
-          <input
-            type='number'
-            placeholder='1'
-            min='1'
-            max='10'
-            id='guests'
-            name='guests'
-            {...formik.getFieldProps('guests')}
-            required
-          />
-          {formik.touched.guests && formik.errors.guests ? (
-            <p>{formik.errors.guests}</p>
-          ) : null}
-          <label htmlFor='occasion'>Occasion</label>
-          <select
-            id='occasion'
-            name='occasion'
-            {...formik.getFieldProps('occasion')}
-            required
-          >
-            <option value=''>Select an occasion</option>
-            <option value='birthday'>Birthday</option>
-            <option value='anniversary'>Anniversary</option>
-          </select>
-          {formik.touched.occasion && formik.errors.occasion ? (
-            <p>{formik.errors.occasion}</p>
-          ) : null}
-          <input
-            disabled={!formik.isValid}
-            type='submit'
-            name='submit'
-            value='Make Your Reservation'
-            className='button button--primary'
-          />
-        </fieldset>
-      </form>
+        {(formik) => (
+          <Form aria-label='booking-form' className='booking-form'>
+            <h2>Reservation Form</h2>
+            <fieldset>
+              <legend className='visually-hidden'>
+                Enter your reservation details
+              </legend>
+              <label htmlFor='resDate'>Date</label>
+              <input
+                id='resDate'
+                type='date'
+                data-testid='resDate'
+                min={setMinDate()}
+                required
+                {...formik.getFieldProps('resDate')}
+                onChange={(e) => {
+                  dispatch({ type: 'SET_NEW_DATE', resDate: e.target.value });
+                  formik.setFieldValue('resDate', e.target.value);
+                }}
+              />
+              <ErrorMessage name='resDate' />
+
+              <label htmlFor='resTime'>Time</label>
+              <Field name='resTime' as='select' required>
+                <option value=''>Select a time</option>
+                {times}
+              </Field>
+              <ErrorMessage name='resTime' />
+
+              <label htmlFor='guests'>Number of Guests</label>
+              <Field
+                name='guests'
+                type='number'
+                placeholder='1'
+                min='1'
+                max='10'
+                required
+              />
+              <ErrorMessage name='guests' />
+
+              <label htmlFor='occasion'>Occasion</label>
+              <Field name='occasion' as='select' required>
+                <option value=''>Occasion</option>
+                {occasions}
+              </Field>
+              <ErrorMessage name='occasion' />
+
+              <input
+                type='submit'
+                value='Make Your Reservation'
+                className='button button--primary'
+              />
+            </fieldset>
+          </Form>
+        )}
+      </Formik>
     </section>
   );
 };
 
 export default BookingForm;
+
+// const BookingForm = ({ submitForm }) => {
+//     onSubmit: (values) => {
+//       submitForm(values);
+//     }
+
+//         onSubmit={(e) => {
+//           e.preventDefault();
+//           formik.handleSubmit();
+//         }}
+
+//           <select
+//             onChange={(e) => {
+//               formik.setFieldValue('resTime', e.target.value);
+//             }}
