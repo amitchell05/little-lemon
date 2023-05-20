@@ -52,9 +52,8 @@ const BookingForm = ({ availableTimes, dispatch }) => {
       <h2 className='visually-hidden'>Booking Form</h2>
       <Formik
         initialValues={{ resDate: '', resTime: '', guests: 1, occasion: '' }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values) => {
           alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
         }}
         validationSchema={Yup.object({
           resDate: Yup.string().required('Required'),
@@ -127,18 +126,3 @@ const BookingForm = ({ availableTimes, dispatch }) => {
 };
 
 export default BookingForm;
-
-// const BookingForm = ({ submitForm }) => {
-//     onSubmit: (values) => {
-//       submitForm(values);
-//     }
-
-//         onSubmit={(e) => {
-//           e.preventDefault();
-//           formik.handleSubmit();
-//         }}
-
-//           <select
-//             onChange={(e) => {
-//               formik.setFieldValue('resTime', e.target.value);
-//             }}

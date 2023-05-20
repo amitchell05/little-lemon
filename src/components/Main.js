@@ -2,10 +2,13 @@
 import AboutPage from './AboutPage';
 import BookingPage from './BookingPage';
 import ConfirmedBooking from './ConfirmedBooking';
+import ContactInfoPage from './ContactInfoPage';
 import HomePage from './HomePage';
 import LoginPage from './LoginPage';
 import MenuPage from './MenuPage';
 import OrderOnlinePage from './OrderOnlinePage';
+import PaymentInfoPage from './PaymentInfoPage';
+import ReservationSummary from './ReservationSummary';
 
 // React Tools
 // import { useNavigate } from 'react-router-dom';
@@ -70,6 +73,30 @@ const Main = () => {
               availableTimes={availableTimes}
               dispatch={dispatch}
               // submitForm={submitForm}
+            />
+          }
+        ></Route>
+        <Route
+          path='/contact-info'
+          element={
+            <ContactInfoPage
+            // submitForm={submitForm}
+            />
+          }
+        ></Route>
+        <Route
+          path='/payment-info'
+          element={
+            <PaymentInfoPage
+            // submitForm={submitForm}
+            />
+          }
+        ></Route>
+        <Route
+          path='/reservation-summary'
+          element={
+            <ReservationSummary
+            // submitForm={submitForm}
             />
           }
         ></Route>

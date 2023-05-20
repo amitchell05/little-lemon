@@ -1,0 +1,28 @@
+/* Contact Info Form */
+
+.contact-info-form {
+  display: grid;
+  gap: 1.25rem;
+  padding: 0.938rem 1.125rem;
+
+  @media (min-width: 48rem) {
+    padding: 5.438rem 0 4.563rem;
+  }
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .contact-info-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @media (min-width: 48rem) {
+        flex-direction: row;
+        gap: 12.5rem;
+      }
+    }
+  }
+}

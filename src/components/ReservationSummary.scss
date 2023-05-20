@@ -1,0 +1,21 @@
+/* Reservation Summary */
+
+// TODO: Finish styling the reservation detail component (colors, inner layout, spacing, etc.)
+.reservation-summary {
+  padding: 0.938rem 1.125rem;
+
+  @media (min-width: 48rem) {
+    padding: 5.438rem 0 4.563rem;
+  }
+
+  .reservation-summary-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: 48rem) {
+      flex-direction: row;
+      gap: 12.5rem;
+    }
+  }
+}

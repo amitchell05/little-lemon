@@ -159,6 +159,12 @@ input[type='submit'] {
   opacity: 0.5;
 }
 
+.button--secondary,
+.link-button--secondary {
+  background-color: variables.$color-background-white;
+  border: 0.25rem solid variables.$border-color-yellow;
+}
+
 // Link Buttons
 .link-button {
   display: inline-block;
