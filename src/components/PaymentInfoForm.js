@@ -2,21 +2,17 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-// import { useReservationData } from '../contexts/ReservationContext';
 import { submitAPI } from '../api/api';
 
 // Styles
 import './PaymentInfoForm.scss';
 
 const PaymentInfoForm = () => {
-  // const { updateReservationData } = useReservationData();
-
   const navigate = useNavigate();
 
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {
-      // updateReservationData({ payment: formData });
       navigate('/reservation-summary');
 
       // Scroll to the top of the confirmed booking page (figure out if there's a better way)
@@ -46,9 +42,7 @@ const PaymentInfoForm = () => {
           cardNumber: Yup.string().required('Required'),
           cardHolderName: Yup.string().required('Required'),
           expDate: Yup.string().required('Required'),
-          securityCode: Yup.string()
-            .email('Invalid email address')
-            .required('Required'),
+          securityCode: Yup.string().required('Required'),
         })}
       >
         {() => (

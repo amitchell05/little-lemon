@@ -3,17 +3,22 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { submitAPI } from '../api/api';
 import { useNavigate } from 'react-router-dom';
-// import { useReservationData } from '../contexts/ReservationContext';
 
 // Styles
 import './BookingForm.scss';
 
 const BookingForm = ({ availableTimes, dispatch }) => {
-  // const { reservationData, updateReservationData } = useReservationData();
-  // const bookingData = reservationData.booking;
+  const locations = [
+    { id: '1', address: '100 Lemon Drive, Chicago, IL 12345' },
+  ].map((location) => {
+    return (
+      <option key={location.id} value={location.address}>
+        {location.address}
+      </option>
+    );
+  });
 
-  // console.log('Reservation Data:', reservationData);
-
+  // TODO (optional): determine how to make it support multiple locales
   const times = availableTimes.map((time) => {
     return (
       <option key={time.id} value={time.value}>
@@ -60,7 +65,8 @@ const BookingForm = ({ availableTimes, dispatch }) => {
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {
-      // updateReservationData({ booking: formData });
+      localStorage.setItem('booking', JSON.stringify(formData));
+
       navigate('/contact-info');
 
       // Scroll to the top of the confirmed booking page (figure out if there's a better way)
@@ -73,15 +79,19 @@ const BookingForm = ({ availableTimes, dispatch }) => {
       <h2 className='visually-hidden'>Booking Form</h2>
       <Formik
         initialValues={{
+          location: '',
           resDate: '',
           resTime: '',
           guests: 1,
           occasion: '',
+          seating: '',
+          accomodations: '',
         }}
         onSubmit={(values) => {
           submitForm(values);
         }}
         validationSchema={Yup.object({
+          location: Yup.string().required('Required'),
           resDate: Yup.string().required('Required'),
           resTime: Yup.string().required('Required'),
           guests: Yup.number()
@@ -89,6 +99,8 @@ const BookingForm = ({ availableTimes, dispatch }) => {
             .max(11, 'Must reserve for 1 to 10 guests')
             .required('Required'),
           occasion: Yup.string().required('Required'),
+          seating: Yup.string().required('Required'),
+          accomodations: Yup.string().nullable(),
         })}
       >
         {(formik) => (
@@ -98,6 +110,13 @@ const BookingForm = ({ availableTimes, dispatch }) => {
               <legend className='visually-hidden'>
                 Enter your reservation details
               </legend>
+              <label htmlFor='location'>Restaurant Location</label>
+              <Field name='location' as='select' required>
+                <option value=''>Select a location</option>
+                {locations}
+              </Field>
+              <ErrorMessage name='location' />
+
               <label htmlFor='resDate'>Date</label>
               <input
                 id='resDate'
@@ -137,6 +156,31 @@ const BookingForm = ({ availableTimes, dispatch }) => {
                 {occasions}
               </Field>
               <ErrorMessage name='occasion' />
+
+              <label htmlFor='seating'>Type of Seating</label>
+              <fieldset>
+                <legend className='visually-hidden'>
+                  Select a type of seating
+                </legend>
+                <label>
+                  <Field
+                    type='radio'
+                    name='seating'
+                    value='standard'
+                    required
+                  />
+                  Standard
+                </label>
+                <label>
+                  <Field type='radio' name='seating' value='outside' />
+                  Outside
+                </label>
+              </fieldset>
+              <ErrorMessage name='seating' />
+
+              <label htmlFor='accomodations'>Accomodations</label>
+              <Field name='accomodations' as='textarea'></Field>
+              <ErrorMessage name='accomodations' />
 
               <input
                 type='submit'

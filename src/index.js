@@ -4,18 +4,15 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MenuProvider } from './contexts/MenuContext';
-import { ReservationProvider } from './contexts/ReservationContext';
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <MenuProvider>
-      <ReservationProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ReservationProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </MenuProvider>
   </React.StrictMode>
 );

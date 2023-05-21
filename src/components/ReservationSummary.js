@@ -15,6 +15,19 @@ const ReservationSummary = () => {
     image: foodInBowl,
   };
 
+  const bookingData = JSON.parse(localStorage.getItem('booking'));
+  // const contactData = JSON.parse(localStorage.getItem('contact'));
+
+  const seating =
+    bookingData.seating.charAt(0).toUpperCase() + bookingData.seating.slice(1);
+
+  // TODO (optional): determine how to make it support multiple localess
+  const getFullDate = (date) => {
+    console.log(date);
+    const month = date.toLocaleString('default', { month: 'long' });
+    return `${month} ${date.getDay()}, ${date.getFullYear()}`;
+  };
+
   return (
     <>
       <CallToAction hero={{ ...hero }} utilHeroTitle={'util-hero-title'} />
@@ -22,15 +35,16 @@ const ReservationSummary = () => {
         <h2>Your Reservation</h2>
         <section>
           <h3>Location</h3>
-          <p>Placeholder</p>
+          <p>{bookingData.location}</p>
           <h3>Seating</h3>
-          <p>Placeholder</p>
+          <p>{seating}</p>
           <h3>Guests</h3>
-          <p>Placeholder</p>
+          <p>{bookingData.guests}</p>
           <h3>Time</h3>
-          <p>Placeholder</p>
+          {/* TODO (optional): determine how to make it support multiple locales */}
+          <p>{bookingData.resTime}</p>
           <h3>Date</h3>
-          <p>Placeholder</p>
+          <p>{getFullDate(new Date(bookingData.resDate))}</p>
         </section>
         <div className='reservation-summary-actions'>
           <input

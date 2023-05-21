@@ -3,21 +3,18 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { submitAPI } from '../api/api';
-// import { useReservationData } from '../contexts/ReservationContext';
 
 // Styles
 import './ContactInfoForm.scss';
 
 const ContactInfoForm = () => {
-  // const { reservationData, updateReservationData } = useReservationData();
-  // const contactInfoData = reservationData['contact-info'];
-
   const navigate = useNavigate();
 
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {
-      // updateReservationData({ 'contact-info': formData });
+      localStorage.setItem('contact', JSON.stringify(formData));
+
       navigate('/payment-info');
 
       // Scroll to the top of the confirmed booking page (figure out if there's a better way)

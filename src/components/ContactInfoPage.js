@@ -5,7 +5,7 @@ import peopleDining from '../assets/alex-haney-CAhjZmVk5H4-unsplash.jpg';
 import CallToAction from './CallToAction';
 import ContactInfoForm from './ContactInfoForm';
 
-const ContactInfoPage = ({ setReservationData }) => {
+const ContactInfoPage = () => {
   const hero = {
     title: 'Contact Information',
     leadText:
@@ -16,7 +16,7 @@ const ContactInfoPage = ({ setReservationData }) => {
   return (
     <>
       <CallToAction hero={{ ...hero }} utilHeroTitle={'util-hero-title'} />
-      <ContactInfoForm setReservationData={setReservationData} />
+      <ContactInfoForm />
     </>
   );
 };
