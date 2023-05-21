@@ -7,7 +7,7 @@ import BookingForm from './BookingForm';
 // Styles
 import CallToAction from './CallToAction';
 
-const BookingPage = ({ availableTimes, dispatch, submitForm }) => {
+const BookingPage = ({ availableTimes, dispatch, setReservationData }) => {
   const hero = {
     title: 'Book A Table',
     leadText:
@@ -21,7 +21,7 @@ const BookingPage = ({ availableTimes, dispatch, submitForm }) => {
       <BookingForm
         availableTimes={availableTimes}
         dispatch={dispatch}
-        submitForm={submitForm}
+        setReservationData={setReservationData}
       />
     </>
   );

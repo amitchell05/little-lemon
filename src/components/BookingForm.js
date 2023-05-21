@@ -1,11 +1,19 @@
 // React Tools
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { submitAPI } from '../api/api';
+import { useNavigate } from 'react-router-dom';
+// import { useReservationData } from '../contexts/ReservationContext';
 
 // Styles
 import './BookingForm.scss';
 
 const BookingForm = ({ availableTimes, dispatch }) => {
+  // const { reservationData, updateReservationData } = useReservationData();
+  // const bookingData = reservationData.booking;
+
+  // console.log('Reservation Data:', reservationData);
+
   const times = availableTimes.map((time) => {
     return (
       <option key={time.id} value={time.value}>
@@ -47,13 +55,31 @@ const BookingForm = ({ availableTimes, dispatch }) => {
     return `${year}-${month}-${day}`;
   };
 
+  const navigate = useNavigate();
+
+  // Submits the form and navigates users to next screen
+  const submitForm = (formData) => {
+    if (submitAPI(formData)) {
+      // updateReservationData({ booking: formData });
+      navigate('/contact-info');
+
+      // Scroll to the top of the confirmed booking page (figure out if there's a better way)
+      window.scrollTo(0, 0);
+    }
+  };
+
   return (
     <section className='util-container'>
       <h2 className='visually-hidden'>Booking Form</h2>
       <Formik
-        initialValues={{ resDate: '', resTime: '', guests: 1, occasion: '' }}
+        initialValues={{
+          resDate: '',
+          resTime: '',
+          guests: 1,
+          occasion: '',
+        }}
         onSubmit={(values) => {
-          alert(JSON.stringify(values, null, 2));
+          submitForm(values);
         }}
         validationSchema={Yup.object({
           resDate: Yup.string().required('Required'),

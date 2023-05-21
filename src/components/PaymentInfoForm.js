@@ -1,11 +1,33 @@
 // React Tools
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
+// import { useReservationData } from '../contexts/ReservationContext';
+import { submitAPI } from '../api/api';
 
 // Styles
 import './PaymentInfoForm.scss';
 
 const PaymentInfoForm = () => {
+  // const { updateReservationData } = useReservationData();
+
+  const navigate = useNavigate();
+
+  // Submits the form and navigates users to next screen
+  const submitForm = (formData) => {
+    if (submitAPI(formData)) {
+      // updateReservationData({ payment: formData });
+      navigate('/reservation-summary');
+
+      // Scroll to the top of the confirmed booking page (figure out if there's a better way)
+      window.scrollTo(0, 0);
+    }
+  };
+
+  const goToPrevious = () => {
+    navigate('/contact-info');
+  };
+
   return (
     <section className='util-container'>
       <h2 className='visually-hidden'>Payment Information Form</h2>
@@ -17,7 +39,7 @@ const PaymentInfoForm = () => {
           securityCode: '',
         }}
         onSubmit={(values) => {
-          alert(JSON.stringify(values, null, 2));
+          submitForm(values);
         }}
         validationSchema={Yup.object({
           // TODO: Validate credit card information (basic level)
@@ -58,6 +80,7 @@ const PaymentInfoForm = () => {
                   type='button'
                   value='Back'
                   className='button button--secondary'
+                  onClick={goToPrevious}
                 />
                 <input
                   type='submit'

@@ -42,23 +42,12 @@ const initializeTimes = () => {
 
 const Main = () => {
   const { isMenuOpen } = useIsMenuOpen();
-  // const navigate = useNavigate();
 
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
     [],
     initializeTimes
   );
-
-  // Submits the booking form and navigates users to the confirmed booking page
-  // const submitForm = (formData) => {
-  //   if (submitAPI(formData)) {
-  //     navigate('/confirmed-booking');
-
-  //     // Scroll to the top of the confirmed booking page (figure out if there's a better way)
-  //     window.scrollTo(0, 0);
-  //   }
-  // };
 
   return (
     <main className={isMenuOpen ? 'util-overlay' : ''}>
@@ -69,36 +58,14 @@ const Main = () => {
         <Route
           path='/booking'
           element={
-            <BookingPage
-              availableTimes={availableTimes}
-              dispatch={dispatch}
-              // submitForm={submitForm}
-            />
+            <BookingPage availableTimes={availableTimes} dispatch={dispatch} />
           }
         ></Route>
-        <Route
-          path='/contact-info'
-          element={
-            <ContactInfoPage
-            // submitForm={submitForm}
-            />
-          }
-        ></Route>
-        <Route
-          path='/payment-info'
-          element={
-            <PaymentInfoPage
-            // submitForm={submitForm}
-            />
-          }
-        ></Route>
+        <Route path='/contact-info' element={<ContactInfoPage />}></Route>
+        <Route path='/payment-info' element={<PaymentInfoPage />}></Route>
         <Route
           path='/reservation-summary'
-          element={
-            <ReservationSummary
-            // submitForm={submitForm}
-            />
-          }
+          element={<ReservationSummary />}
         ></Route>
         <Route path='/confirmed-booking' element={<ConfirmedBooking />}></Route>
         <Route path='/order-online' element={<OrderOnlinePage />}></Route>
