@@ -28,7 +28,9 @@ const ReservationSummary = () => {
   // TODO (optional): determine how to make it support multiple localess
   const getFullDate = (date) => {
     const month = date.toLocaleString('default', { month: 'long' });
-    return `${month} ${date.getDay()}, ${date.getFullYear()}`;
+    const day = date.getUTCDate();
+
+    return `${month} ${day}, ${date.getFullYear()}`;
   };
 
   const navigate = useNavigate();

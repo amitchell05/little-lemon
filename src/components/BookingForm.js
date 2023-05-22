@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import './BookingForm.scss';
 
 const BookingForm = ({ availableTimes, dispatch }) => {
+  const bookingData = JSON.parse(localStorage.getItem('booking'));
+
   const locations = [
     { id: '1', address: '100 Lemon Drive, Chicago, IL 12345' },
   ].map((location) => {
@@ -79,13 +81,13 @@ const BookingForm = ({ availableTimes, dispatch }) => {
       <h2 className='visually-hidden'>Booking Form</h2>
       <Formik
         initialValues={{
-          location: '',
-          resDate: '',
-          resTime: '',
-          guests: 1,
-          occasion: '',
-          seating: '',
-          accomodations: '',
+          location: bookingData ? bookingData.location : '',
+          resDate: bookingData ? bookingData.resDate : '',
+          resTime: bookingData ? bookingData.resTime : '',
+          guests: bookingData ? bookingData.guests : 1,
+          occasion: bookingData ? bookingData.occasion : '',
+          seating: bookingData ? bookingData.seating : '',
+          accomodations: bookingData ? bookingData.accomodations : '',
         }}
         onSubmit={(values) => {
           submitForm(values);

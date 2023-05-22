@@ -8,6 +8,8 @@ import { submitAPI } from '../api/api';
 import './ContactInfoForm.scss';
 
 const ContactInfoForm = () => {
+  const contactData = JSON.parse(localStorage.getItem('contact'));
+
   const navigate = useNavigate();
 
   // Submits the form and navigates users to next screen
@@ -31,10 +33,10 @@ const ContactInfoForm = () => {
       <h2 className='visually-hidden'>Contact Information Form</h2>
       <Formik
         initialValues={{
-          firstName: '',
-          lastName: '',
-          phone: '',
-          email: '',
+          firstName: contactData ? contactData.firstName : '',
+          lastName: contactData ? contactData.lastName : '',
+          phone: contactData ? contactData.phone : '',
+          email: contactData ? contactData.email : '',
         }}
         onSubmit={(values) => {
           submitForm(values);

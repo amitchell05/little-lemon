@@ -62,7 +62,7 @@ const PaymentInfoForm = () => {
 
               {/* TODO: Update layout of expDate and securityCode fields */}
               <label htmlFor='expDate'>Expiration Date</label>
-              <Field name='expDate' type='text' required />
+              <Field name='expDate' type='date' required />
               <ErrorMessage name='expDate' />
 
               <label htmlFor='securityCode'>Security Code</label>
