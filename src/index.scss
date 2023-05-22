@@ -125,9 +125,9 @@ p {
 }
 
 // Buttons
-button,
-input[type='submit'] {
-  border: none;
+button:hover,
+input[type='submit']:hover,
+input[type='button']:hover {
   cursor: pointer;
 }
 
@@ -149,6 +149,7 @@ input[type='submit'] {
 .button--primary,
 .link-button--primary {
   background-color: variables.$color-background-yellow;
+  border: none;
 }
 
 .button--primary:active {

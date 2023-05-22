@@ -4,6 +4,10 @@ import foodInBowl from '../assets/taylor-kiser-6RJct18G_3I-unsplash.jpg';
 // Components
 import CallToAction from './CallToAction';
 
+// React Tools
+import { useNavigate } from 'react-router-dom';
+import { submitAPI } from '../api/api';
+
 // Styles
 import './ReservationSummary.scss';
 
@@ -16,16 +20,35 @@ const ReservationSummary = () => {
   };
 
   const bookingData = JSON.parse(localStorage.getItem('booking'));
-  // const contactData = JSON.parse(localStorage.getItem('contact'));
+  const contactData = JSON.parse(localStorage.getItem('contact'));
 
   const seating =
     bookingData.seating.charAt(0).toUpperCase() + bookingData.seating.slice(1);
 
   // TODO (optional): determine how to make it support multiple localess
   const getFullDate = (date) => {
-    console.log(date);
     const month = date.toLocaleString('default', { month: 'long' });
     return `${month} ${date.getDay()}, ${date.getFullYear()}`;
+  };
+
+  const navigate = useNavigate();
+
+  const reservationData = { booking: bookingData, contact: contactData };
+
+  const confirmReservation = () => {
+    if (submitAPI(reservationData)) {
+      localStorage.removeItem('booking');
+      localStorage.removeItem('contact');
+
+      navigate('/confirmed-booking');
+
+      // Scroll to the top of the confirmed booking page (figure out if there's a better way)
+      window.scrollTo(0, 0);
+    }
+  };
+
+  const goToPrevious = () => {
+    navigate('/payment-info');
   };
 
   return (
@@ -51,11 +74,13 @@ const ReservationSummary = () => {
             type='button'
             value='Back'
             className='button button--secondary'
+            onClick={goToPrevious}
           />
           <input
-            type='submit'
+            type='button'
             value='Confirm'
             className='button button--primary'
+            onClick={confirmReservation}
           />
         </div>
       </article>
