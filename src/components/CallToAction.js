@@ -16,7 +16,9 @@ const CallToAction = ({ hero, leadTextNewline, utilHeroTitle }) => {
           <h1 className={utilHeroTitle}>{hero.title}</h1>
           {hero.subTitle && <h2>{hero.subTitle}</h2>}
           <div className='hero-description-section'>
-            <p className={`lead-text ${leadTextNewline}`}>{hero.leadText}</p>
+            <p className={`lead-text${leadTextNewline ? leadTextNewline : ''}`}>
+              {hero.leadText}
+            </p>
             <div>
               <img
                 src={hero.image}
@@ -26,7 +28,9 @@ const CallToAction = ({ hero, leadTextNewline, utilHeroTitle }) => {
             </div>
           </div>
           {windowWidth >= 768 && (
-            <p className={`lead-text ${leadTextNewline}`}>{hero.leadText}</p>
+            <p className={`lead-text${leadTextNewline ? leadTextNewline : ''}`}>
+              {hero.leadText}
+            </p>
           )}
           {hero.link && hero.linkText && (
             <Link

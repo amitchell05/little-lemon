@@ -1,27 +1,31 @@
 /* Payment Info Form */
 
-.payment-info-form {
-  display: grid;
-  gap: 1.25rem;
+.payment-info-form-section {
   padding: 0.938rem 1.125rem;
 
   @media (min-width: 48rem) {
-    padding: 5.438rem 0 4.563rem;
+    padding-top: 5.438rem;
+    padding-bottom: 4.563rem;
   }
 
-  fieldset {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  .payment-info-form {
+    display: grid;
+    gap: 1.25rem;
 
-    .payment-info-actions {
+    fieldset {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      width: 100%;
 
-      @media (min-width: 48rem) {
-        flex-direction: row;
-        gap: 12.5rem;
+      .payment-info-actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media (min-width: 48rem) {
+          flex-direction: row;
+          gap: 12.5rem;
+        }
       }
     }
   }

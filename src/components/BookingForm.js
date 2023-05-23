@@ -77,7 +77,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
   };
 
   return (
-    <section className='util-container'>
+    <section className='booking-form-section'>
       <h2 className='visually-hidden'>Booking Form</h2>
       <Formik
         initialValues={{
@@ -106,20 +106,27 @@ const BookingForm = ({ availableTimes, dispatch }) => {
         })}
       >
         {(formik) => (
-          <Form aria-label='booking-form' className='booking-form'>
+          <Form
+            aria-label='booking-form'
+            className='util-container booking-form'
+          >
             <h2>Reservation Form</h2>
             <fieldset>
               <legend className='visually-hidden'>
                 Enter your reservation details
               </legend>
-              <label htmlFor='location'>Restaurant Location</label>
+              <label htmlFor='location' className='lead-text'>
+                Restaurant Location
+              </label>
               <Field name='location' as='select' required>
                 <option value=''>Select a location</option>
                 {locations}
               </Field>
               <ErrorMessage name='location' />
 
-              <label htmlFor='resDate'>Date</label>
+              <label htmlFor='resDate' className='lead-text'>
+                Date
+              </label>
               <input
                 id='resDate'
                 type='date'
@@ -134,14 +141,18 @@ const BookingForm = ({ availableTimes, dispatch }) => {
               />
               <ErrorMessage name='resDate' />
 
-              <label htmlFor='resTime'>Time</label>
+              <label htmlFor='resTime' className='lead-text'>
+                Time
+              </label>
               <Field name='resTime' as='select' required>
                 <option value=''>Select a time</option>
                 {times}
               </Field>
               <ErrorMessage name='resTime' />
 
-              <label htmlFor='guests'>Number of Guests</label>
+              <label htmlFor='guests' className='lead-text'>
+                Number of Guests
+              </label>
               <Field
                 name='guests'
                 type='number'
@@ -152,19 +163,23 @@ const BookingForm = ({ availableTimes, dispatch }) => {
               />
               <ErrorMessage name='guests' />
 
-              <label htmlFor='occasion'>Occasion</label>
+              <label htmlFor='occasion' className='lead-text'>
+                Occasion
+              </label>
               <Field name='occasion' as='select' required>
                 <option value=''>Occasion</option>
                 {occasions}
               </Field>
               <ErrorMessage name='occasion' />
 
-              <label htmlFor='seating'>Type of Seating</label>
+              <label htmlFor='seating' className='lead-text'>
+                Type of Seating
+              </label>
               <fieldset>
                 <legend className='visually-hidden'>
                   Select a type of seating
                 </legend>
-                <label>
+                <label className='lead-text'>
                   <Field
                     type='radio'
                     name='seating'
@@ -173,14 +188,16 @@ const BookingForm = ({ availableTimes, dispatch }) => {
                   />
                   Standard
                 </label>
-                <label>
+                <label className='lead-text'>
                   <Field type='radio' name='seating' value='outside' />
                   Outside
                 </label>
               </fieldset>
               <ErrorMessage name='seating' />
 
-              <label htmlFor='accomodations'>Accomodations</label>
+              <label htmlFor='accomodations' className='lead-text'>
+                Accomodations
+              </label>
               <Field name='accomodations' as='textarea'></Field>
               <ErrorMessage name='accomodations' />
 

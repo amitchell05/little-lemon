@@ -1,18 +1,31 @@
 /* Booking Form */
 @use '../variables';
 
-.booking-form {
-  display: grid;
-  gap: 1.25rem;
+.booking-form-section {
   padding: 0.938rem 1.125rem;
 
   @media (min-width: 48rem) {
-    padding: 5.438rem 0 4.563rem;
+    padding-top: 5.438rem;
+    padding-bottom: 4.563rem;
   }
 
-  fieldset {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  .booking-form {
+    display: grid;
+    gap: 1.25rem;
+
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      label {
+        color: variables.$color-text-green;
+      }
+
+      textarea {
+         resize: none;
+        min-height: 5rem;
+      }
+    }
   }
 }

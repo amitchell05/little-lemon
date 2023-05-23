@@ -29,7 +29,7 @@ const ContactInfoForm = () => {
   };
 
   return (
-    <section className='util-container'>
+    <section className='contact-info-form-section'>
       <h2 className='visually-hidden'>Contact Information Form</h2>
       <Formik
         initialValues={{
@@ -53,25 +53,36 @@ const ContactInfoForm = () => {
         })}
       >
         {() => (
-          <Form aria-label='contact-info-form' className='contact-info-form'>
+          <Form
+            aria-label='contact-info-form'
+            className='util-container contact-info-form'
+          >
             <h2>Contact Information Form</h2>
             <fieldset>
               <legend className='visually-hidden'>
                 Enter your contact information
               </legend>
-              <label htmlFor='firstName'>First Name</label>
+              <label htmlFor='firstName' className='lead-text'>
+                First Name
+              </label>
               <Field name='firstName' type='text' required />
               <ErrorMessage name='firstName' />
 
-              <label htmlFor='lastName'>Last Name</label>
+              <label htmlFor='lastName' className='lead-text'>
+                Last Name
+              </label>
               <Field name='lastName' type='text' required />
               <ErrorMessage name='lastName' />
 
-              <label htmlFor='phone'>Phone Number</label>
+              <label htmlFor='phone' className='lead-text'>
+                Phone Number
+              </label>
               <Field name='phone' type='text' required />
               <ErrorMessage name='phone' />
 
-              <label htmlFor='email'>Email Address</label>
+              <label htmlFor='email' className='lead-text'>
+                Email Address
+              </label>
               <Field name='email' type='email' />
               <ErrorMessage name='email' />
 

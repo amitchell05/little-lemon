@@ -25,7 +25,7 @@ const PaymentInfoForm = () => {
   };
 
   return (
-    <section className='util-container'>
+    <section className='payment-info-form-section'>
       <h2 className='visually-hidden'>Payment Information Form</h2>
       <Formik
         initialValues={{
@@ -46,26 +46,37 @@ const PaymentInfoForm = () => {
         })}
       >
         {() => (
-          <Form aria-label='payment-info-form' className='payment-info-form'>
+          <Form
+            aria-label='payment-info-form'
+            className='util-container payment-info-form'
+          >
             <h2>Payment Information Form</h2>
             <fieldset>
               <legend className='visually-hidden'>
                 Enter your payment information
               </legend>
-              <label htmlFor='cardNumber'>Card Number</label>
+              <label htmlFor='cardNumber' className='lead-text'>
+                Card Number
+              </label>
               <Field name='cardNumber' type='text' required />
               <ErrorMessage name='cardNumber' />
 
-              <label htmlFor='cardHolderName'>Cardholder Name</label>
+              <label htmlFor='cardHolderName' className='lead-text'>
+                Cardholder Name
+              </label>
               <Field name='cardHolderName' type='text' required />
               <ErrorMessage name='cardHolderName' />
 
               {/* TODO: Update layout of expDate and securityCode fields */}
-              <label htmlFor='expDate'>Expiration Date</label>
+              <label htmlFor='expDate' className='lead-text'>
+                Expiration Date
+              </label>
               <Field name='expDate' type='date' required />
               <ErrorMessage name='expDate' />
 
-              <label htmlFor='securityCode'>Security Code</label>
+              <label htmlFor='securityCode' className='lead-text'>
+                Security Code
+              </label>
               <Field name='securityCode' type='text' />
               <ErrorMessage name='securityCode' />
 
