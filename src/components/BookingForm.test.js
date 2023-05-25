@@ -1,9 +1,9 @@
 // Components
-import { useReducer } from 'react';
 import BookingForm from './BookingForm';
 
 // React Tools
 import { render, screen, fireEvent } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 let mockInitializeTimes;
 let mockUpdateTimes;
@@ -51,35 +51,25 @@ describe('Booking Form', () => {
     expect(bookingForm.props.availableTimes.length).toBeGreaterThan(0);
   });
 
-  // test('updateTimes returns the same value provided in the state', () => {
-  //   // Arrange
-  //   let mockAvailableTimes = mockInitializeTimes();
+  test('updateTimes returns the same value provided in the state', async () => {
+    // Arrange
+    let mockAvailableTimes = mockInitializeTimes();
 
-  //   const bookingForm = (
-  //     <BookingForm
-  //       availableTimes={mockAvailableTimes}
-  //       dispatch={mockUpdateTimes}
-  //     />
-  //   );
+    const bookingForm = (
+      <BookingForm
+        availableTimes={mockAvailableTimes}
+        dispatch={mockUpdateTimes}
+      />
+    );
 
-  //   // Act
-  //   render(bookingForm);
-  //   const dateInput = screen.getByTestId('resDate');
-  //   fireEvent.change(dateInput, { target: { value: '2023-05-24' } });
+    // Act
+    render(bookingForm);
+    await act(() => {
+      const dateInput = screen.getByTestId('resDate');
+      fireEvent.change(dateInput, { target: { value: '2023-05-24' } });
+    });
 
-  //   // Assert
-  //   expect(bookingForm.props.availableTimes.length).toBeGreaterThan(0);
-  // });
+    // Assert
+    expect(bookingForm.props.availableTimes.length).toBeGreaterThan(0);
+  });
 });
-
-// import { waitFor } from '@testing-library/react';
-// import { act } from 'react-dom/test-utils';
-
-// Assert
-//     await waitFor(() => {
-//       expect(mockDispatch).toHaveBeenCalledWith({
-//         type: 'SET_NEW_DATE',
-//         resDate: '2023-05-24',
-//       });
-//     });
-//
