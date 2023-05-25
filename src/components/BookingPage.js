@@ -1,24 +1,10 @@
-// Assets
-import restaurant from '../assets/restaurant.jpg';
+// React Tools
+import { Outlet } from 'react-router-dom';
 
-// Components
-import BookingForm from './BookingForm';
-
-// Styles
-import CallToAction from './CallToAction';
-
-const BookingPage = ({ availableTimes, dispatch }) => {
-  const hero = {
-    title: 'Book A Table',
-    leadText:
-      'Lorem ipsum dolor sit amet consectetur odipiscing elit,sed do eiusmod tempor incididunt it lahnne et do ore magna aliqua.',
-    image: restaurant,
-  };
-
+const BookingPage = () => {
   return (
     <>
-      <CallToAction hero={{ ...hero }} utilHeroTitle={'util-hero-title'} />
-      <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+      <Outlet />
     </>
   );
 };
