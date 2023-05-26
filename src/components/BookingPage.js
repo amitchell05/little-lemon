@@ -1,10 +1,10 @@
-// React Tools
-import { Outlet } from 'react-router-dom';
+// Components
+import BookingForm from './BookingForm';
 
 const BookingPage = () => {
   return (
     <>
-      <Outlet />
+      <BookingForm />
     </>
   );
 };
