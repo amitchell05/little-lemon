@@ -3,6 +3,7 @@ import restaurant from '../assets/restaurant.jpg';
 
 // Components
 import CallToAction from './CallToAction';
+import Dropdown from './Dropdown';
 
 // React Tools
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -140,14 +141,16 @@ const BookingForm = () => {
                 <legend className='visually-hidden'>
                   Enter your reservation details
                 </legend>
-                <label htmlFor='location' className='lead-text'>
-                  Restaurant Location
-                </label>
-                <Field name='location' as='select' required>
-                  <option value=''>Select a location</option>
-                  {locations}
-                </Field>
-                <ErrorMessage name='location' />
+
+                <Dropdown
+                  props={{
+                    htmlFor: 'location',
+                    label: 'Restaurant Location',
+                    name: 'location',
+                    options: locations,
+                    placeholder: 'Location',
+                  }}
+                ></Dropdown>
 
                 <label htmlFor='resDate' className='lead-text'>
                   Date
@@ -166,14 +169,15 @@ const BookingForm = () => {
                 />
                 <ErrorMessage name='resDate' />
 
-                <label htmlFor='resTime' className='lead-text'>
-                  Time
-                </label>
-                <Field name='resTime' as='select' required>
-                  <option value=''>Select a time</option>
-                  {times}
-                </Field>
-                <ErrorMessage name='resTime' />
+                <Dropdown
+                  props={{
+                    htmlFor: 'resTime',
+                    label: 'Time',
+                    name: 'resTime',
+                    options: times,
+                    placeholder: 'Time',
+                  }}
+                ></Dropdown>
 
                 <label htmlFor='guests' className='lead-text'>
                   Number of Guests
@@ -188,14 +192,15 @@ const BookingForm = () => {
                 />
                 <ErrorMessage name='guests' />
 
-                <label htmlFor='occasion' className='lead-text'>
-                  Occasion
-                </label>
-                <Field name='occasion' as='select' required>
-                  <option value=''>Occasion</option>
-                  {occasions}
-                </Field>
-                <ErrorMessage name='occasion' />
+                <Dropdown
+                  props={{
+                    htmlFor: 'occasion',
+                    label: 'Occasion',
+                    name: 'occasion',
+                    options: occasions,
+                    placeholder: 'Occasion',
+                  }}
+                ></Dropdown>
 
                 <label htmlFor='seating' className='lead-text'>
                   Type of Seating

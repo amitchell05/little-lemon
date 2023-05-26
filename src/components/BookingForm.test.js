@@ -29,6 +29,7 @@ describe('Booking Form', () => {
     expect(timeOptions.length).toEqual(7);
   });
 
+  // TODO: refactor booking form to not require async or act
   test('updateTimes returns the same value provided in the state', async () => {
     // Arrange
     const bookingForm = <BookingForm />;
