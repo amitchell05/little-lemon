@@ -1,11 +1,10 @@
-// Components
-import Main from './components/Main';
+// React Tools
+import { Outlet } from 'react-router-dom';
 
 const App = () => {
   return (
     <>
-      {/* <RouterProvider router={router} /> */}
-      <Main />
+      <Outlet />
     </>
   );
 };

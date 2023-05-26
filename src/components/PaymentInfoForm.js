@@ -1,15 +1,12 @@
 // React Tools
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
 import { submitAPI } from '../api/api';
 
 // Styles
 import './PaymentInfoForm.scss';
 
-const PaymentInfoForm = () => {
-  const navigate = useNavigate();
-
+const PaymentInfoForm = ({ navigate }) => {
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {

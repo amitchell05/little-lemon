@@ -5,7 +5,9 @@ import peopleDining from '../assets/alex-haney-CAhjZmVk5H4-unsplash.jpg';
 import CallToAction from './CallToAction';
 import ContactInfoForm from './ContactInfoForm';
 
-const ContactInfoPage = () => {
+const ContactInfoPage = ({ useNavigate }) => {
+  const navigate = useNavigate();
+
   const hero = {
     title: 'Contact Information',
     leadText:
@@ -16,7 +18,7 @@ const ContactInfoPage = () => {
   return (
     <>
       <CallToAction hero={{ ...hero }} utilHeroTitle={'util-hero-title'} />
-      <ContactInfoForm />
+      <ContactInfoForm navigate={navigate} />
     </>
   );
 };

@@ -5,7 +5,9 @@ import payment from '../assets/towfiqu-barbhuiya-HNPrWOH2Z8U-unsplash.jpg';
 import CallToAction from './CallToAction';
 import PaymentInfoForm from './PaymentInfoForm';
 
-const PaymentInfoPage = () => {
+const PaymentInfoPage = ({ useNavigate }) => {
+  const navigate = useNavigate();
+
   const hero = {
     title: 'Payment Details',
     leadText:
@@ -16,7 +18,7 @@ const PaymentInfoPage = () => {
   return (
     <>
       <CallToAction hero={{ ...hero }} utilHeroTitle={'util-hero-title'} />
-      <PaymentInfoForm />
+      <PaymentInfoForm navigate={navigate} />
     </>
   );
 };

@@ -5,13 +5,14 @@ import foodInBowl from '../assets/taylor-kiser-6RJct18G_3I-unsplash.jpg';
 import CallToAction from './CallToAction';
 
 // React Tools
-import { useNavigate } from 'react-router-dom';
 import { submitAPI } from '../api/api';
 
 // Styles
 import './ReservationSummary.scss';
 
-const ReservationSummary = () => {
+const ReservationSummary = ({ useNavigate }) => {
+  const navigate = useNavigate();
+
   const hero = {
     title: 'Confirm Your Reservation',
     leadText:
@@ -32,8 +33,6 @@ const ReservationSummary = () => {
 
     return `${month} ${day}, ${date.getFullYear()}`;
   };
-
-  const navigate = useNavigate();
 
   const reservationData = { booking: bookingData, contact: contactData };
 

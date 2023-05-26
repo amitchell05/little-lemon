@@ -1,10 +1,12 @@
 // Components
 import BookingForm from './BookingForm';
 
-const BookingPage = () => {
+const BookingPage = ({ useNavigate }) => {
+  const navigate = useNavigate();
+
   return (
     <>
-      <BookingForm />
+      <BookingForm navigate={navigate} />
     </>
   );
 };

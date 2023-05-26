@@ -1,16 +1,13 @@
 // React Tools
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
 import { submitAPI } from '../api/api';
 
 // Styles
 import './ContactInfoForm.scss';
 
-const ContactInfoForm = () => {
+const ContactInfoForm = ({ navigate }) => {
   const contactData = JSON.parse(localStorage.getItem('contact'));
-
-  const navigate = useNavigate();
 
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
