@@ -11,7 +11,6 @@ import * as Yup from 'yup';
 import { submitAPI } from '../api/api';
 import { initializeTimes, updateTimes } from '../reducers/bookingReducer';
 import { useReducer } from 'react';
-// import { useNavigate } from 'react-router-dom';
 
 // Styles
 import './BookingForm.scss';
@@ -87,8 +86,7 @@ const BookingForm = ({ navigate }) => {
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {
-      console.log(formData);
-      // localStorage.setItem('booking', JSON.stringify(formData));
+      localStorage.setItem('booking', JSON.stringify(formData));
 
       navigate('/contact-info');
 
