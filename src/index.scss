@@ -133,7 +133,7 @@ input[type='button']:hover {
 
 .button,
 .link-button {
-  border-radius: 1rem;
+  border-radius: variables.$border-radius;
   color: variables.$color-text-dark-gray;
   font-family: variables.$font-family-sans-serif;
   font-size: variables.$font-size-sm;
@@ -205,14 +205,20 @@ input[type='button']:hover {
 label {
   color: variables.$color-text-green;
 }
-// legend {
-//   padding: 0;
-//   display: table;
-// }
+
 fieldset {
   border: 0;
   min-width: 0;
 }
-// body:not(:-moz-handler-blocked) fieldset {
-//   display: table-cell;
-// }
+
+// Form Input Styles
+input[type='date'],
+input[type='number'],
+input[type='text'],
+textarea {
+  border: variables.$border-size solid variables.$border-color-green;
+  border-radius: variables.$border-radius;
+  font-family: variables.$font-family-sans-serif;
+  font-size: variables.$font-size-sm;
+  padding: 1.719rem 1rem;
+}
