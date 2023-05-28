@@ -133,7 +133,7 @@ input[type='button']:hover {
 
 .button,
 .link-button {
-  border-radius: variables.$border-radius;
+  border-radius: variables.$border-radius-lg;
   color: variables.$color-text-dark-gray;
   font-family: variables.$font-family-sans-serif;
   font-size: variables.$font-size-sm;
@@ -141,6 +141,7 @@ input[type='button']:hover {
   padding: 0.5rem 1rem;
 
   @media (min-width: 48rem) {
+    border-radius: variables.$border-radius-sm;
     font-size: variables.$font-size-md;
     padding: 1.25rem 2.125rem 1.188rem 2.188rem;
   }
@@ -217,8 +218,12 @@ input[type='number'],
 input[type='text'],
 textarea {
   border: variables.$border-size solid variables.$border-color-green;
-  border-radius: variables.$border-radius;
+  border-radius: variables.$border-radius-lg;
   font-family: variables.$font-family-sans-serif;
   font-size: variables.$font-size-sm;
   padding: 1.719rem 1rem;
+
+  @media (min-width: 48rem) {
+    border-radius: variables.$border-radius-sm;
+  }
 }

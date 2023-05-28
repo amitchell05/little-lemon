@@ -3,7 +3,7 @@
 
 .review-card {
   background-color: variables.$color-background-light-gray;
-  border-radius: 1rem;
+  border-radius: variables.$border-radius-lg;
   padding: 1.813rem 1.5rem;
 
   h4 {
