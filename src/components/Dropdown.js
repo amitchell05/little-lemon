@@ -12,32 +12,25 @@ import { useState } from 'react';
 
 const Dropdown = ({ props }) => {
   const [isOpen, setIsOpen] = useState(false);
+  // Reference (select option state): https://andela.com/insights/react-js-tutorial-on-creating-a-custom-select-dropdown/
   const [selectedOption, setSelectedOption] = useState(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  // Reference (select option state): https://andela.com/insights/react-js-tutorial-on-creating-a-custom-select-dropdown/
-  const selectOption = (value, name) => {
+  const selectOption = (value) => {
+    // Update styled select's displayed selection
     setSelectedOption(value);
 
     // Update formik select's value
     setValue(value);
 
-    const displayedSelection = document.getElementById(
-      `current-${name}-option`
-    );
-
-    console.log(displayedSelection);
-
-    // Update styled select's displayed selection
-    // displayedSelection.textContent = value;
-
     // Close styled dropdown
-    // setIsOpen(false);
+    setIsOpen(false);
   };
 
+  // eslint-disable-next-line no-unused-vars
   const [field, meta, helpers] = useField(props.name);
 
   const { setValue } = helpers;
