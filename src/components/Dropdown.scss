@@ -1,0 +1,86 @@
+@use '../variables';
+
+// Dropdown
+
+// Resource/Reference: https://codepen.io/wallaceerick/pen/nJLPvN
+.dropdown-container {
+  cursor: pointer;
+  // Display and position centers placeholder and select styled container?
+  display: inline-block;
+  position: relative;
+  font-size: 1.5rem;
+  color: variables.$color-text-green;
+  font-weight: variables.$font-weight-extra-bold;
+  // Provides width and height for styled select
+  // max-width: 25rem;
+  height: 5rem;
+  margin-bottom: 2.125rem;
+
+  .dropdown-hidden {
+    display: none;
+    // visibility: hidden;
+    padding-right: 0.625rem;
+  }
+
+  .dropdown-styled {
+    // Centers styped dropdown?
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // Background color from design system
+    background-color: variables.$color-background-light-gray;
+    padding: 0.5rem 1.875rem;
+    // My styles
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+
+    .dropdown-icon-invisible {
+      visibility: hidden;
+    }
+
+    .dropdown-icon-visible {
+      visibility: visible;
+    }
+  }
+
+  .dropdown-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    // Removes list item's default padding, margin, and list style?
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: variables.$color-background-light-gray;
+    margin-top: 0.75rem;
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+
+    &.active {
+      display: block;
+    }
+
+    li {
+      margin: 0;
+      padding: 1.625rem 0;
+      // TODO: determine if this indent is needed
+      text-indent: 15px;
+      border-bottom: 1px dashed variables.$color-border-green;
+      text-align: center;
+      text-transform: capitalize;
+
+      &:hover {
+        background-color: variables.$color-background-green;
+        color: variables.$color-text-light-gray;
+        border-bottom: 1px dashed variables.$color-border-light-gray;
+      }
+    }
+  }
+}

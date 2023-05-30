@@ -17,13 +17,69 @@
       display: flex;
       flex-direction: column;
       width: 100%;
+      gap: 1rem;
 
       label {
         color: variables.$color-text-green;
       }
 
+      input[type='date'],
+      input[type='text'],
+      input[type='number'],
+      .booking-form-radio-group,
       textarea {
-         resize: none;
+        margin-bottom: 2.125rem;
+      }
+
+      .booking-form-radio-group {
+        flex-direction: row;
+        justify-content: space-between;
+
+        div {
+          display: flex;
+          align-items: center;
+          gap: 0.625rem;
+        }
+
+        // Resource: https://moderncss.dev/pure-css-custom-styled-radio-buttons/
+        input[type='radio'] {
+          /* Add if not using autoprefixer */
+          -webkit-appearance: none;
+          appearance: none;
+          /* For iOS < 15 to remove gradient background */
+          background-color: #fff;
+          /* Not removed via appearance */
+          margin: 0;
+          // Custom unchecked radio styles
+          font: inherit;
+          color: variables.$color-text-green;
+          width: 26px;
+          height: 26px;
+          border: 0.15em solid variables.$color-border-green;
+          border-radius: 50%;
+          // margin-right: 0.25rem;
+          // Change the display behavior of the input to use grid
+          display: grid;
+          place-content: center;
+
+          &::before {
+            content: '';
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em variables.$color-background-green;
+          }
+
+          &:checked::before {
+            transform: scale(1);
+          }
+        }
+      }
+
+      textarea {
+        resize: none;
         min-height: 5rem;
       }
     }

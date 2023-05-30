@@ -200,23 +200,27 @@ const BookingForm = ({ navigate }) => {
                 <label htmlFor='seating' className='lead-text'>
                   Type of Seating
                 </label>
-                <fieldset>
+                <fieldset className='booking-form-radio-group'>
                   <legend className='visually-hidden'>
                     Select a type of seating
                   </legend>
-                  <label className='lead-text'>
+                  <div>
                     <Field
                       type='radio'
                       name='seating'
                       value='standard'
                       required
                     />
-                    Standard
-                  </label>
-                  <label className='lead-text'>
+                    <label htmlFor='seating' className='lead-text'>
+                      Standard
+                    </label>
+                  </div>
+                  <div>
                     <Field type='radio' name='seating' value='outside' />
-                    Outside
-                  </label>
+                    <label htmlFor='seating' className='lead-text'>
+                      Outside
+                    </label>
+                  </div>
                 </fieldset>
                 <ErrorMessage name='seating' />
 
