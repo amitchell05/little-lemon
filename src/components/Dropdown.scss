@@ -48,6 +48,10 @@
     }
   }
 
+  p[id*='option'] {
+    text-transform: capitalize;
+  }
+
   .dropdown-options {
     display: none;
     position: absolute;
