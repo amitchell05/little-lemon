@@ -40,7 +40,8 @@ const Dropdown = ({
     setIsOpen(false);
 
     if (onChange) {
-      onChange(value, formik); // Invoke the onChange callback with the selected value
+      // Invoke the onChange callback with the selected value
+      onChange(value, formik);
     }
   };
 
@@ -74,7 +75,7 @@ const Dropdown = ({
           name={name}
           as='select'
           required
-          // className='dropdown-hidden'
+          className='dropdown-hidden'
           component='select'
         >
           <option value=''>{placeholder}</option>

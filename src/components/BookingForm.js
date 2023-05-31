@@ -86,13 +86,12 @@ const BookingForm = ({ navigate }) => {
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {
-      console.log(formData);
-      // localStorage.setItem('booking', JSON.stringify(formData));
+      localStorage.setItem('booking', JSON.stringify(formData));
 
-      // navigate('/contact-info');
+      navigate('/contact-info');
 
       // Scroll to the top of the confirmed booking page (figure out if there's a better way)
-      // window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
     }
   };
 
