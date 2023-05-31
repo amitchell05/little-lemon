@@ -149,34 +149,39 @@ const BookingForm = ({ navigate }) => {
                   }}
                 />
 
-                <label htmlFor='resDate' className='lead-text'>
-                  Date
-                </label>
-                <input
-                  id='resDate'
-                  type='date'
-                  data-testid='res-date'
-                  min={setMinDate()}
-                  required
-                  {...formik.getFieldProps('resDate')}
-                  onChange={(e) => {
-                    dispatch({ type: 'set_date', resDate: e.target.value });
-                    formik.setFieldValue('resDate', e.target.value);
-                  }}
-                />
-                <ErrorMessage name='resDate' />
-
-                <Dropdown
-                  htmlFor='resTime'
-                  label='Time'
-                  name='resTime'
-                  options={times}
-                  placeholder='Time'
-                  formik={formik} // Pass `formik` object directly
-                  onChange={(value, formik) => {
-                    formik.setFieldValue('resTime', value);
-                  }}
-                />
+                <div className='flex-items'>
+                  <div className='flex-item-group'>
+                    <label htmlFor='resDate' className='lead-text'>
+                      Date
+                    </label>
+                    <input
+                      id='resDate'
+                      type='date'
+                      data-testid='res-date'
+                      min={setMinDate()}
+                      required
+                      {...formik.getFieldProps('resDate')}
+                      onChange={(e) => {
+                        dispatch({ type: 'set_date', resDate: e.target.value });
+                        formik.setFieldValue('resDate', e.target.value);
+                      }}
+                    />
+                    <ErrorMessage name='resDate' />
+                  </div>
+                  <div className='flex-item-group'>
+                    <Dropdown
+                      htmlFor='resTime'
+                      label='Time'
+                      name='resTime'
+                      options={times}
+                      placeholder='Time'
+                      formik={formik} // Pass `formik` object directly
+                      onChange={(value, formik) => {
+                        formik.setFieldValue('resTime', value);
+                      }}
+                    />
+                  </div>
+                </div>
 
                 <label htmlFor='guests' className='lead-text'>
                   Number of Guests
@@ -191,44 +196,50 @@ const BookingForm = ({ navigate }) => {
                 />
                 <ErrorMessage name='guests' />
 
-                <Dropdown
-                  htmlFor='occasion'
-                  label='Occasion'
-                  name='occasion'
-                  options={occasions}
-                  placeholder='Occasion'
-                  formik={formik}
-                  onChange={(value, formik) => {
-                    formik.setFieldValue('occasion', value);
-                  }}
-                />
-
-                <label htmlFor='seating' className='lead-text'>
-                  Type of Seating
-                </label>
-                <fieldset className='booking-form-radio-group'>
-                  <legend className='visually-hidden'>
-                    Select a type of seating
-                  </legend>
-                  <div>
-                    <Field
-                      type='radio'
-                      name='seating'
-                      value='standard'
-                      required
+                <div className='flex-items'>
+                  <div className='flex-item-group'>
+                    <Dropdown
+                      htmlFor='occasion'
+                      label='Occasion'
+                      name='occasion'
+                      options={occasions}
+                      placeholder='Occasion'
+                      formik={formik}
+                      onChange={(value, formik) => {
+                        formik.setFieldValue('occasion', value);
+                      }}
                     />
-                    <label htmlFor='seating' className='lead-text'>
-                      Standard
-                    </label>
                   </div>
-                  <div>
-                    <Field type='radio' name='seating' value='outside' />
+
+                  <div className='flex-item-group flex-item-group--extra-gap'>
                     <label htmlFor='seating' className='lead-text'>
-                      Outside
+                      Type of Seating
                     </label>
+                    <fieldset className='booking-form-radio-group'>
+                      <legend className='visually-hidden'>
+                        Select a type of seating
+                      </legend>
+                      <div>
+                        <Field
+                          type='radio'
+                          name='seating'
+                          value='standard'
+                          required
+                        />
+                        <label htmlFor='seating' className='lead-text'>
+                          Standard
+                        </label>
+                      </div>
+                      <div>
+                        <Field type='radio' name='seating' value='outside' />
+                        <label htmlFor='seating' className='lead-text'>
+                          Outside
+                        </label>
+                      </div>
+                    </fieldset>
+                    <ErrorMessage name='seating' />
                   </div>
-                </fieldset>
-                <ErrorMessage name='seating' />
+                </div>
 
                 <label htmlFor='accomodations' className='lead-text'>
                   Accomodations
@@ -236,11 +247,13 @@ const BookingForm = ({ navigate }) => {
                 <Field name='accomodations' as='textarea'></Field>
                 <ErrorMessage name='accomodations' />
 
-                <input
-                  type='submit'
-                  value='Make Your Reservation'
-                  className='button button--primary'
-                />
+                <div className='form-actions'>
+                  <input
+                    type='submit'
+                    value='Make Your Reservation'
+                    className='button button--primary'
+                  />
+                </div>
               </fieldset>
             </Form>
           )}

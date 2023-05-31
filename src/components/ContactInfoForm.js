@@ -83,7 +83,7 @@ const ContactInfoForm = ({ navigate }) => {
               <Field name='email' type='email' />
               <ErrorMessage name='email' />
 
-              <div className='contact-info-actions'>
+              <div className='form-actions'>
                 <input
                   type='button'
                   value='Back'

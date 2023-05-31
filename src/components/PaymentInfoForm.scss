@@ -11,22 +11,5 @@
   .payment-info-form {
     display: grid;
     gap: 1.25rem;
-
-    fieldset {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-
-      .payment-info-actions {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        @media (min-width: 48rem) {
-          flex-direction: row;
-          gap: 12.5rem;
-        }
-      }
-    }
   }
 }

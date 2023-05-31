@@ -64,20 +64,26 @@ const PaymentInfoForm = ({ navigate }) => {
               <Field name='cardHolderName' type='text' required />
               <ErrorMessage name='cardHolderName' />
 
-              {/* TODO: Update layout of expDate and securityCode fields */}
-              <label htmlFor='expDate' className='lead-text'>
-                Expiration Date
-              </label>
-              <Field name='expDate' type='date' required />
-              <ErrorMessage name='expDate' />
+              {/* TODO: Update layout and functionality of expDate and securityCode fields */}
+              <div className='flex-items'>
+                <div className='flex-item-group'>
+                  <label htmlFor='expDate' className='lead-text'>
+                    Expiration Date
+                  </label>
+                  <Field name='expDate' type='date' required />
+                  <ErrorMessage name='expDate' />
+                </div>
 
-              <label htmlFor='securityCode' className='lead-text'>
-                Security Code
-              </label>
-              <Field name='securityCode' type='text' />
-              <ErrorMessage name='securityCode' />
+                <div className='flex-item-group'>
+                  <label htmlFor='securityCode' className='lead-text'>
+                    Security Code
+                  </label>
+                  <Field name='securityCode' type='text' required />
+                  <ErrorMessage name='securityCode' />
+                </div>
+              </div>
 
-              <div className='payment-info-actions'>
+              <div className='form-actions'>
                 <input
                   type='button'
                   value='Back'

@@ -8,7 +8,7 @@ import { ErrorMessage, Field } from 'formik';
 
 // Styles
 import './Dropdown.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Dropdown = ({
   htmlFor,
@@ -64,6 +64,12 @@ const Dropdown = ({
     await formik.validateField(name);
   };
 
+  const fieldValue = formik.values[name];
+
+  useEffect(() => {
+    setSelectedOption(fieldValue);
+  }, [fieldValue]);
+
   return (
     <>
       <label htmlFor={htmlFor} className='lead-text'>
@@ -77,6 +83,7 @@ const Dropdown = ({
           required
           className='dropdown-hidden'
           component='select'
+          value={formik.values[name]}
         >
           <option value=''>{placeholder}</option>
           {options}
