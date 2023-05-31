@@ -4,14 +4,23 @@ import { FaChevronUp } from 'react-icons/fa';
 import { FaGlassCheers } from 'react-icons/fa';
 
 // React Tools
-import { ErrorMessage, Field, useField } from 'formik';
+import { ErrorMessage, Field } from 'formik';
 
 // Styles
 import './Dropdown.scss';
 import { useState } from 'react';
 
-const Dropdown = ({ props }) => {
+const Dropdown = ({
+  htmlFor,
+  label,
+  name,
+  options,
+  placeholder,
+  formik,
+  onChange,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
+
   // Reference (select option state): https://andela.com/insights/react-js-tutorial-on-creating-a-custom-select-dropdown/
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -19,51 +28,73 @@ const Dropdown = ({ props }) => {
     setIsOpen(!isOpen);
   };
 
-  const selectOption = (value) => {
+  // Selects actual option
+  const onOptionClick = (value) => {
     // Update styled select's displayed selection
     setSelectedOption(value);
 
-    // Update formik select's value
-    setValue(value);
+    // Set the field value state
+    formik.setFieldValue(name, value);
 
     // Close styled dropdown
     setIsOpen(false);
+
+    if (onChange) {
+      onChange(value, formik); // Invoke the onChange callback with the selected value
+    }
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const [field, meta, helpers] = useField(props.name);
+  // List items for the styled dropdown
+  const dropdownOptions = options.map((option, index) => {
+    return (
+      <li key={index} onClick={() => onOptionClick(option.props.value)}>
+        {option.props.value}
+      </li>
+    );
+  });
 
-  const { setValue } = helpers;
+  // Trigger field validation for the specific field; Yup reevaluates the validation rules and updates the error message accordingly
+  const handleBlur = async () => {
+    if (!selectedOption) {
+      // Set the field as touched only if an option is not selected
+      formik.setFieldTouched(name, true);
+    }
+
+    await formik.validateField(name);
+  };
 
   return (
     <>
-      <label htmlFor={props.htmlFor} className='lead-text'>
-        {props.label}
+      <label htmlFor={htmlFor} className='lead-text'>
+        {label}
       </label>
-      {/* Use arrow function to prevent call on render */}
-      <div
-        className='dropdown-container'
-        onClick={() => toggleDropdown(props.name)}
-      >
+      {/* Use arrow function to prevent call on render; Add tabIndex to make the container div focusable */}
+      <div className='dropdown-container' onBlur={handleBlur} tabIndex={0}>
         <Field
-          name={props.name}
+          name={name}
           as='select'
           required
-          className='dropdown-hidden'
+          // className='dropdown-hidden'
+          component='select'
         >
-          <option value=''>{props.placeholder}</option>
-          {props.options}
+          <option value=''>{placeholder}</option>
+          {options}
         </Field>
-        <div className='dropdown-styled'>
+        <div
+          className={`dropdown-styled ${
+            selectedOption ? 'dropdown-styled--selected' : ''
+          }`}
+          onClick={toggleDropdown}
+        >
           <FaGlassCheers
             className={
-              props.name === 'location'
+              name === 'location' && !selectedOption
                 ? 'dropdown-icon-visible'
                 : 'dropdown-icon-invisible'
             }
           />
-          <p id={`current-${props.name}-option`}>
-            {selectedOption ? selectedOption : props.placeholder}
+          <p id={`current-${name}-option`}>
+            {selectedOption ? selectedOption : placeholder}
           </p>
           {isOpen ? <FaChevronUp /> : <FaChevronDown />}
         </div>
@@ -71,19 +102,10 @@ const Dropdown = ({ props }) => {
           className={`dropdown-options ${isOpen ? 'active' : ''}`}
           id='dropdown-options'
         >
-          {props.options.map((option, index) => {
-            return (
-              <li
-                key={index}
-                onClick={() => selectOption(option.props.value, props.name)}
-              >
-                {option.props.value}
-              </li>
-            );
-          })}
+          {dropdownOptions}
         </ul>
       </div>
-      <ErrorMessage name={props.name} />
+      <ErrorMessage name={String(name)} component='div' />
     </>
   );
 };

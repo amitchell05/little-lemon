@@ -14,11 +14,9 @@
   // Provides width and height for styled select
   // max-width: 25rem;
   height: 5rem;
-  margin-bottom: 2.125rem;
 
   .dropdown-hidden {
-    display: none;
-    // visibility: hidden;
+    visibility: hidden;
     padding-right: 0.625rem;
   }
 
@@ -38,6 +36,15 @@
     align-items: center;
     border-radius: 0.5rem;
     box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+
+    &.dropdown-styled--selected {
+      background-color: variables.$color-background-green;
+      color: variables.$color-text-light-gray;
+
+      p[id*='option'] {
+        color: variables.$color-text-light-gray;
+      }
+    }
 
     .dropdown-icon-invisible {
       visibility: hidden;

@@ -21,12 +21,13 @@
 
       label {
         color: variables.$color-text-green;
+        margin-top: 2.125rem;
       }
 
-      input[type='date'],
-      input[type='text'],
-      input[type='number'],
-      .booking-form-radio-group,
+      label:first-of-type {
+        margin-top: 0;
+      }
+
       textarea {
         margin-bottom: 2.125rem;
       }

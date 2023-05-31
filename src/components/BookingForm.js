@@ -86,12 +86,13 @@ const BookingForm = ({ navigate }) => {
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {
-      localStorage.setItem('booking', JSON.stringify(formData));
+      console.log(formData);
+      // localStorage.setItem('booking', JSON.stringify(formData));
 
-      navigate('/contact-info');
+      // navigate('/contact-info');
 
       // Scroll to the top of the confirmed booking page (figure out if there's a better way)
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     }
   };
 
@@ -138,14 +139,16 @@ const BookingForm = ({ navigate }) => {
                 </legend>
 
                 <Dropdown
-                  props={{
-                    htmlFor: 'location',
-                    label: 'Restaurant Location',
-                    name: 'location',
-                    options: locations,
-                    placeholder: 'Location',
+                  htmlFor='location'
+                  label='Restaurant Location'
+                  name='location'
+                  options={locations}
+                  placeholder='Location'
+                  formik={formik} // Pass `formik` object directly
+                  onChange={(value, formik) => {
+                    formik.setFieldValue('location', value);
                   }}
-                ></Dropdown>
+                />
 
                 <label htmlFor='resDate' className='lead-text'>
                   Date
@@ -165,14 +168,16 @@ const BookingForm = ({ navigate }) => {
                 <ErrorMessage name='resDate' />
 
                 <Dropdown
-                  props={{
-                    htmlFor: 'resTime',
-                    label: 'Time',
-                    name: 'resTime',
-                    options: times,
-                    placeholder: 'Time',
+                  htmlFor='resTime'
+                  label='Time'
+                  name='resTime'
+                  options={times}
+                  placeholder='Time'
+                  formik={formik} // Pass `formik` object directly
+                  onChange={(value, formik) => {
+                    formik.setFieldValue('resTime', value);
                   }}
-                ></Dropdown>
+                />
 
                 <label htmlFor='guests' className='lead-text'>
                   Number of Guests
@@ -188,14 +193,16 @@ const BookingForm = ({ navigate }) => {
                 <ErrorMessage name='guests' />
 
                 <Dropdown
-                  props={{
-                    htmlFor: 'occasion',
-                    label: 'Occasion',
-                    name: 'occasion',
-                    options: occasions,
-                    placeholder: 'Occasion',
+                  htmlFor='occasion'
+                  label='Occasion'
+                  name='occasion'
+                  options={occasions}
+                  placeholder='Occasion'
+                  formik={formik}
+                  onChange={(value, formik) => {
+                    formik.setFieldValue('occasion', value);
                   }}
-                ></Dropdown>
+                />
 
                 <label htmlFor='seating' className='lead-text'>
                   Type of Seating
