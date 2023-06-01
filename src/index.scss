@@ -262,6 +262,7 @@ input[type='date'],
 input[type='number'],
 input[type='text'],
 input[type='email'],
+input[type='tel'],
 textarea {
   border: variables.$border-size solid variables.$border-color-green;
   border-radius: variables.$border-radius-lg;

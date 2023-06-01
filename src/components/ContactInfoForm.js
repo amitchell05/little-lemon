@@ -41,11 +41,19 @@ const ContactInfoForm = ({ navigate }) => {
         validationSchema={Yup.object({
           firstName: Yup.string().required('Required'),
           lastName: Yup.string().required('Required'),
-          // TODO: add phone number validation (library or manual)
-          phone: Yup.string().required('Required'),
-          // TODO: refine email validation (library or manual)
+          // TODO: add phone number validation for international phone format (library or manual)
+          phone: Yup.string()
+            .matches(
+              /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/,
+              'Invalid phone number'
+            )
+            .required('Required'),
           email: Yup.string()
             .email('Invalid email address')
+            .matches(
+              /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              'Invalid email address'
+            )
             .required('Required'),
         })}
       >
@@ -59,29 +67,55 @@ const ContactInfoForm = ({ navigate }) => {
               <legend className='visually-hidden'>
                 Enter your contact information
               </legend>
-              <label htmlFor='firstName' className='lead-text'>
+              <label htmlFor='firstName' id='first-name' className='lead-text'>
                 First Name
               </label>
-              <Field name='firstName' type='text' required />
-              <ErrorMessage name='firstName' />
+              <Field
+                name='firstName'
+                type='text'
+                aria-labelledby='first-name'
+                required
+              />
+              <ErrorMessage
+                name='firstName'
+                component='div'
+                data-testid='errors-first-name'
+              />
 
-              <label htmlFor='lastName' className='lead-text'>
+              <label htmlFor='lastName' id='last-name' className='lead-text'>
                 Last Name
               </label>
-              <Field name='lastName' type='text' required />
-              <ErrorMessage name='lastName' />
+              <Field
+                name='lastName'
+                type='text'
+                aria-labelledby='last-name'
+                required
+              />
+              <ErrorMessage
+                name='lastName'
+                component='div'
+                data-testid='errors-last-name'
+              />
 
-              <label htmlFor='phone' className='lead-text'>
+              <label htmlFor='phone' id='phone' className='lead-text'>
                 Phone Number
               </label>
-              <Field name='phone' type='text' required />
-              <ErrorMessage name='phone' />
+              <Field name='phone' type='tel' aria-labelledby='phone' required />
+              <ErrorMessage
+                name='phone'
+                component='div'
+                data-testid='errors-phone'
+              />
 
-              <label htmlFor='email' className='lead-text'>
+              <label htmlFor='email' id='email' className='lead-text'>
                 Email Address
               </label>
-              <Field name='email' type='email' />
-              <ErrorMessage name='email' />
+              <Field name='email' type='email' aria-labelledby='email' />
+              <ErrorMessage
+                name='email'
+                component='div'
+                data-testid='errors-email'
+              />
 
               <div className='form-actions'>
                 <input

@@ -41,9 +41,10 @@ describe('Booking Form', () => {
       // TODO: add validation for date in dispatch (i.e. updateTimes)
       fireEvent.change(dateInput, { target: { value: '2023-05-24' } });
     });
+    const timeOptions = screen.getAllByTestId('time-option');
 
     // Assert
     // TODO: Update assertion to be more specific to what is expected
-    // expect(timeOptions.length).toBeGreaterThan(0);
+    expect(timeOptions.length).toBeGreaterThan(0);
   });
 });
