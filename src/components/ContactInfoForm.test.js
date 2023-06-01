@@ -4,21 +4,19 @@
 import ContactInfoForm from './ContactInfoForm';
 
 // React Tools
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
 describe('Contact Info Form', () => {
-  test('validates the input fields correctly if fields are empty or filled', async () => {
-    // Arrange
-    const contactInfoForm = <ContactInfoForm navigate={jest.fn()} />;
+  // Arrange
+  const contactInfoForm = <ContactInfoForm navigate={jest.fn()} />;
 
+  test('validates the input fields correctly if fields are empty or filled', async () => {
     // Act
     render(contactInfoForm);
 
     const firstNameInput = screen.getByLabelText('First Name');
-
     const lastNameInput = screen.getByLabelText('Last Name');
-
     const phoneInput = screen.getByLabelText('Phone Number');
 
     // Assert
@@ -74,67 +72,47 @@ describe('Contact Info Form', () => {
     expect(phoneErrors).toBeNull();
   });
 
-  test('validates the email field correctly if it is invalid or valid', async () => {
-    // Arrange
-    const contactInfoForm = <ContactInfoForm navigate={jest.fn()} />;
-
+  test('validates the email and phone fields correctly if they are invalid or valid', async () => {
     // Act
     render(contactInfoForm);
 
     const emailInput = screen.getByLabelText('Email Address');
+    const phoneInput = screen.getByLabelText('Phone Number');
 
     // Invalid path
     await act(async () => {
       fireEvent.change(emailInput, { target: { value: 'abc.com' } });
       fireEvent.blur(emailInput);
+
+      fireEvent.change(phoneInput, { target: { value: '1234567' } });
+      fireEvent.blur(phoneInput);
     });
 
     let emailErrors = screen.getByTestId('errors-email');
+    let phoneErrors = screen.getByTestId('errors-phone');
 
     expect(emailInput).toHaveValue('abc.com');
     expect(emailErrors).toHaveTextContent('Invalid email address');
+
+    expect(phoneInput).toHaveValue('1234567');
+    expect(phoneErrors).toHaveTextContent('Invalid phone number');
 
     // Valid path
     await act(async () => {
       fireEvent.change(emailInput, {
         target: { value: 'johnsmith@gmail.com' },
       });
-    });
 
-    emailErrors = screen.queryByTestId('errors-email');
-
-    expect(emailInput).toHaveValue('johnsmith@gmail.com');
-    expect(emailErrors).toBeNull();
-  });
-
-  test('validates the phone field correctly if it is invalid or valid', async () => {
-    // Arrange
-    const contactInfoForm = <ContactInfoForm navigate={jest.fn()} />;
-
-    // Act
-    render(contactInfoForm);
-
-    const phoneInput = screen.getByLabelText('Phone Number');
-
-    // Invalid path
-    await act(async () => {
-      fireEvent.change(phoneInput, { target: { value: '1234567' } });
-      fireEvent.blur(phoneInput);
-    });
-
-    let phoneErrors = screen.getByTestId('errors-phone');
-
-    expect(phoneInput).toHaveValue('1234567');
-    expect(phoneErrors).toHaveTextContent('Invalid phone number');
-
-    // Valid path - American
-    await act(async () => {
       fireEvent.change(phoneInput, {
         target: { value: '123-456-7890' },
       });
     });
 
+    emailErrors = screen.queryByTestId('errors-email');
     phoneErrors = screen.queryByTestId('errors-phone');
+
+    expect(emailInput).toHaveValue('johnsmith@gmail.com');
+    expect(emailErrors).toBeNull();
 
     expect(phoneInput).toHaveValue('123-456-7890');
     expect(phoneErrors).toBeNull();

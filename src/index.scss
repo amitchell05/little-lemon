@@ -154,17 +154,27 @@ input[type='button']:hover {
   background-color: variables.$color-background-yellow;
 }
 
-.button--primary:active {
-  background-color: variables.$color-background-yellow--active;
+.button--primary:active .link-button--primary:active {
+  background-color: variables.$color-background-dark-yellow;
+  border-color: variables.$color-border-dark-yellow;
 }
 
-.button--primary:disabled {
+.button--primary:disabled,
+.button--secondary:disabled,
+.link-button--primary:disabled,
+.link-button--secondary:disabled {
   opacity: 0.5;
 }
 
 .button--secondary,
 .link-button--secondary {
   background-color: variables.$color-background-white;
+}
+
+.button--secondary:active,
+.link-button--secondary:active {
+  background-color: variables.$color-background-light-gray;
+  border-color: variables.$color-border-dark-yellow;
 }
 
 // Link Buttons

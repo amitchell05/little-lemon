@@ -5,6 +5,7 @@
 // Swatches
 $swatch-green: #495e57;
 $swatch-yellow: #f4ce14;
+$swatch-dark-yellow: #dead00;
 $swatch-light-peach: #fbdabb;
 $swatch-dark-peach: #ee9972;
 $swatch-light-gray: #edefee;
@@ -47,7 +48,7 @@ $border-size: 2px;
 // Background
 $color-background-green: $swatch-green;
 $color-background-yellow: $swatch-yellow;
-$color-background-yellow--active: #dead00;
+$color-background-dark-yellow: $swatch-dark-yellow;
 $color-background-light-peach: $swatch-light-peach;
 $color-background-dark-peach: $swatch-dark-peach;
 $color-background-light-gray: $swatch-light-gray;
@@ -67,3 +68,4 @@ $color-text-black: $swatch-black;
 // Border {
 $color-border-green: $swatch-green;
 $color-border-light-gray: $swatch-light-gray;
+$color-border-dark-yellow: $swatch-dark-yellow;
