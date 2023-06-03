@@ -66,18 +66,28 @@ const ReservationSummary = ({ useNavigate }) => {
       <CallToAction hero={{ ...hero }} utilHeroTitle={'util-hero-title'} />
       <article className='reservation-summary util-container'>
         <h2>Your Reservation</h2>
-        <section>
-          <h3>Location</h3>
-          <p>{bookingData.location}</p>
-          <h3>Seating</h3>
-          <p>{seating}</p>
-          <h3>Guests</h3>
-          <p>{bookingData.guests}</p>
-          <h3>Time</h3>
-          {/* TODO (optional): determine how to make it support multiple locales */}
-          <p>{bookingData.resTime}</p>
-          <h3>Date</h3>
-          <p>{getFullDate(new Date(bookingData.resDate))}</p>
+        <section className='reservation-detail reservation-details'>
+          <div className='reservation-detail reservation-detail'>
+            <h3>Location</h3>
+            <p>{bookingData.location}</p>
+          </div>
+          <div className='reservation-detail reservation-detail--flex'>
+            <h3>Seating</h3>
+            <p>{seating}</p>
+          </div>
+          <div className='reservation-detail reservation-detail--flex'>
+            <h3>Guests</h3>
+            <p>{bookingData.guests}</p>
+          </div>
+          <div className='reservation-detail reservation-detail--flex reservation-detail--no-bottom-margin'>
+            <h3>Time</h3>
+            {/* TODO (optional): determine how to make it support multiple locales */}
+            <p>{bookingData.resTime}</p>
+          </div>
+          <div className='reservation-detail reservation-detail--flex reservation-detail--no-bottom-margin'>
+            <h3>Date</h3>
+            <p>{getFullDate(new Date(bookingData.resDate))}</p>
+          </div>
         </section>
         <div className='reservation-summary-actions'>
           <input
