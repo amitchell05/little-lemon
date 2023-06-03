@@ -6,10 +6,16 @@ import PaymentInfoForm from './PaymentInfoForm';
 // React Tools
 import { render, screen, fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+import { PaymentInfoProvider } from '../contexts/PaymentInfoContext';
 
 describe('Payment Info Form', () => {
   // Arrange
-  const paymentInfoForm = <PaymentInfoForm navigate={jest.fn()} />;
+  const navigateMock = jest.fn();
+  const paymentInfoForm = (
+    <PaymentInfoProvider>
+      <PaymentInfoForm navigate={navigateMock} />
+    </PaymentInfoProvider>
+  );
 
   test('validates the input fields correctly if fields are empty or filled', async () => {
     // Act
@@ -198,10 +204,18 @@ describe('Payment Info Form', () => {
       fireEvent.click(submitButton);
     });
 
+    const cardNumberErrors = screen.queryByTestId('errors-card-number');
+    const cardHolderNameErrors = screen.queryByTestId('errors-cardholder-name');
+    const expDateErrors = screen.queryByTestId('errors-exp-date');
+    const securityCodeErrors = screen.queryByTestId('errors-security-code');
+
     // Assert
-    expect(paymentInfoForm.props.navigate).toHaveBeenCalledWith(
-      '/reservation-summary'
-    );
+    expect(cardNumberErrors).toBeNull();
+    expect(cardHolderNameErrors).toBeNull();
+    expect(expDateErrors).toBeNull();
+    expect(securityCodeErrors).toBeNull();
+
+    expect(navigateMock).toHaveBeenCalledWith('/reservation-summary');
     expect(scrollToMock).toHaveBeenCalledWith(0, 0);
   });
 

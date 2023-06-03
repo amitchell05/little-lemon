@@ -28,7 +28,9 @@ const CallToAction = ({ hero, leadTextNewline, utilHeroTitle }) => {
             </div>
           </div>
           {windowWidth >= 768 && (
-            <p className={`lead-text${leadTextNewline ? leadTextNewline : ''}`}>
+            <p
+              className={`lead-text ${leadTextNewline ? leadTextNewline : ''}`}
+            >
               {hero.leadText}
             </p>
           )}

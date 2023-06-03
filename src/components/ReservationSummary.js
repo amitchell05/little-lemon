@@ -6,12 +6,14 @@ import CallToAction from './CallToAction';
 
 // React Tools
 import { submitAPI } from '../api/api';
+import { usePaymentInfo } from '../contexts/PaymentInfoContext';
 
 // Styles
 import './ReservationSummary.scss';
 
 const ReservationSummary = ({ useNavigate }) => {
   const navigate = useNavigate();
+  const { paymentInfo, savePaymentInfo } = usePaymentInfo();
 
   const hero = {
     title: 'Confirm Your Reservation',
@@ -22,6 +24,7 @@ const ReservationSummary = ({ useNavigate }) => {
 
   const bookingData = JSON.parse(localStorage.getItem('booking'));
   const contactData = JSON.parse(localStorage.getItem('contact'));
+  const paymentData = paymentInfo;
 
   const seating = bookingData.seating
     ? bookingData.seating.charAt(0).toUpperCase() + bookingData.seating.slice(1)
@@ -35,12 +38,17 @@ const ReservationSummary = ({ useNavigate }) => {
     return `${month} ${day}, ${date.getFullYear()}`;
   };
 
-  const reservationData = { booking: bookingData, contact: contactData };
+  const reservationData = {
+    booking: bookingData,
+    contact: contactData,
+    payment: paymentData,
+  };
 
   const confirmReservation = () => {
     if (submitAPI(reservationData)) {
       localStorage.removeItem('booking');
       localStorage.removeItem('contact');
+      savePaymentInfo(null);
 
       navigate('/confirmed-booking');
 

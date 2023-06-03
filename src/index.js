@@ -4,6 +4,7 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MenuProvider } from './contexts/MenuContext';
+import { PaymentInfoProvider } from './contexts/PaymentInfoContext';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -86,7 +87,9 @@ const router = createBrowserRouter([
 root.render(
   <React.StrictMode>
     <MenuProvider>
-      <RouterProvider router={router} />
+      <PaymentInfoProvider>
+        <RouterProvider router={router} />
+      </PaymentInfoProvider>
     </MenuProvider>
   </React.StrictMode>
 );

@@ -2,15 +2,19 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { submitAPI } from '../api/api';
+import { usePaymentInfo } from '../contexts/PaymentInfoContext';
 
 // Styles
 import './PaymentInfoForm.scss';
 
 const PaymentInfoForm = ({ navigate }) => {
+  const { paymentInfo, savePaymentInfo } = usePaymentInfo();
+
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {
       // TODO: clear storage if user navigates away from forms
+      savePaymentInfo(formData);
 
       navigate('/reservation-summary');
 
