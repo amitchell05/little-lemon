@@ -23,9 +23,11 @@ const BookingForm = ({ navigate }) => {
     image: restaurant,
   };
 
+  const initialTimes = [];
+
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
-    [],
+    initialTimes,
     initializeTimes
   );
 
@@ -183,7 +185,7 @@ const BookingForm = ({ navigate }) => {
                   </div>
                 </div>
 
-                <label htmlFor='guests' className='lead-text'>
+                <label htmlFor='guests' id='guests' className='lead-text'>
                   Number of Guests
                 </label>
                 <Field
@@ -192,9 +194,14 @@ const BookingForm = ({ navigate }) => {
                   placeholder='1'
                   min='1'
                   max='10'
+                  aria-labelledby='guests'
                   required
                 />
-                <ErrorMessage name='guests' />
+                <ErrorMessage
+                  name='guests'
+                  component='div'
+                  data-testid='errors-guests'
+                />
 
                 <div className='flex-items'>
                   <div className='flex-item-group'>
@@ -211,33 +218,47 @@ const BookingForm = ({ navigate }) => {
                     />
                   </div>
 
-                  <div className='flex-item-group flex-item-group--extra-gap'>
-                    <label htmlFor='seating' className='lead-text'>
-                      Type of Seating
-                    </label>
+                  <div className='flex-item-group'>
                     <fieldset className='booking-form-radio-group'>
-                      <legend className='visually-hidden'>
-                        Select a type of seating
-                      </legend>
-                      <div>
+                      <legend className='lead-text'>Type of Seating</legend>
+                      <div className='booking-form-radio-button'>
                         <Field
                           type='radio'
                           name='seating'
                           value='standard'
+                          aria-labelledby='standard'
                           required
                         />
-                        <label htmlFor='seating' className='lead-text'>
+                        <label
+                          htmlFor='standard'
+                          className='lead-text'
+                          id='standard'
+                        >
                           Standard
                         </label>
                       </div>
-                      <div>
-                        <Field type='radio' name='seating' value='outside' />
-                        <label htmlFor='seating' className='lead-text'>
+                      <div className='booking-form-radio-button'>
+                        <Field
+                          type='radio'
+                          name='seating'
+                          value='outside'
+                          aria-labelledby='outside'
+                          required
+                        />
+                        <label
+                          htmlFor='outside'
+                          className='lead-text'
+                          id='outside'
+                        >
                           Outside
                         </label>
                       </div>
                     </fieldset>
-                    <ErrorMessage name='seating' />
+                    <ErrorMessage
+                      name='seating'
+                      component='div'
+                      data-testid='errors-seating'
+                    />
                   </div>
                 </div>
 

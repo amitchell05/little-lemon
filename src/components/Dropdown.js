@@ -12,11 +12,13 @@ import { useEffect, useState } from 'react';
 
 const Dropdown = ({
   htmlFor,
+  id,
   label,
   name,
   options,
   placeholder,
   formik,
+  testid,
   onChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,7 +74,7 @@ const Dropdown = ({
 
   return (
     <>
-      <label htmlFor={htmlFor} className='lead-text'>
+      <label htmlFor={htmlFor} className='lead-text' id={id}>
         {label}
       </label>
       {/* Use arrow function to prevent call on render; Add tabIndex to make the container div focusable */}
@@ -84,6 +86,7 @@ const Dropdown = ({
           className='dropdown-hidden'
           component='select'
           value={formik.values[name]}
+          aria-labelledby={id}
         >
           <option value=''>{placeholder}</option>
           {options}
@@ -113,7 +116,7 @@ const Dropdown = ({
           {dropdownOptions}
         </ul>
       </div>
-      <ErrorMessage name={String(name)} component='div' />
+      <ErrorMessage name={String(name)} component='div' data-testid={testid} />
     </>
   );
 };

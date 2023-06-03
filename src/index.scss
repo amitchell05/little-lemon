@@ -244,10 +244,6 @@ fieldset {
 
       @media (min-width: 48rem) {
         flex: 1;
-
-        &.flex-item-group--extra-gap {
-          gap: 2.5rem;
-        }
       }
     }
   }

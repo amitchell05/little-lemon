@@ -17,8 +17,15 @@
       .booking-form-radio-group {
         flex-direction: row;
         justify-content: space-between;
+        margin-top: 2.125rem;
 
-        div {
+        legend.lead-text {
+          color: variables.$color-text-green;
+          margin-bottom: 2.75rem;
+          width: 100%;
+        }
+
+        .booking-form-radio-button {
           display: flex;
           align-items: center;
           gap: 0.625rem;

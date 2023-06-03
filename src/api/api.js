@@ -16,12 +16,13 @@ export const fetchAPI = function (date) {
 
   for (let i = 17; i <= 23; i++) {
     if (random() < 0.5) {
-      result.push({ id: `${id++}`, time: i + ':00' });
+      result.push({ id: `${id++}`, value: i + ':00' });
     }
     if (random() < 0.5) {
-      result.push({ id: `${id++}`, time: i + ':30' });
+      result.push({ id: `${id++}`, value: i + ':30' });
     }
   }
+
   return result;
 };
 
