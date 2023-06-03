@@ -283,7 +283,7 @@ const BookingForm = ({ navigate }) => {
                 <div className='form-actions'>
                   <input
                     type='submit'
-                    value='Make Your Reservation'
+                    value='Continue'
                     className='button button--primary'
                   />
                 </div>

@@ -286,7 +286,7 @@ describe('Booking Form', () => {
       fireEvent.blur(standardRadio);
     });
 
-    const submitButton = screen.getByText('Make Your Reservation');
+    const submitButton = screen.getByText('Continue');
 
     await act(async () => {
       fireEvent.click(submitButton);
