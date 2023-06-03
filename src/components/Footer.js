@@ -38,9 +38,9 @@ const Footer = () => {
         <article>
           <h3>Contact</h3>
           <ul>
-            <li>Address</li>
-            <li>Phone Number</li>
-            <li>Email</li>
+            <li>100 Lemon Drive, Chicago, IL 12345</li>
+            <li>(314) 123-4567</li>
+            <li>littlelemon@gmail.com</li>
           </ul>
         </article>
         <nav aria-label='social-media-links'>

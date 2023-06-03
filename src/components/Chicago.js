@@ -11,8 +11,8 @@ const Chicago = () => {
       <h2 className='visually-hidden'>About Little Lemon</h2>
       <div className='util-container'>
         <section className='about-content'>
-          <h2>Little Lemon</h2>
-          <h3>Chicago</h3>
+          <h2>About Us</h2>
+          <h3>Mario and Adrian</h3>
           <p>
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
             sint. Velit officia consequat duis enim velit mollit. Exercitation

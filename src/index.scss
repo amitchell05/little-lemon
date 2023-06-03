@@ -155,7 +155,8 @@ input[type='button']:hover {
   background-color: variables.$color-background-yellow;
 }
 
-.button--primary:active .link-button--primary:active {
+.button--primary:active,
+.link-button--primary:active {
   background-color: variables.$color-background-dark-yellow;
   border-color: variables.$color-border-dark-yellow;
 }
