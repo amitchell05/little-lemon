@@ -48,9 +48,13 @@ const Dropdown = ({
   };
 
   // List items for the styled dropdown
-  const dropdownOptions = options.map((option, index) => {
+  const styledOptions = options.map((option, index) => {
     return (
-      <li key={index} onClick={() => onOptionClick(option.props.value)}>
+      <li
+        key={index}
+        data-testid={`styled-${name}-option`}
+        onClick={() => onOptionClick(option.props.value)}
+      >
         {option.props.value}
       </li>
     );
@@ -78,7 +82,12 @@ const Dropdown = ({
         {label}
       </label>
       {/* Use arrow function to prevent call on render; Add tabIndex to make the container div focusable */}
-      <div className='dropdown-container' onBlur={handleBlur} tabIndex={0}>
+      <div
+        className='dropdown-container'
+        onBlur={handleBlur}
+        tabIndex={0}
+        data-testid={`${name}-dropdown-container`}
+      >
         <Field
           name={name}
           as='select'
@@ -96,6 +105,7 @@ const Dropdown = ({
             selectedOption ? 'dropdown-styled--selected' : ''
           }`}
           onClick={toggleDropdown}
+          data-testid={`styled-${id}-dropdown`}
         >
           <FaGlassCheers
             className={
@@ -104,7 +114,10 @@ const Dropdown = ({
                 : 'dropdown-icon-invisible'
             }
           />
-          <p id={`current-${name}-option`}>
+          <p
+            id={`current-${name}-option`}
+            data-testid={`current-${name}-option`}
+          >
             {selectedOption ? selectedOption : placeholder}
           </p>
           {isOpen ? <FaChevronUp /> : <FaChevronDown />}
@@ -113,7 +126,7 @@ const Dropdown = ({
           className={`dropdown-options ${isOpen ? 'active' : ''}`}
           id='dropdown-options'
         >
-          {dropdownOptions}
+          {styledOptions}
         </ul>
       </div>
       <ErrorMessage name={String(name)} component='div' data-testid={testid} />

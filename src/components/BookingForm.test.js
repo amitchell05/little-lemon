@@ -23,7 +23,7 @@ describe('Booking Form', () => {
   test('initializes available times on init', () => {
     // Act
     render(bookingForm);
-    const timeOptions = screen.getAllByTestId('time-option');
+    const timeOptions = screen.getAllByTestId('styled-time');
 
     // Assert
     expect(timeOptions.length).toBeGreaterThan(0);
@@ -37,59 +37,52 @@ describe('Booking Form', () => {
       const dateInput = screen.getByTestId('res-date');
       fireEvent.change(dateInput, { target: { value: '2023-05-24' } });
     });
-    const timeOptions = screen.getAllByTestId('time-option');
+    const timeOptions = screen.getAllByTestId('styled-time');
 
     // Assert
     // TODO: Update assertion to be more specific to what is expected
     expect(timeOptions.length).toBeGreaterThan(0);
   });
 
-  test('validates the input fields correctly if fields are empty or filled', async () => {
+  test('validates the occasion dropdown correctly if the field is empty or filled', async () => {
     render(bookingForm);
 
-    // const locationDropdown = screen.getByLabelText('Restaurant Location');
-    // const dateInput = screen.getByLabelText('Date');
-    // const timeDropdown = screen.getByLabelText('Time');
-    // const occasionDropdown = screen.getByLabelText('Occasion');
+    const styledOccasionDropdown = screen.getByTestId(
+      'styled-occasion-dropdown'
+    );
+
+    let occasionErrors;
+
+    // Valid path
+    fireEvent.click(styledOccasionDropdown);
+    const styledOccasionOptions = screen.getAllByTestId(
+      'styled-occasion-option'
+    );
+
+    await act(async () => {
+      fireEvent.click(styledOccasionOptions[0]);
+    });
+
+    await waitFor(() => {
+      occasionErrors = screen.queryByTestId('errors-occasion');
+      expect(occasionErrors).toBeNull();
+    });
+
+    const selectedOption = screen.queryByTestId('current-occasion-option');
+
+    expect(selectedOption.textContent).toEqual('birthday');
+  });
+
+  test('validates the seating field correctly if it is empty or filled', async () => {
+    render(bookingForm);
+
     const standardRadio = screen.getByLabelText('Standard');
     const outsideRadio = screen.getByLabelText('Outside');
 
     // Invalid path
-    // fireEvent.blur(locationDropdown);
-
-    // fireEvent.blur(dateInput);
-
-    // fireEvent.blur(timeDropdown);
-
-    // fireEvent.blur(occasionDropdown);
-
     fireEvent.blur(standardRadio);
 
-    // let locationErrors;
-    // let dateErrors;
-    // let timeErrors;
-    // let occasionErrors;
     let seatingErrors;
-
-    // await waitFor(() => {
-    //   locationErrors = screen.getByTestId('errors-location');
-    //   expect(locationErrors).toHaveTextContent('Required');
-    // });
-
-    // await waitFor(() => {
-    //   dateErrors = screen.getByTestId('errors-date');
-    //   expect(dateErrors).toHaveTextContent('Required');
-    // });
-
-    // await waitFor(() => {
-    //   timeErrors = screen.getByTestId('errors-time');
-    //   expect(timeErrors).toHaveTextContent('Required');
-    // });
-
-    // await waitFor(() => {
-    //   occasionErrors = screen.getByTestId('errors-occasion');
-    //   expect(occasionErrors).toHaveTextContent('Required');
-    // });
 
     await waitFor(() => {
       seatingErrors = screen.getByTestId('errors-seating');
@@ -97,13 +90,6 @@ describe('Booking Form', () => {
     });
 
     // Valid path
-
-    // Location
-    // fireEvent.change(locationDropdown, {
-    //   target: { value: '100 Lemon Drive, Chicago, IL 12345' },
-    // });
-
-    // Seating
     fireEvent.click(outsideRadio);
     fireEvent.blur(outsideRadio);
 
@@ -111,13 +97,6 @@ describe('Booking Form', () => {
       seatingErrors = screen.queryByTestId('errors-seating');
       expect(seatingErrors).toBeNull();
     });
-
-    // await waitFor(() => {
-    //   locationErrors = screen.queryByTestId('errors-location');
-    //   expect(locationErrors).toBeNull();
-    // });
-
-    // expect(locationDropdown).toHaveValue('100 Lemon Drive, Chicago, IL 12345');
 
     expect(standardRadio).not.toBeChecked();
     expect(outsideRadio).toBeChecked();

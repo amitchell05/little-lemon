@@ -46,7 +46,7 @@ const BookingForm = ({ navigate }) => {
   // TODO (optional): determine how to make it support multiple locales
   const times = availableTimes.map((time) => {
     return (
-      <option key={time.id} value={time.value} data-testid='time-option'>
+      <option key={time.id} value={time.value} data-testid='styled-time'>
         {time.value}
       </option>
     );
@@ -57,7 +57,7 @@ const BookingForm = ({ navigate }) => {
     { id: '2', name: 'Anniversary', value: 'anniversary' },
   ].map((occasion) => {
     return (
-      <option key={occasion.id} value={occasion.value}>
+      <option key={occasion.id} value={occasion.value} data-testid='occasion'>
         {occasion.name}
       </option>
     );
@@ -207,11 +207,13 @@ const BookingForm = ({ navigate }) => {
                   <div className='flex-item-group'>
                     <Dropdown
                       htmlFor='occasion'
+                      id='occasion'
                       label='Occasion'
                       name='occasion'
                       options={occasions}
                       placeholder='Occasion'
                       formik={formik}
+                      testid='occasion'
                       onChange={(value, formik) => {
                         formik.setFieldValue('occasion', value);
                       }}
