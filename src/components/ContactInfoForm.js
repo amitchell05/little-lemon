@@ -12,6 +12,7 @@ const ContactInfoForm = ({ navigate }) => {
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {
+      // TODO: clear storage if user navigates away from forms
       localStorage.setItem('contact', JSON.stringify(formData));
 
       navigate('/payment-info');

@@ -37,7 +37,7 @@ const BookingForm = ({ navigate }) => {
     { id: '1', address: '100 Lemon Drive, Chicago, IL 12345' },
   ].map((location) => {
     return (
-      <option key={location.id} value={location.address}>
+      <option key={location.id} value={location.address} date-testid='location'>
         {location.address}
       </option>
     );
@@ -46,7 +46,7 @@ const BookingForm = ({ navigate }) => {
   // TODO (optional): determine how to make it support multiple locales
   const times = availableTimes.map((time) => {
     return (
-      <option key={time.id} value={time.value} data-testid='styled-time'>
+      <option key={time.id} value={time.value} data-testid='time'>
         {time.value}
       </option>
     );
@@ -88,6 +88,7 @@ const BookingForm = ({ navigate }) => {
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {
+      // TODO: clear storage if user navigates away from forms
       localStorage.setItem('booking', JSON.stringify(formData));
 
       navigate('/contact-info');
@@ -141,11 +142,13 @@ const BookingForm = ({ navigate }) => {
 
                 <Dropdown
                   htmlFor='location'
+                  id='location'
                   label='Restaurant Location'
                   name='location'
                   options={locations}
                   placeholder='Location'
                   formik={formik} // Pass `formik` object directly
+                  testid='errors-location'
                   onChange={(value, formik) => {
                     formik.setFieldValue('location', value);
                   }}
@@ -153,7 +156,7 @@ const BookingForm = ({ navigate }) => {
 
                 <div className='flex-items'>
                   <div className='flex-item-group'>
-                    <label htmlFor='resDate' className='lead-text'>
+                    <label htmlFor='resDate' id='resDate' className='lead-text'>
                       Date
                     </label>
                     <input
@@ -163,21 +166,28 @@ const BookingForm = ({ navigate }) => {
                       min={setMinDate()}
                       required
                       {...formik.getFieldProps('resDate')}
+                      aria-labelledby='resDate'
                       onChange={(e) => {
                         dispatch({ type: 'set_date', resDate: e.target.value });
                         formik.setFieldValue('resDate', e.target.value);
                       }}
                     />
-                    <ErrorMessage name='resDate' />
+                    <ErrorMessage
+                      name='resDate'
+                      component='div'
+                      data-testid='errors-resDate'
+                    />
                   </div>
                   <div className='flex-item-group'>
                     <Dropdown
                       htmlFor='resTime'
+                      id='resTime'
                       label='Time'
                       name='resTime'
                       options={times}
                       placeholder='Time'
                       formik={formik} // Pass `formik` object directly
+                      testid='errors-resTime'
                       onChange={(value, formik) => {
                         formik.setFieldValue('resTime', value);
                       }}
@@ -213,7 +223,7 @@ const BookingForm = ({ navigate }) => {
                       options={occasions}
                       placeholder='Occasion'
                       formik={formik}
-                      testid='occasion'
+                      testid='errors-occasion'
                       onChange={(value, formik) => {
                         formik.setFieldValue('occasion', value);
                       }}

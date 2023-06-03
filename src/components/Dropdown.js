@@ -67,6 +67,8 @@ const Dropdown = ({
       formik.setFieldTouched(name, true);
     }
 
+    setIsOpen(false);
+
     await formik.validateField(name);
   };
 

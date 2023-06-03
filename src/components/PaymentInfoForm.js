@@ -10,6 +10,8 @@ const PaymentInfoForm = ({ navigate }) => {
   // Submits the form and navigates users to next screen
   const submitForm = (formData) => {
     if (submitAPI(formData)) {
+      // TODO: clear storage if user navigates away from forms
+
       navigate('/reservation-summary');
 
       // Scroll to the top of the confirmed booking page (figure out if there's a better way)
